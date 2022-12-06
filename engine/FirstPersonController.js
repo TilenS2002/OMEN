@@ -1,3 +1,10 @@
+/// jump, crouch //kamera da ni first person
+//collision predelo 17-Phisycs 
+
+
+
+
+
 import { quat, vec3, mat4 } from '../../lib/gl-matrix-module.js';
 
 export class FirstPersonController {

@@ -1,5 +1,5 @@
 
-///ne vem sploh
+///ne vem sploh  toj pomoje use narobe
 
 
 
@@ -56,7 +56,7 @@ class App extends Application {
         this.rightRotation = 0;
 
         // Load the model and texture.
-        const [model, texture] = await Promise.all([
+        const [model, texture , texture2] = await Promise.all([
             this.loadModel('../../common/models/MOŽICEK_finish.gltf'),
             this.loadTexture('../../common/images/roke_noge.png', 
             {
@@ -76,13 +76,13 @@ class App extends Application {
         this.desna_roka.model = model;
         this.leva_roka.model = model;
         this.leva_noga.model = model;
-        this.desna_noga.texture = loadTexture;
-        this.desna_roka.texture = loadTexture;
-        this.leva_roka.texture = loadTexture;
-        this.leva_noga.texture = loadTexture;
+        this.desna_noga.texture = texture;
+        this.desna_roka.texture = texture;
+        this.leva_roka.texture = texture;
+        this.leva_noga.texture = texture;
 
         this.telo.model = model;
-        this.telo.texture = loadTextureTelo;
+        this.telo.texture = texture2;
     }
 
 
