@@ -66,6 +66,3 @@ export class Application {
     }
 
 }
-const canvas = document.querySelector('#game');
-const app = new Application(canvas);
-await app.init();
