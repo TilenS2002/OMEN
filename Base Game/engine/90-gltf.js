@@ -7,7 +7,7 @@ class App extends Application {
 
     async start() {
         this.loader = new GLTFLoader();
-        await this.loader.load('../3d_models/rocks/rocks.gltf');
+        await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.scene = await this.loader.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera_Orientation');

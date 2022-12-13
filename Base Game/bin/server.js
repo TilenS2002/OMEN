@@ -26,7 +26,7 @@ const server = http.createServer(async (req, res) => {
     const rootPath = path.join(__dirname, '..');
     let filePath = path.join(rootPath, requestPath);
     if (filePath.endsWith(path.sep)) {
-        filePath = path.join(filePath, 'canvas.html');
+        filePath = path.join(filePath, 'index.html');
     }
 
     // get an appropriate Content-Type
@@ -49,7 +49,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 // read the port from the environment variable PORT, defaulting to 3000
-const port = process.env.PORT || 3000;
+const port = process.env.PORT ?? 3000;
 server.listen(port, e => {
     console.log(`Listening on port ${port}`);
 });

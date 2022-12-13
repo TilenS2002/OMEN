@@ -324,12 +324,12 @@
         {
             "mimeType" : "image/png",
             "name" : "roke_noge",
-            "uri" : "teksture%20model/roke_noge.png"
+            "uri" : "teksture_model/roke_noge.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "telo",
-            "uri" : "teksture%20model/telo.png"
+            "uri" : "teksture_model/telo.png"
         }
     ],
     "accessors" : [
@@ -635,7 +635,7 @@
     "buffers" : [
         {
             "byteLength" : 487760,
-            "uri" : "MO\u017dIC _res_finish.bin"
+            "uri" : "MOZIC_res_finish.bin"
         }
     ]
 }
