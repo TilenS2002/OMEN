@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test gltf load</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
     
     <script type="text/javascript" src="./GL_matrix_lib/dist/gl-matrix-min.js"></script>
     <script type="module" src="./90-gltf.js"></script>
     <!-- <script type="text/javascript" src="./dat.gui.min.js"></script> -->
 </head>
 <body>
-    <canvas id="game"></canvas>
+    <div class="fullscreen no-touch">
+        <canvas id="game"></canvas>
+    </div>
     <div class="fullscreen overlay loader-container">
         <div class="loader"></div>
     </div>
