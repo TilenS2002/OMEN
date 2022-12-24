@@ -5,7 +5,7 @@
 
 
 
-import { quat, vec3, mat4 } from '../../lib/gl-matrix-module.js';
+import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class FirstPersonController {
 
@@ -20,9 +20,9 @@ export class FirstPersonController {
 
         this.velocity = [0, 0, 0];
         this.acceleration = 20;
-        this.maxSpeed = 3;
-        this.decay = 0.9;
-        this.pointerSensitivity = 0.002;
+        this.maxSpeed = 100;
+        this.decay = 1;
+        this.pointerSensitivity = 0.0002;
 
         this.initHandlers();
     }
