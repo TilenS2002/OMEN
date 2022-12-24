@@ -7,8 +7,8 @@ export class idle_animation {
     }
     update() {
         const idle = quat.setAxisAngle(quat.create(), [1,0,0], Math.sin(this.time * 2)*0.4);
-        // this.node.idle = idle;
+        this.node.idle = idle;
         this.node.idle = quat.clone(idle);
-        console.log("updatan");
+        // console.log("updatan");
     }
 }

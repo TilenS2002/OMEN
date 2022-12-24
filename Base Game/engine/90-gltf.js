@@ -10,7 +10,7 @@ class App extends Application {
     async start() {
 
         this.loader2 = new GLTFLoader();
-        await this.loader2.load('../3d_models/map/tla_hodnik2.gltf');
+        await this.loader2.load('../3d_models/assets/krog.gltf');
 
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
