@@ -16,10 +16,12 @@ class App extends Application {
         await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.startTime = performance.now();
+
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
         // controller, popravi da bo premikou characterja, ne kamere
         this.controller = new FirstPersonController(this.camera, this.canvas);
+        this.scene.addNode(this.prazn = await this.loader.loadNode('telo'));
 
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
 
@@ -42,6 +44,11 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         // gltf spec is undefined
         
+        this.idleD = new idle_animation(this.Droka);
+        this.idleD.update();
+        this.idleL = new idle_animation(this.Lroka);
+        this.idleL.update();
+
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
         this.resize();
@@ -51,10 +58,8 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.idle = new idle_animation(this.Droka, time);
-        this.idle.update();
-        this.idle = new idle_animation(this.Lroka, time);
-        this.idle.update();
+        this.idleD.update(time);
+        this.idleL.update(time);
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
         this.controller.update(dt);
