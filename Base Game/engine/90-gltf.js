@@ -2,7 +2,7 @@ import { Application } from './base/Application.js';
 // import { quat } from './GL_matrix_lib/dist/gl-matrix-module.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
-import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
+import { idle_animation_LR, idle_animation_DR, Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/idle_animation.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 
@@ -46,9 +46,13 @@ class App extends Application {
         // gltf spec is undefined
         
         this.idleD = new idle_animation_DR(this.Droka);
-        this.idleD.update();
+        // this.idleD.update();
         this.idleL = new idle_animation_LR(this.Lroka);
-        this.idleL.update();
+        // this.idleL.update();
+        this.nogaD = new Dnoga_movement(this.Dnoga);
+        // this.nogaD.update();
+        this.nogaL = new Lnoga_movement(this.Lnoga);
+        // this.nogaL.update();
 
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -61,6 +65,8 @@ class App extends Application {
         const time = performance.now() / 1000;
         this.idleD.update(time);
         this.idleL.update(time);
+        this.nogaD.update(time);
+        this.nogaL.update(time);
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
         this.controller.update(dt);
