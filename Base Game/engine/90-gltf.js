@@ -52,7 +52,7 @@ class App extends Application {
         this.rokaL = new Lroka_movement(this.Lroka);
 
         // test rotacije
-        this.krog = new Krog_rotation(this.krogTest);
+        this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
 
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
