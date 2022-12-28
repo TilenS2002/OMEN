@@ -5,7 +5,7 @@ import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
 import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
-import { Krog_rotation } from '../3d_models/animacije/level_animations.js';
+import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 
@@ -14,7 +14,7 @@ class App extends Application {
     async start() {
 
         this.loader2 = new GLTFLoader();
-        await this.loader2.load('../3d_models/assets/krog.gltf');
+        await this.loader2.load('../3d_models/assets/tla_hodnik2.gltf');
 
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
@@ -29,7 +29,8 @@ class App extends Application {
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
-        this.krogTest = await this.loader2.loadNode('KROG3');
+        // this.krogTest = await this.loader2.loadNode('KROG3');
+        this.platforma = await this.loader2.loadNode('Cube');
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
         }
@@ -44,6 +45,9 @@ class App extends Application {
         this.Dnoga = await this.loader.loadNode('noga_desna');
         this.Lnoga = await this.loader.loadNode('leva_noga');
         
+        this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
+
+
         this.idleD = new idle_animation_DR(this.Droka);
         this.idleL = new idle_animation_LR(this.Lroka);
         this.nogaD = new Dnoga_movement(this.Dnoga);
@@ -52,8 +56,8 @@ class App extends Application {
         this.rokaL = new Lroka_movement(this.Lroka);
 
         // test rotacije
-        this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
-
+        // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
+        
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
         this.resize();
@@ -63,7 +67,8 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.krog.update(time);
+        // this.krog.update(time);
+        this.premik.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
