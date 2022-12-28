@@ -93,7 +93,7 @@ export class Char_cont {
         // Update rotation based on the Euler angles.
         const rotation = quat.create();
         quat.rotateY(rotation, rotation, this.yaw);
-        quat.rotateX(rotation, rotation, this.pitch);
+        quat.rotateX(rotation, rotation, 0);
         this.node.rotation = rotation;
         console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
     }

@@ -2,7 +2,8 @@ import { Application } from './base/Application.js';
 // import { quat } from './GL_matrix_lib/dist/gl-matrix-module.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
-import { idle_animation_LR, idle_animation_DR, Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/idle_animation.js';
+import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
+import { Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/animations.js'
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 
@@ -14,15 +15,16 @@ class App extends Application {
         await this.loader2.load('../3d_models/assets/krog.gltf');
 
         this.loader = new GLTFLoader();
-        await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
+        await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
 
         this.startTime = performance.now();
 
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
         // controller, popravi da bo premikou characterja, ne kamere
-        this.controller = new Char_cont(this.camera, this.canvas);
-        this.scene.addNode(this.prazn = await this.loader.loadNode('telo'));
+        this.telo = await this.loader.loadNode('telo');
+        this.controller = new Char_cont(this.telo, this.canvas);
+        this.scene.addNode(this.telo);
 
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
 
@@ -36,13 +38,12 @@ class App extends Application {
 
         // prebam nalozt usak node posebej
         // gltf spec is undefined
-        this.prazn = await this.loader.loadNode('Empty');
-        this.prazn1 = await this.loader.loadNode('Empty.001');
-        this.Droka = await this.loader.loadNode('desna roka');
-        this.Lroka = await this.loader.loadNode('leva roka');
-        this.Dnoga = await this.loader.loadNode('noga desna');
-        this.Lnoga = await this.loader.loadNode('leva noga');
-        this.telo = await this.loader.loadNode('telo');
+        // this.prazn = await this.loader.loadNode('Empty');
+        // this.prazn1 = await this.loader.loadNode('Empty.001');
+        this.Droka = await this.loader.loadNode('desna_roka');
+        this.Lroka = await this.loader.loadNode('leva_roka');
+        this.Dnoga = await this.loader.loadNode('noga_desna');
+        this.Lnoga = await this.loader.loadNode('leva_noga');
         // gltf spec is undefined
         
         this.idleD = new idle_animation_DR(this.Droka);
