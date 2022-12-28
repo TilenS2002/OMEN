@@ -39,23 +39,15 @@ class App extends Application {
         }
 
         // prebam nalozt usak node posebej
-        // gltf spec is undefined
-        // this.prazn = await this.loader.loadNode('Empty');
-        // this.prazn1 = await this.loader.loadNode('Empty.001');
         this.Droka = await this.loader.loadNode('desna_roka');
         this.Lroka = await this.loader.loadNode('leva_roka');
         this.Dnoga = await this.loader.loadNode('noga_desna');
         this.Lnoga = await this.loader.loadNode('leva_noga');
-        // gltf spec is undefined
         
         this.idleD = new idle_animation_DR(this.Droka);
-        // this.idleD.update();
         this.idleL = new idle_animation_LR(this.Lroka);
-        // this.idleL.update();
         this.nogaD = new Dnoga_movement(this.Dnoga);
-        // this.nogaD.update();
         this.nogaL = new Lnoga_movement(this.Lnoga);
-        // this.nogaL.update();
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
 

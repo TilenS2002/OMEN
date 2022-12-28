@@ -16,6 +16,11 @@ export class Char_cont {
         // this.pitch = -0.3831999999999998;
         // this.yaw = 5.099137934869535;
 
+        // za ločeno kamero
+        // loči kamero in characterja
+        // programsko nastavi lokacijo kamere glede na lokacijo characterja
+        // global matrix
+        
         this.pitch = 0;
         this.yaw = 0;
 
@@ -105,7 +110,7 @@ export class Char_cont {
         quat.rotateY(rotation, rotation, this.yaw);
         quat.rotateX(rotation, rotation, 0);
         this.node.rotation = rotation;
-        console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
+        // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
     }
 
     pointermoveHandler(e) {
