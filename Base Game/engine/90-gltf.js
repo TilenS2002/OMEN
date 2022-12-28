@@ -3,8 +3,9 @@ import { Application } from './base/Application.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
-import { Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/animations.js'
+import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
+import { Krog_rotation } from '../3d_models/animacije/level_animations.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 
@@ -28,7 +29,7 @@ class App extends Application {
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
-
+        this.krogTest = await this.loader2.loadNode('KROG3');
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
         }
@@ -55,6 +56,11 @@ class App extends Application {
         // this.nogaD.update();
         this.nogaL = new Lnoga_movement(this.Lnoga);
         // this.nogaL.update();
+        this.rokaD = new Droka_movement(this.Droka);
+        this.rokaL = new Lroka_movement(this.Lroka);
+
+        // test rotacije
+        this.krog = new Krog_rotation(this.krogTest);
 
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -65,11 +71,18 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.idleD.update(time);
-        this.idleL.update(time);
-        this.nogaD.update(time);
-        this.nogaL.update(time);
-        const dt = (this.time - this.startTime) * 0.001;
+        this.krog.update(time);
+        if (!this.controller.is_moving) {
+            this.idleD.update(time);
+            this.idleL.update(time);
+        }
+        else {
+            this.nogaD.update(time);
+            this.nogaL.update(time);
+            this.rokaD.update(time);
+            this.rokaL.update(time);
+        }
+        const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
         this.controller.update(dt);
         this.Physics.update(dt);
