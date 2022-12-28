@@ -39,16 +39,10 @@
             },
             "mesh" : 0,
             "name" : "desna_roka",
-            "rotation" : [
-                0,
-                0,
-                -1,
-                0
-            ],
             "scale" : [
-                -1.0560860633850098,
-                -0.8227730989456177,
-                -0.7967925667762756
+                1.0560860633850098,
+                0.8227730989456177,
+                0.7967925667762756
             ],
             "translation" : [
                 -0.20544753968715668,
@@ -239,7 +233,7 @@
                         "TEXCOORD_0" : 9,
                         "NORMAL" : 10
                     },
-                    "indices" : 3,
+                    "indices" : 11,
                     "material" : 2
                 }
             ]
@@ -249,11 +243,11 @@
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 11,
-                        "TEXCOORD_0" : 12,
-                        "NORMAL" : 13
+                        "POSITION" : 12,
+                        "TEXCOORD_0" : 13,
+                        "NORMAL" : 14
                     },
-                    "indices" : 14,
+                    "indices" : 15,
                     "material" : 3
                 }
             ]
@@ -263,11 +257,11 @@
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 15,
-                        "TEXCOORD_0" : 16,
-                        "NORMAL" : 17
+                        "POSITION" : 16,
+                        "TEXCOORD_0" : 17,
+                        "NORMAL" : 18
                     },
-                    "indices" : 18,
+                    "indices" : 19,
                     "material" : 4
                 }
             ]
@@ -318,14 +312,14 @@
             "componentType" : 5126,
             "count" : 1536,
             "max" : [
-                0.28766149282455444,
-                0.019005417823791504,
-                0.8324885964393616
+                0.32342803478240967,
+                0.04235241189599037,
+                -0.01096480805426836
             ],
             "min" : [
-                -0.4130461812019348,
-                -1.6652172803878784,
-                -0.23059679567813873
+                -0.3772796392440796,
+                -1.6418702602386475,
+                -1.0740500688552856
             ],
             "type" : "VEC3"
         },
@@ -411,6 +405,12 @@
         },
         {
             "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 2304,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 12,
             "componentType" : 5126,
             "count" : 896,
             "max" : [
@@ -426,25 +426,25 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 12,
+            "bufferView" : 13,
             "componentType" : 5126,
             "count" : 896,
             "type" : "VEC2"
         },
         {
-            "bufferView" : 13,
+            "bufferView" : 14,
             "componentType" : 5126,
             "count" : 896,
             "type" : "VEC3"
         },
         {
-            "bufferView" : 14,
+            "bufferView" : 15,
             "componentType" : 5123,
             "count" : 1344,
             "type" : "SCALAR"
         },
         {
-            "bufferView" : 15,
+            "bufferView" : 16,
             "componentType" : 5126,
             "count" : 9072,
             "max" : [
@@ -460,19 +460,19 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 16,
+            "bufferView" : 17,
             "componentType" : 5126,
             "count" : 9072,
             "type" : "VEC2"
         },
         {
-            "bufferView" : 17,
+            "bufferView" : 18,
             "componentType" : 5126,
             "count" : 9072,
             "type" : "VEC3"
         },
         {
-            "bufferView" : 18,
+            "bufferView" : 19,
             "componentType" : 5123,
             "count" : 13608,
             "type" : "SCALAR"
@@ -547,50 +547,56 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 10752,
+            "byteLength" : 4608,
             "byteOffset" : 134272,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 10752,
+            "byteOffset" : 138880,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 7168,
-            "byteOffset" : 145024,
+            "byteOffset" : 149632,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 10752,
-            "byteOffset" : 152192,
+            "byteOffset" : 156800,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 2688,
-            "byteOffset" : 162944,
+            "byteOffset" : 167552,
             "target" : 34963
         },
         {
             "buffer" : 0,
             "byteLength" : 108864,
-            "byteOffset" : 165632,
+            "byteOffset" : 170240,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 72576,
-            "byteOffset" : 274496,
+            "byteOffset" : 279104,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 108864,
-            "byteOffset" : 347072,
+            "byteOffset" : 351680,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 27216,
-            "byteOffset" : 455936,
+            "byteOffset" : 460544,
             "target" : 34963
         }
     ],
@@ -602,7 +608,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 483152,
+            "byteLength" : 487760,
             "uri" : "MOZIC_REF_FIX.bin"
         }
     ]
