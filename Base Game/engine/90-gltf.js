@@ -2,8 +2,9 @@ import { Application } from './base/Application.js';
 // import { quat } from './GL_matrix_lib/dist/gl-matrix-module.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
-import { idle_animation } from './idle_animation.js';
-import { FirstPersonController } from './base/FirstPersonController.js';
+import { idle_animation_LR, idle_animation_DR, Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/idle_animation.js';
+// import { FirstPersonController } from './base/FirstPersonController.js';
+import { Char_cont } from './base/Char_cont.js';
 
 class App extends Application {
 
@@ -16,10 +17,12 @@ class App extends Application {
         await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.startTime = performance.now();
+
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
         // controller, popravi da bo premikou characterja, ne kamere
-        this.controller = new FirstPersonController(this.camera, this.canvas);
+        this.controller = new Char_cont(this.camera, this.canvas);
+        this.scene.addNode(this.prazn = await this.loader.loadNode('telo'));
 
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
 
@@ -42,6 +45,15 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         // gltf spec is undefined
         
+        this.idleD = new idle_animation_DR(this.Droka);
+        // this.idleD.update();
+        this.idleL = new idle_animation_LR(this.Lroka);
+        // this.idleL.update();
+        this.nogaD = new Dnoga_movement(this.Dnoga);
+        // this.nogaD.update();
+        this.nogaL = new Lnoga_movement(this.Lnoga);
+        // this.nogaL.update();
+
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
         this.resize();
@@ -51,10 +63,10 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.idle = new idle_animation(this.Droka, time);
-        this.idle.update();
-        this.idle = new idle_animation(this.Lroka, time);
-        this.idle.update();
+        this.idleD.update(time);
+        this.idleL.update(time);
+        this.nogaD.update(time);
+        this.nogaL.update(time);
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
         this.controller.update(dt);

@@ -4,7 +4,7 @@
 
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
-export class FirstPersonController {
+export class Char_cont {
 
     constructor(node, domElement) {
         this.node = node;
@@ -12,8 +12,8 @@ export class FirstPersonController {
 
         this.keys = {};
 
-        this.pitch = 0;
-        this.yaw = 0;
+        this.pitch = -0.3831999999999998;
+        this.yaw = 5.099137934869535;
 
         this.velocity = [0, 0, 0];
         this.acceleration = 20;
@@ -95,6 +95,7 @@ export class FirstPersonController {
         quat.rotateY(rotation, rotation, this.yaw);
         quat.rotateX(rotation, rotation, this.pitch);
         this.node.rotation = rotation;
+        console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
     }
 
     pointermoveHandler(e) {
