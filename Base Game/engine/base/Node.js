@@ -1,8 +1,15 @@
 import { vec3, mat4, quat } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
+import { Utils } from '../Utils.js';
+
 export class Node {
 
     constructor(options = {}) {
+        Utils.init(this, Node.defaults, options);
+        this.localMatrix = mat4.create();
+        // this.updateMatrix();
+        this.children = [];
+        this.parent = null;
         this._translation = options.translation
             ? vec3.clone(options.translation)
             : vec3.fromValues(0, 0, 0);

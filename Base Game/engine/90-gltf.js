@@ -4,6 +4,7 @@ import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
 import { Dnoga_movement, Lnoga_movement } from '../3d_models/animacije/animations.js'
+import { Physics } from './Physics.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 
@@ -25,7 +26,7 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         this.controller = new Char_cont(this.telo, this.canvas);
         this.scene.addNode(this.telo);
-
+        this.Physics = new Physics(this.scene);
         // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
 
         if (!this.scene || !this.camera) {
@@ -71,6 +72,7 @@ class App extends Application {
         const dt = (this.time - this.startTime) * 0.001;
         this.startTime = this.time;
         this.controller.update(dt);
+        this.Physics.update(dt);
     }
 
     render() {
