@@ -1,3 +1,5 @@
+import {quat} from '../../engine/GL_matrix_lib/dist/gl-matrix-module.js';
+
 export class Dnoga_movement {
     constructor(node) {
         this.node = node;
