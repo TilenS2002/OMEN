@@ -28,9 +28,7 @@ class App extends Application {
         this.controller = new Char_cont(this.telo, this.canvas);
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
-        // this.camera.addChild(await this.loader.load('../3d_models/map/mapa_nina.gltf'));
         this.krogTest = await this.loader2.loadNode('KROG3');
-        // this.platforma = await this.loader2.loadNode('Cube');
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
         }
@@ -47,7 +45,8 @@ class App extends Application {
         
         // this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
 
-
+        this.footsteps = new Audio('../audio/concrete-footsteps-6752.mp3');
+        this.footsteps.volume = 0.3;
         this.idleD = new idle_animation_DR(this.Droka);
         this.idleL = new idle_animation_LR(this.Lroka);
         this.nogaD = new Dnoga_movement(this.Dnoga);
@@ -72,12 +71,14 @@ class App extends Application {
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
+            this.footsteps.pause();
         }
         else {
             this.nogaD.update(time);
             this.nogaL.update(time);
             this.rokaD.update(time);
             this.rokaL.update(time);
+            this.footsteps.play();
         }
         const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
