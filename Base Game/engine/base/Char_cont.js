@@ -13,8 +13,6 @@ export class Char_cont {
 
         this.keys = {};
 
-        
-
         // za ločeno kamero
         // loči kamero in characterja
         // programsko nastavi lokacijo kamere glede na lokacijo characterja
@@ -149,5 +147,9 @@ export class Char_cont {
     getCharRotation() {
         return [this.yaw, this.pitch];
     }
+
+    // lahko probam pobrat char velocity, speed, decay in pointer sensitivity, pol pa acc prlagodim v datoteki tulk da bo micknu zamika zad za characterjem
+
+
 
 }

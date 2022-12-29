@@ -21,9 +21,6 @@ export class Cam_cont {
         // loči kamero in characterja
         // programsko nastavi lokacijo kamere glede na lokacijo characterja
         // global matrix
-        
-        // this.pitch = 0;
-        // this.yaw = 0;
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
@@ -57,7 +54,7 @@ export class Cam_cont {
 
     update(dt) {
         // Calculate forward and right vectors.
-        console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
+        // console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
         const cos = Math.cos(this.yaw);
         const sin = Math.sin(this.yaw);
         const right = [-sin, 0, -cos];
@@ -72,10 +69,10 @@ export class Cam_cont {
             vec3.sub(acc, acc, forward);
         }
         if (this.keys['KeyD']) {
-            vec3.add(acc, acc, right);
+            vec3.sub(acc, acc, right);
         }
         if (this.keys['KeyA']) {
-            vec3.sub(acc, acc, right);
+            vec3.add(acc, acc, right);
         }
 
         // Update velocity based on acceleration.

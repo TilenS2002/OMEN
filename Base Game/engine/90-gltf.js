@@ -1,12 +1,10 @@
 import { Application } from './base/Application.js';
-// import { quat } from './GL_matrix_lib/dist/gl-matrix-module.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
 import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
-// import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
 import { Cam_cont } from './base/Cam_cont.js';
 
@@ -15,7 +13,8 @@ class App extends Application {
     async start() {
 
         this.loader2 = new GLTFLoader();
-        await this.loader2.load('../3d_models/assets/krog.gltf');
+        // await this.loader2.load('../3d_models/assets/krog.gltf');
+        await this.loader2.load('../3d_models/untitled.gltf');
 
         this.loader = new GLTFLoader();
         // await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
@@ -31,7 +30,8 @@ class App extends Application {
         this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
-        this.krogTest = await this.loader2.loadNode('KROG3');
+        // this.krogTest = await this.loader2.loadNode('KROG3');
+        this.platformTest = await this.loader2.loadNode('Cube');
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
         }
@@ -61,7 +61,8 @@ class App extends Application {
         this.rokaL = new Lroka_movement(this.Lroka);
 
         // test rotacije
-        this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
+        // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
+        this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -72,8 +73,8 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.krog.update(time);
-        // this.premik.update(time);
+        // this.krog.update(time);
+        this.platform.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
@@ -90,7 +91,6 @@ class App extends Application {
         this.startTime = this.time;
         this.controller.update(dt);
         this.camCont.update(dt);
-        // console.log(this.controller.getCharRotation());
         this.Physics.update(dt);
     }
 

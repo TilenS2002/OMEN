@@ -8,6 +8,7 @@ export class Node {
         Utils.init(this, Node.defaults, options);
         this.localMatrix = mat4.create();
         // this.updateMatrix();
+        // this.aabb = {min:[0,0,0], max:[0,0,0]};
         this.children = [];
         this.parent = null;
         this._translation = options.translation
@@ -22,7 +23,7 @@ export class Node {
         this._matrix = options.matrix
             ? mat4.clone(options.matrix)
             : mat4.create();
-
+        this._aabb = options.aabb;
 
         if (options.matrix) {
             this.updateTransformationComponents();
