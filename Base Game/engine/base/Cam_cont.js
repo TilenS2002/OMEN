@@ -1,35 +1,29 @@
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
-import { abilities } from '../abilities.js';
 
-export class Char_cont {
+export class Cam_cont {
 
-    constructor(node, domElement) {
+    constructor(node, domElement, char) {
         this.node = node;
         this.domElement = domElement;
+        this.char = char;
 
         this.keys = {};
+
+        this.pitch = char.getCharRotation()[0];
+        this.yaw = char.getCharRotation()[1];
 
         // za ločeno kamero
         // loči kamero in characterja
         // programsko nastavi lokacijo kamere glede na lokacijo characterja
         // global matrix
-        
-        this.pitch = 0;
-        this.yaw = 0;
 
-        this.velocity2 = [0, 0, 0];
+        this.velocity = [0, 0, 0];
         this.acceleration = 5;
         this.maxSpeed = 10;
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
-        this.is_moving = false;
-        this.jump = false;
-        this.water = abilities.water();
-        this.earth = abilities.earth();
-        this.fire = abilities.fire();
-        this.stone = abilities.stone();
-        
+
         this.initHandlers();
     }
 
@@ -52,65 +46,33 @@ export class Char_cont {
                 doc.removeEventListener('pointermove', this.pointermoveHandler);
             }
         });
-        
     }
 
     update(dt) {
         // Calculate forward and right vectors.
+        // console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
         const cos = Math.cos(this.yaw);
         const sin = Math.sin(this.yaw);
         const right = [-sin, 0, -cos];
         const forward = [cos, 0, -sin];
-        const up = [0,1,0];
-        // console.log(this.keys)
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
-        // console.log(this.keys);
         if (this.keys['KeyW']) {
             vec3.add(acc, acc, forward);
-            this.is_moving = true;
         }
         if (this.keys['KeyS']) {
             vec3.sub(acc, acc, forward);
-            this.is_moving = true;
         }
         if (this.keys['KeyD']) {
             vec3.sub(acc, acc, right);
-            this.is_moving = true;
         }
         if (this.keys['KeyA']) {
             vec3.add(acc, acc, right);
-            this.is_moving = true;
-        }
-        if (this.keys['Digit1']) {
-            console.log(this.water);
-            // console.log("skace");
-        }
-        if (this.keys['Digit2']) {
-            console.log(this.earth);
-            // console.log("skace");
-        }
-        if (this.keys['Digit3']) {
-            console.log(this.fire);
-            // console.log("skace");
-        }
-        if (this.keys['Digit4']) {
-            console.log(this.stone);
-            // console.log("skace");
-        }
-        if (this.keys['Space']) {
-            vec3.add(acc, acc, up);
-            this.jump = true;
-            // console.log("skace");
-        }
-        if (this.jump) {
-            vec3.sub(acc, acc, up);
-            this.jump = false;
         }
 
         // Update velocity based on acceleration.
-        vec3.scaleAndAdd(this.velocity2, this.velocity2, acc, dt * this.acceleration);
+        vec3.scaleAndAdd(this.velocity, this.velocity, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
         if (!this.keys['KeyW'] &&
@@ -119,27 +81,18 @@ export class Char_cont {
             !this.keys['KeyA'])
         {
             const decay = Math.exp(dt * Math.log(1 - this.decay));
-            vec3.scale(this.velocity2, this.velocity2, decay);
-            this.is_moving = false;
+            vec3.scale(this.velocity, this.velocity, decay);
         }
 
         // Limit speed to prevent accelerating to infinity and beyond.
-        const speed = vec3.length(this.velocity2);
+        const speed = vec3.length(this.velocity);
         if (speed > this.maxSpeed) {
-            vec3.scale(this.velocity2, this.velocity2, this.maxSpeed / speed);
+            vec3.scale(this.velocity, this.velocity, this.maxSpeed / speed);
         }
 
         // Update translation based on velocity.
         this.node.translation = vec3.scaleAndAdd(vec3.create(),
-            this.node.translation, this.velocity2, dt);
-
-        // Update rotation based on the Euler angles.
-        const rotation = quat.create();
-        quat.rotateY(rotation, rotation, this.yaw);
-        quat.rotateX(rotation, rotation, 0);
-        this.node.rotation = rotation;
-        // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
-        this.node.velocitySet(this.velocity2);
+            this.node.translation, this.velocity, dt);
     }
 
     pointermoveHandler(e) {
@@ -171,17 +124,5 @@ export class Char_cont {
     keyupHandler(e) {
         this.keys[e.code] = false;
     }
-
-    is_moving() {
-        return this.is_moving;
-    }
-
-    getCharRotation() {
-        return [this.yaw, this.pitch];
-    }
-
-    // lahko probam pobrat char velocity, speed, decay in pointer sensitivity, pol pa acc prlagodim v datoteki tulk da bo micknu zamika zad za characterjem
-
-
 
 }

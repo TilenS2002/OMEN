@@ -1,8 +1,12 @@
 import { vec3, mat4, quat } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
+import { Utils } from '../Utils.js';
+
 export class Node {
 
     constructor(options = {}) {
+        Utils.init(this, Node.defaults, options);
+        this.localMatrix = mat4.create();
         this._translation = options.translation
             ? vec3.clone(options.translation)
             : vec3.fromValues(0, 0, 0);
@@ -15,7 +19,15 @@ export class Node {
         this._matrix = options.matrix
             ? mat4.clone(options.matrix)
             : mat4.create();
-
+        this.aabb = options.mesh
+            ? {
+                min: options.mesh.primitives[0].attributes.POSITION.min,
+                max: options.mesh.primitives[0].attributes.POSITION.max,
+                }
+            : {
+                min: 1000000,
+                max: -1000000,
+            };
 
         if (options.matrix) {
             this.updateTransformationComponents();
@@ -121,6 +133,14 @@ export class Node {
         }
     }
 
+    velocitySet(v) {
+        this.velocity = v;
+    }
+
+    velocityGet() {
+        return this.velocity;
+    }
+
     addChild(node) {
         if (node.parent) {
             node.parent.removeChild(node);
@@ -156,6 +176,7 @@ Node.defaults = {
     translation: [0, 0, 0],
     rotation: [0, 0, 0],
     scale: [1, 1, 1],
+    velocity : [0, 0, 0],
     aabb: {
         min: [0, 0, 0],
         max: [0, 0, 0],
