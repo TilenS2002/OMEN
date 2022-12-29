@@ -30,7 +30,6 @@ export class Cam_cont {
         this.maxSpeed = 10;
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
-        this.is_moving = false;
 
         this.initHandlers();
     }
@@ -68,19 +67,15 @@ export class Cam_cont {
         const acc = vec3.create();
         if (this.keys['KeyW']) {
             vec3.add(acc, acc, forward);
-            this.is_moving = true;
         }
         if (this.keys['KeyS']) {
             vec3.sub(acc, acc, forward);
-            this.is_moving = true;
         }
         if (this.keys['KeyD']) {
             vec3.add(acc, acc, right);
-            this.is_moving = true;
         }
         if (this.keys['KeyA']) {
             vec3.sub(acc, acc, right);
-            this.is_moving = true;
         }
 
         // Update velocity based on acceleration.
@@ -94,7 +89,6 @@ export class Cam_cont {
         {
             const decay = Math.exp(dt * Math.log(1 - this.decay));
             vec3.scale(this.velocity, this.velocity, decay);
-            this.is_moving = false;
         }
 
         // Limit speed to prevent accelerating to infinity and beyond.
@@ -106,13 +100,6 @@ export class Cam_cont {
         // Update translation based on velocity.
         this.node.translation = vec3.scaleAndAdd(vec3.create(),
             this.node.translation, this.velocity, dt);
-
-        // Update rotation based on the Euler angles.
-        // const rotation = quat.create();
-        // quat.rotateY(rotation, rotation, this.yaw);
-        // quat.rotateX(rotation, rotation, this.yaw);
-        // this.node.rotation = rotation;
-        // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
     }
 
     pointermoveHandler(e) {
@@ -143,10 +130,6 @@ export class Cam_cont {
 
     keyupHandler(e) {
         this.keys[e.code] = false;
-    }
-
-    is_moving() {
-        return this.is_moving;
     }
 
 }

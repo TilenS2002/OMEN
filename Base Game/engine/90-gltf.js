@@ -8,7 +8,7 @@ import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
-import { Cam_cont } from './base/Char_cont_test.js';
+import { Cam_cont } from './base/Cam_cont.js';
 
 class App extends Application {
 
