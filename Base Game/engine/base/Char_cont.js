@@ -1,5 +1,7 @@
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
+import { abilities } from '../abilities.js';
+
 export class Char_cont {
 
     constructor(node, domElement) {
@@ -23,6 +25,10 @@ export class Char_cont {
         this.pointerSensitivity = 0.002;
         this.is_moving = false;
         this.jump = false;
+        this.water = abilities.water();
+        this.earth = abilities.earth();
+        this.fire = abilities.fire();
+        this.stone = abilities.stone();
         
         this.initHandlers();
     }
@@ -56,6 +62,7 @@ export class Char_cont {
         const right = [-sin, 0, -cos];
         const forward = [cos, 0, -sin];
         const up = [0,1,0];
+        // console.log(this.keys)
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
@@ -75,6 +82,22 @@ export class Char_cont {
         if (this.keys['KeyA']) {
             vec3.add(acc, acc, right);
             this.is_moving = true;
+        }
+        if (this.keys['Digit1']) {
+            console.log(this.water);
+            // console.log("skace");
+        }
+        if (this.keys['Digit2']) {
+            console.log(this.earth);
+            // console.log("skace");
+        }
+        if (this.keys['Digit3']) {
+            console.log(this.fire);
+            // console.log("skace");
+        }
+        if (this.keys['Digit4']) {
+            console.log(this.stone);
+            // console.log("skace");
         }
         if (this.keys['Space']) {
             vec3.add(acc, acc, up);
