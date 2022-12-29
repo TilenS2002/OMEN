@@ -7,10 +7,6 @@ export class Node {
     constructor(options = {}) {
         Utils.init(this, Node.defaults, options);
         this.localMatrix = mat4.create();
-        // this.updateMatrix();
-        // this.aabb = {min:[0,0,0], max:[0,0,0]};
-        this.children = [];
-        this.parent = null;
         this._translation = options.translation
             ? vec3.clone(options.translation)
             : vec3.fromValues(0, 0, 0);

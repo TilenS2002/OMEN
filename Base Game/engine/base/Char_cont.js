@@ -1,7 +1,3 @@
-/// jump, crouch //kamera da ni first person
-//collision predelo 17-Phisycs 
-
-
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
 
@@ -27,6 +23,7 @@ export class Char_cont {
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
         this.is_moving = false;
+        this.jump = false;
 
         this.initHandlers();
     }
@@ -58,9 +55,11 @@ export class Char_cont {
         const sin = Math.sin(this.yaw);
         const right = [-sin, 0, -cos];
         const forward = [cos, 0, -sin];
+        const up = [0,1,0];
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
+        // console.log(this.keys);
         if (this.keys['KeyW']) {
             vec3.add(acc, acc, forward);
             this.is_moving = true;
@@ -76,6 +75,15 @@ export class Char_cont {
         if (this.keys['KeyA']) {
             vec3.add(acc, acc, right);
             this.is_moving = true;
+        }
+        if (this.keys['Space']) {
+            vec3.add(acc, acc, up);
+            this.jump = true;
+            // console.log("skace");
+        }
+        if (this.jump) {
+            vec3.sub(acc, acc, up);
+            this.jump = false;
         }
 
         // Update velocity based on acceleration.
