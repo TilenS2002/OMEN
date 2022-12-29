@@ -8,6 +8,7 @@ import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 // import { FirstPersonController } from './base/FirstPersonController.js';
 import { Char_cont } from './base/Char_cont.js';
+import { Cam_cont } from './base/Char_cont_test.js';
 
 class App extends Application {
 
@@ -17,7 +18,8 @@ class App extends Application {
         await this.loader2.load('../3d_models/assets/krog.gltf');
 
         this.loader = new GLTFLoader();
-        await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
+        // await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
+        await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.startTime = performance.now();
 
@@ -26,6 +28,7 @@ class App extends Application {
         // controller, popravi da bo premikou characterja, ne kamere
         this.telo = await this.loader.loadNode('telo');
         this.controller = new Char_cont(this.telo, this.canvas);
+        this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
         this.krogTest = await this.loader2.loadNode('KROG3');
@@ -38,11 +41,14 @@ class App extends Application {
         }
 
         // prebam nalozt usak node posebej
-        this.Droka = await this.loader.loadNode('desna_roka');
-        this.Lroka = await this.loader.loadNode('leva_roka');
-        this.Dnoga = await this.loader.loadNode('noga_desna');
-        this.Lnoga = await this.loader.loadNode('leva_noga');
-        
+        // this.Droka = await this.loader.loadNode('desna_roka');
+        // this.Lroka = await this.loader.loadNode('leva_roka');
+        // this.Dnoga = await this.loader.loadNode('noga_desna');
+        // this.Lnoga = await this.loader.loadNode('leva_noga');
+        this.Droka = await this.loader.loadNode('desna roka');
+        this.Lroka = await this.loader.loadNode('leva roka');
+        this.Dnoga = await this.loader.loadNode('noga desna');
+        this.Lnoga = await this.loader.loadNode('leva noga');
         // this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
 
         this.footsteps = new Audio('../audio/concrete-footsteps-6752.mp3');
@@ -83,6 +89,8 @@ class App extends Application {
         const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
         this.controller.update(dt);
+        this.camCont.update(dt);
+        // console.log(this.controller.getCharRotation());
         this.Physics.update(dt);
     }
 

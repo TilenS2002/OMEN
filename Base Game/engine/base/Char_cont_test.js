@@ -5,23 +5,25 @@
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
 
-export class Char_cont {
+export class Cam_cont {
 
-    constructor(node, domElement) {
+    constructor(node, domElement, char) {
         this.node = node;
         this.domElement = domElement;
+        this.char = char;
 
         this.keys = {};
 
-        
+        this.pitch = char.getCharRotation()[0];
+        this.yaw = char.getCharRotation()[1];
 
         // za ločeno kamero
         // loči kamero in characterja
         // programsko nastavi lokacijo kamere glede na lokacijo characterja
         // global matrix
         
-        this.pitch = 0;
-        this.yaw = 0;
+        // this.pitch = 0;
+        // this.yaw = 0;
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
@@ -56,6 +58,7 @@ export class Char_cont {
 
     update(dt) {
         // Calculate forward and right vectors.
+        console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
         const cos = Math.cos(this.yaw);
         const sin = Math.sin(this.yaw);
         const right = [-sin, 0, -cos];
@@ -72,11 +75,11 @@ export class Char_cont {
             this.is_moving = true;
         }
         if (this.keys['KeyD']) {
-            vec3.sub(acc, acc, right);
+            vec3.add(acc, acc, right);
             this.is_moving = true;
         }
         if (this.keys['KeyA']) {
-            vec3.add(acc, acc, right);
+            vec3.sub(acc, acc, right);
             this.is_moving = true;
         }
 
@@ -105,10 +108,10 @@ export class Char_cont {
             this.node.translation, this.velocity, dt);
 
         // Update rotation based on the Euler angles.
-        const rotation = quat.create();
-        quat.rotateY(rotation, rotation, this.yaw);
-        quat.rotateX(rotation, rotation, 0);
-        this.node.rotation = rotation;
+        // const rotation = quat.create();
+        // quat.rotateY(rotation, rotation, this.yaw);
+        // quat.rotateX(rotation, rotation, this.yaw);
+        // this.node.rotation = rotation;
         // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
     }
 
@@ -144,10 +147,6 @@ export class Char_cont {
 
     is_moving() {
         return this.is_moving;
-    }
-
-    getCharRotation() {
-        return [this.yaw, this.pitch];
     }
 
 }
