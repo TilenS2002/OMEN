@@ -25,8 +25,15 @@ class App extends Application {
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
         // controller, popravi da bo premikou characterja, ne kamere
+        // this.prazno = await this.loader.loadNode("Empty.001")
         this.telo = await this.loader.loadNode('telo');
+        
+        // console.log("Camera: ", this.camera);
+        // console.log("Buddy: ", this.telo);
+        // console.log("Prazna: ", this.prazno);
+        // console.log("Droka: ", this.Droka);
         this.controller = new Char_cont(this.telo, this.canvas);
+        
         this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
         this.Physics = new Physics(this.scene);
@@ -74,7 +81,7 @@ class App extends Application {
         this.time = performance.now();
         const time = performance.now() / 1000;
         // this.krog.update(time);
-        this.platform.update(time);
+        // this.platform.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
@@ -92,6 +99,7 @@ class App extends Application {
         this.controller.update(dt);
         this.camCont.update(dt);
         this.Physics.update(dt);
+        // console.log(this.telo.velocity);
     }
 
     render() {

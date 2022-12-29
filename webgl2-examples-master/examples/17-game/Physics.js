@@ -64,10 +64,11 @@ export class Physics {
 
         // Check if there is collision.
         const isColliding = this.aabbIntersection(aBox, bBox);
+        console.log(isColliding);
         if (!isColliding) {
             return;
         }
-
+        
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);
