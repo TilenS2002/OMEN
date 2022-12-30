@@ -66,7 +66,7 @@ class App extends Application {
         this.nogaL = new Lnoga_movement(this.Lnoga);
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
-        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka);
+        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera);
 
         // test rotacije
         this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
