@@ -3,7 +3,12 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene) {
+    constructor(scene, body, Dnoga, Droka, Lnoga, Lroka) {
+        this.body = body;
+        this.Dnoga = Dnoga;
+        this.Droka = Droka;
+        this.Lnoga = Lnoga;
+        this.Lroka = Lroka;
         this.scene = scene;
     }
 
@@ -16,7 +21,7 @@ export class Physics {
 
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
-                    if (node !== other) {
+                    if (node !== other && node !== this.body && node !== this.Dnoga && node !== this.Droka && node !== this.Lnoga && node !== this.Lroka) {
                         this.resolveCollision(node, other);
                     }
                 });

@@ -13,8 +13,8 @@ class App extends Application {
     async start() {
 
         this.loader2 = new GLTFLoader();
-        // await this.loader2.load('../3d_models/assets/krog.gltf');
-        await this.loader2.load('../3d_models/untitled.gltf');
+        await this.loader2.load('../3d_models/assets/krog.gltf');
+        // await this.loader2.load('../3d_models/untitled.gltf');
 
         this.loader = new GLTFLoader();
         // await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
@@ -36,9 +36,9 @@ class App extends Application {
         
         this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
-        this.Physics = new Physics(this.scene);
-        // this.krogTest = await this.loader2.loadNode('KROG3');
-        this.platformTest = await this.loader2.loadNode('Cube');
+        
+        this.krogTest = await this.loader2.loadNode('KROG3');
+        // this.platformTest = await this.loader2.loadNode('Cube');
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
         }
@@ -66,10 +66,11 @@ class App extends Application {
         this.nogaL = new Lnoga_movement(this.Lnoga);
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
+        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka);
 
         // test rotacije
-        // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
-        this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
+        this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
+        // this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -80,8 +81,8 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        // this.krog.update(time);
-        this.platform.update(time);
+        this.krog.update(time);
+        // this.platform.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
