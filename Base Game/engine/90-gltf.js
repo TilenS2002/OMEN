@@ -80,7 +80,7 @@ class App extends Application {
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
-        this.krog.update(time);
+        // this.krog.update(time);
         // this.platform.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);

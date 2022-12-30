@@ -103,8 +103,8 @@ export class Physics {
             minDirection = [0, 0, -minDiff];
         }
 
-        vec3.add(a.translation, a.translation, minDirection);
-        a.updateTransformationMatrix();
+        // vec3.add(a.translation, a.translation, minDirection);
+        a.translation = vec3.add(a.translation, a.translation, minDirection);
     }
 
 }
