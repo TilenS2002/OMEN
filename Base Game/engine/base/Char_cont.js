@@ -134,7 +134,7 @@ export class Char_cont {
         // const up = [0,1,0];
         if (this.connected) {
             this.gamepads.update();
-            console.log(this.gamepads.axesStatus)
+            // console.log(this.gamepads.axesStatus)
             // console.log(this.is_moving)
         }
         else
@@ -215,7 +215,6 @@ export class Char_cont {
             else {
                 this.axesRotation -= compu;
             }
-           
             quat.rotateY(rotation, rotation, this.axesRotation*this.pointerSensitivity);
             quat.rotateX(rotation, rotation, 0);
         }
