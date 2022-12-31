@@ -2,8 +2,6 @@ import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
 import { abilities } from '../abilities.js';
 
-import { Krog_rotation } from '../../3d_models/animacije/level_animations.js';
-
 export class Char_cont {
 
     constructor(node, domElement, obj1, obj2, obj3, obj4) {
