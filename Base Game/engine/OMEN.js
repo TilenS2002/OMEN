@@ -69,7 +69,7 @@ class App extends Application {
         this.rokaL = new Lroka_movement(this.Lroka);
         // this.skok = new jump(this.Lroka);
         this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera);
-
+        // this.win = browser.windows.get()
         // test rotacije
         // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         

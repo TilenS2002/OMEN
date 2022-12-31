@@ -13,16 +13,11 @@ export class Cam_cont {
         this.pitch = char.getCharRotation()[0];
         this.yaw = char.getCharRotation()[1];
 
-        // za ločeno kamero
-        // loči kamero in characterja
-        // programsko nastavi lokacijo kamere glede na lokacijo characterja
-        // global matrix
-
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
         this.maxSpeed = 10;
         this.decay = 0.99;
-        this.pointerSensitivity = 0.002;
+        this.pointerSensitivity = char.getPS();
 
         this.initHandlers();
     }
