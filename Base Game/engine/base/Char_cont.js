@@ -2,13 +2,19 @@ import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
 
 import { abilities } from '../abilities.js';
 
+import { Krog_rotation } from '../../3d_models/animacije/level_animations.js';
+
 export class Char_cont {
 
-    constructor(node, domElement) {
+    constructor(node, domElement, obj1, obj2, obj3, obj4) {
         this.node = node;
         this.domElement = domElement;
 
         this.keys = {};
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+        this.obj3 = obj3;
+        this.obj4 = obj4;
 
         // za ločeno kamero
         // loči kamero in characterja
@@ -25,10 +31,13 @@ export class Char_cont {
         this.pointerSensitivity = 0.002;
         this.is_moving = false;
         this.jump = false;
-        this.water = abilities.water();
-        this.earth = abilities.earth();
-        this.fire = abilities.fire();
-        this.stone = abilities.stone();
+        this.ability = new abilities();
+        this.test = false;
+        this.pritisk = [false, false, false, false, false];
+        // this.water = new abilities;
+        // this.earth = new abilities;
+        // this.fire = new abilities;
+        // this.stone = new abilities;
         
         this.initHandlers();
     }
@@ -37,12 +46,15 @@ export class Char_cont {
         this.pointermoveHandler = this.pointermoveHandler.bind(this);
         this.keydownHandler = this.keydownHandler.bind(this);
         this.keyupHandler = this.keyupHandler.bind(this);
+        this.keypressedHandler = this.keypressedHandler.bind(this);
 
         const element = this.domElement;
         const doc = element.ownerDocument;
 
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
+        doc.addEventListener('keypress', this.keypressedHandler);
+
 
         element.addEventListener('click', e => element.requestPointerLock());
         doc.addEventListener('pointerlockchange', e => {
@@ -82,31 +94,6 @@ export class Char_cont {
         if (this.keys['KeyA']) {
             vec3.add(acc, acc, right);
             this.is_moving = true;
-        }
-        if (this.keys['Digit1']) {
-            console.log(this.water);
-            // console.log("skace");
-        }
-        if (this.keys['Digit2']) {
-            console.log(this.earth);
-            // console.log("skace");
-        }
-        if (this.keys['Digit3']) {
-            console.log(this.fire);
-            // console.log("skace");
-        }
-        if (this.keys['Digit4']) {
-            console.log(this.stone);
-            // console.log("skace");
-        }
-        if (this.keys['Space']) {
-            vec3.add(acc, acc, up);
-            this.jump = true;
-            // console.log("skace");
-        }
-        if (this.jump) {
-            vec3.sub(acc, acc, up);
-            this.jump = false;
         }
 
         // Update velocity based on acceleration.
@@ -168,9 +155,39 @@ export class Char_cont {
         this.keys[e.code] = true;
     }
 
+    keypressedHandler() {
+        if (this.keys['Digit1']) {
+            this.pritisk[0] = !this.pritisk[0];
+            this.ability.water(this.obj1, this.pritisk[0]);
+            this.keys['Digit1'] = this.pritisk[0];
+        }
+        else if (this.keys['Digit2']) {
+            this.pritisk[1] = !this.pritisk[1];
+            this.ability.earth(this.obj2, this.pritisk[1]);
+            this.keys['Digit2'] = this.pritisk[1];
+        }
+        else if (this.keys['Digit3']) {
+            this.pritisk[2] = !this.pritisk[2];
+            this.ability.fire(this.obj3, this.pritisk[2]);
+            this.keys['Digit3'] = this.pritisk[2];
+        }
+        else if (this.keys['Digit4']) {
+            this.pritisk[3] = !this.pritisk[3];
+            this.ability.stone(this.obj4, this.pritisk[3]);
+            this.keys['Digit4'] = this.pritisk[3];
+        }
+        else if (this.keys['Space']) {
+            this.pritisk[4] = !this.pritisk[4];
+            this.ability.stone(this.obj1, this.pritisk[4]);
+            this.keys['Space'] = this.pritisk[4];
+        } 
+    }
+
     keyupHandler(e) {
         this.keys[e.code] = false;
     }
+
+
 
     is_moving() {
         return this.is_moving;

@@ -5,8 +5,8 @@ export class Dnoga_movement {
         this.node = node;
     }
     update(time) {
-        let idle = quat.setAxisAngle(quat.create(), [0,0,0.5], Math.sin(time*8)*0.4);
-        this.node.rotation = idle;
+        let moveDN = quat.setAxisAngle(quat.create(), [0,0,0.5], Math.sin(time*8)*0.4);
+        this.node.rotation = moveDN;
         // console.log("updatan");
     }
 }
@@ -16,8 +16,8 @@ export class Lnoga_movement {
         this.node = node;
     }
     update(time) {
-        let idle = quat.setAxisAngle(quat.create(), [0,0,-0.5], Math.sin(time*8)*0.4);
-        this.node.rotation = idle;
+        let moveLN = quat.setAxisAngle(quat.create(), [0,0,-0.5], Math.sin(time*8)*0.4);
+        this.node.rotation = moveLN;
         // console.log("updatan");
     }
 }
@@ -27,8 +27,8 @@ export class Droka_movement {
         this.node = node;
     }
     update(time) {
-        let idle = quat.setAxisAngle(quat.create(), [0,0,-0.5], Math.sin(time*8)*0.4);
-        this.node.rotation = idle;
+        let moveDR = quat.setAxisAngle(quat.create(), [0,0,-0.5], Math.sin(time*8)*0.4);
+        this.node.rotation = moveDR;
         // console.log("updatan");
     }
 }
@@ -38,8 +38,19 @@ export class Lroka_movement {
         this.node = node;
     }
     update(time) {
-        let idle = quat.setAxisAngle(quat.create(), [0,0,0.5], Math.sin(time*8)*0.4);
-        this.node.rotation = idle;
+        let moveLR = quat.setAxisAngle(quat.create(), [0,0,0.5], Math.sin(time*8)*0.4);
+        this.node.rotation = moveLR;
+        // console.log("updatan");
+    }
+}
+
+export class jump {
+    constructor(node) {
+        this.node = node;
+    }
+    update() {
+        let jump = quat.setAxisAngle(quat.create(), [1,0,0], Math.sin(1)*0.4);
+        this.node.rotate = jump;
         // console.log("updatan");
     }
 }
