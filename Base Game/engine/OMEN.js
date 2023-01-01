@@ -29,6 +29,13 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         this.platformTest = await this.loader2.loadNode('Cube');
         this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
+        // prebam nalozt usak node posebej
+        // this.Droka = await this.loader.loadNode('desna_roka');
+        // this.Lroka = await this.loader.loadNode('leva_roka');
+        // this.Dnoga = await this.loader.loadNode('noga_desna');
+        // this.Lnoga = await this.loader.loadNode('leva_noga');
+        this.Dnoga = await this.loader.loadNode('noga desna');
+        this.Lnoga = await this.loader.loadNode('leva noga');
         this.Droka = await this.loader.loadNode('desna roka');
         this.Lroka = await this.loader.loadNode('leva roka');
         // console.log("Camera: ", this.camera);
@@ -50,13 +57,7 @@ class App extends Application {
             throw new Error('Camera node does not contain a camera reference');
         }
 
-        // prebam nalozt usak node posebej
-        // this.Droka = await this.loader.loadNode('desna_roka');
-        // this.Lroka = await this.loader.loadNode('leva_roka');
-        // this.Dnoga = await this.loader.loadNode('noga_desna');
-        // this.Lnoga = await this.loader.loadNode('leva_noga');
-        this.Dnoga = await this.loader.loadNode('noga desna');
-        this.Lnoga = await this.loader.loadNode('leva noga');
+       
         // this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
 
         this.footsteps = new Audio('../audio/footsteps/concrete-footsteps-6752.mp3');
@@ -115,7 +116,7 @@ class App extends Application {
         this.controller.update(dt);
         this.camCont.update(dt);
         this.Physics.update(dt);
-        console.log(time);
+        // console.log(time);
         // console.log(this.telo.velocity);
     }
 

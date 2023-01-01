@@ -7,11 +7,33 @@ export class Cam_cont {
         this.node = node;
         this.domElement = domElement;
         this.char = char;
-
+        this.connected = char.getConnected();
         this.keys = {};
+        this.gamepads = {
+            controller: {},
+            connect(e) {
+                this.controller = e.gamepad;
+                console.log("Connected")
+            },
+            disconnect() {
+                delete this.controller;
+                console.log('Disconnected');
+            },
+            update() {
+                const cont = this.controller || {};
+                const axes = [];
+                if (cont.axes) {
+                    for (let ax = 0; ax < cont.axes.length; ax++) {
+                        axes.push(cont.axes[ax]);
+                    }
+                }
+                this.axesStatus = axes;
+            },
+            axesStatus: []
+        }
 
-        this.pitch = char.getCharRotation()[0];
-        this.yaw = char.getCharRotation()[1];
+        this.pitch = char.getCharRotation()[1];
+        this.yaw = char.getCharRotation()[0];
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
@@ -33,6 +55,19 @@ export class Cam_cont {
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
 
+        window.addEventListener('gamepadconnected', (e) => {
+            this.connected = !this.connected;
+            this.gamepads.connect(e);
+            if (this.connected)
+                this.pointerSensitivity = 0.2;
+        });
+        window.addEventListener("gamepaddisconnected", (e) => {
+            this.connected = !this.connected;
+              this.gamepads.disconnect();
+            if (!this.connected)
+                this.pointerSensitivity = 0.002;
+          });
+
         element.addEventListener('click', e => element.requestPointerLock());
         doc.addEventListener('pointerlockchange', e => {
             if (doc.pointerLockElement === element) {
@@ -53,16 +88,16 @@ export class Cam_cont {
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
-        if (this.keys['KeyW']) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
             vec3.add(acc, acc, forward);
         }
-        if (this.keys['KeyS']) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
             vec3.sub(acc, acc, forward);
         }
-        if (this.keys['KeyD']) {
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
             vec3.sub(acc, acc, right);
         }
-        if (this.keys['KeyA']) {
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
             vec3.add(acc, acc, right);
         }
 
@@ -70,13 +105,25 @@ export class Cam_cont {
         vec3.scaleAndAdd(this.velocity, this.velocity, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
-        if (!this.keys['KeyW'] &&
+        if (this.connected) {
+            if ((this.gamepads.axesStatus[1] > -0.08) && 
+                (this.gamepads.axesStatus[1] < 0.08) && 
+                (this.gamepads.axesStatus[0] > -0.08) &&
+                (this.gamepads.axesStatus[0] < 0.08))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity, this.velocity, decay);
+            }
+        }
+        else {
+            if ((!this.keys['KeyW'] &&
             !this.keys['KeyS'] &&
             !this.keys['KeyD'] &&
-            !this.keys['KeyA'])
-        {
-            const decay = Math.exp(dt * Math.log(1 - this.decay));
-            vec3.scale(this.velocity, this.velocity, decay);
+            !this.keys['KeyA']))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity, this.velocity, decay);
+            }
         }
 
         // Limit speed to prevent accelerating to infinity and beyond.

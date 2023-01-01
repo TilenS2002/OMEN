@@ -112,7 +112,7 @@ export class Char_cont {
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
         doc.addEventListener('keypress', this.keypressedHandler);
-        element.addEventListener('gamepadconnected', this.gamepadHandler);
+        // element.addEventListener('gamepadconnected', this.gamepadHandler);
 
         window.addEventListener('gamepadconnected', (e) => {
             this.connected = !this.connected;
@@ -148,26 +148,26 @@ export class Char_cont {
             // console.log(this.gamepads.axesStatus)
             // console.log(this.is_moving)
         }
-        else
-            console.log("waiting for input")
+        // else
+            // console.log("waiting for input")
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.08)) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
             vec3.add(acc, acc, forward);
             // console.log(this.is_moving);
             this.is_moving = true;
             // console.log(this.is_moving);
         }
-        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.08)) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
             vec3.sub(acc, acc, forward);
             this.is_moving = true;
         }
-        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.08)) {
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
             vec3.sub(acc, acc, right);
             this.is_moving = true;
         }
-        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.08)) {
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
             vec3.add(acc, acc, right);
             this.is_moving = true;
         }
@@ -178,15 +178,18 @@ export class Char_cont {
         }
         if (this.gamepads.buttonPressed('B')) {
             this.pritisk[1] = !this.pritisk[1];
-            this.ability.earth(this.obj2, this.pritisk[1]);
+            this.Nsfx.play();
+            this.ability.nature(this.obj2, this.pritisk[1]);
         }
         if (this.gamepads.buttonPressed('X')) {
             this.pritisk[2] = !this.pritisk[2];
+            this.Fsfx.play();
             this.ability.fire(this.obj3, this.pritisk[2]);
         }
         if (this.gamepads.buttonPressed('Y')) {
             this.pritisk[3] = !this.pritisk[3];
-            this.ability.stone(this.obj1, this.pritisk[3]);
+            this.Esfx.play();
+            this.ability.earth(this.obj1, this.pritisk[3]);
         }
         
         // Update velocity based on acceleration.
@@ -194,10 +197,10 @@ export class Char_cont {
 
         // If there is no user input, apply decay.
         if (this.connected) {
-            if ((!this.gamepads.axesStatus[1] < -0.08) && 
-                (!this.gamepads.axesStatus[1] > 0.08) && 
-                (!this.gamepads.axesStatus[0] < -0.08) &&
-                (!this.gamepads.axesStatus[0] > 0.08))
+            if ((this.gamepads.axesStatus[1] > -0.08) && 
+                (this.gamepads.axesStatus[1] < 0.08) && 
+                (this.gamepads.axesStatus[0] > -0.08) &&
+                (this.gamepads.axesStatus[0] < 0.08))
             {
                 const decay = Math.exp(dt * Math.log(1 - this.decay));
                 vec3.scale(this.velocity2, this.velocity2, decay);
@@ -231,7 +234,7 @@ export class Char_cont {
         const rotation = quat.create();
         if (this.connected) {
             let compu = this.gamepads.axesStatus[2];
-            if (this.gamepads.axesStatus[2] > 0.09 || this.gamepads.axesStatus[2] < -0.09) {
+            if (this.gamepads.axesStatus[2] > 0.2 || this.gamepads.axesStatus[2] < -0.2) {
                 this.axesRotation += compu;
             }
             else {
@@ -335,7 +338,7 @@ export class Char_cont {
         }
         else if (this.keys['Space']) {
             this.pritisk[4] = !this.pritisk[4];
-            this.ability.stone(this.obj1, this.pritisk[4]);
+            console.log("skoci!")
             this.keys['Space'] = this.pritisk[4];
         } 
     }
@@ -358,6 +361,10 @@ export class Char_cont {
 
     abilityInUse() {
         return this.abilityUsed;
+    }
+
+    getConnected() {
+        return this.connected;
     }
 
 }
