@@ -3,8 +3,14 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene) {
+    constructor(scene, body, Dnoga, Droka, Lnoga, Lroka, cam) {
+        this.body = body;
+        this.Dnoga = Dnoga;
+        this.Droka = Droka;
+        this.Lnoga = Lnoga;
+        this.Lroka = Lroka;
         this.scene = scene;
+        this.cam = cam;
     }
 
     update(dt) {
@@ -16,7 +22,7 @@ export class Physics {
 
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
-                    if (node !== other) {
+                    if (node !== other && node !== this.body && node !== this.Dnoga && node !== this.Droka && node !== this.Lnoga && node !== this.Lroka && node !== this.cam) {
                         this.resolveCollision(node, other);
                     }
                 });
@@ -38,6 +44,8 @@ export class Physics {
         // Transform all vertices of the AABB from local to global space.
         const transform = node.globalMatrix;
         const { min, max } = node.aabb;
+        // console.log("min: ",min);
+        // console.log("max: ",min);
         const vertices = [
             [min[0], min[1], min[2]],
             [min[0], min[1], max[2]],
@@ -101,8 +109,8 @@ export class Physics {
             minDirection = [0, 0, -minDiff];
         }
 
-        vec3.add(a.translation, a.translation, minDirection);
-        a.updateTransformationMatrix();
+        // vec3.add(a.translation, a.translation, minDirection);
+        a.translation = vec3.add(a.translation, a.translation, minDirection);
     }
 
 }

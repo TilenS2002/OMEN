@@ -16,10 +16,15 @@ export class Platform_movement {
     constructor(node, rotacija) {
         this.node = node;
         this.popravek = rotacija;
+        this.premik = false;
     }
     update(time) {
-        let premik = quat.setAxisAngle(quat.create(), [10,0,0], Math.sin(time));
-        this.node.translation = quat.multiply(quat.create(), premik,this.popravek);
-        // console.log("updatan");
+        if (this.premik) {
+            let premik = quat.setAxisAngle(quat.create(), [10,0,0], Math.sin(time));
+            this.node.translation = quat.multiply(quat.create(), premik,this.popravek);
+        }
+    }
+    setPremik(bool) {
+        this.premik = bool;
     }
 }

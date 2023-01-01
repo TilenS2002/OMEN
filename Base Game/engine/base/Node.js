@@ -25,8 +25,8 @@ export class Node {
                 max: options.mesh.primitives[0].attributes.POSITION.max,
                 }
             : {
-                min: 1000000,
-                max: -1000000,
+                min: [0, 0, 0],
+                max: [0, 0, 0],
             };
 
         if (options.matrix) {
@@ -176,9 +176,5 @@ Node.defaults = {
     translation: [0, 0, 0],
     rotation: [0, 0, 0],
     scale: [1, 1, 1],
-    velocity : [0, 0, 0],
-    aabb: {
-        min: [0, 0, 0],
-        max: [0, 0, 0],
-    },
+    velocity : [0, 0, 0]
 };
