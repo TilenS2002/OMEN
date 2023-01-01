@@ -84,7 +84,18 @@ export class Char_cont {
         this.pointerSensitivity = 0.002;
         this.ability = new abilities();
         this.pritisk = [false, false, false, false, false];
-        
+
+        this.Wsfx = new Audio('../audio/abilities/water/mixkit-heal-soft-water-spell-878.wav');
+        this.Nsfx = new Audio('../audio/abilities/nature/mixkit-magical-light-moving-2584.wav');
+        this.Fsfx = new Audio('../audio/abilities/fire/mixkit-fire-swoosh-burning-1328.wav');
+        this.Esfx = new Audio('../audio/abilities/earth/stone-push-37412.mp3');
+        this.Wsfx.volume = 0.4;
+        this.Nsfx.volume = 0.4;
+        this.Fsfx.volume = 0.4;
+        this.Esfx.volume = 0.4;
+
+        this.abilityUsed = false;
+
         this.initHandlers();
     }
 
@@ -162,6 +173,7 @@ export class Char_cont {
         }
         if (this.gamepads.buttonPressed('A')) {
             this.pritisk[0] = !this.pritisk[0];
+            this.Wsfx.play();
             this.ability.water(this.obj1, this.pritisk[0]);
         }
         if (this.gamepads.buttonPressed('B')) {
@@ -265,24 +277,61 @@ export class Char_cont {
 
     keypressedHandler() {
         if (this.keys['Digit1']) {
-            this.pritisk[0] = !this.pritisk[0];
-            this.ability.water(this.obj1, this.pritisk[0]);
-            this.keys['Digit1'] = this.pritisk[0];
+            if (this.abilityUsed == false) {
+                this.pritisk[0] = !this.pritisk[0];
+                this.Wsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.water(this.obj1, this.pritisk[0]);
+                this.keys['Digit1'] = this.pritisk[0];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Wsfx.pause();
+                this.Wsfx.currentTime = 0;
+            }
+            
         }
         else if (this.keys['Digit2']) {
-            this.pritisk[1] = !this.pritisk[1];
-            this.ability.earth(this.obj2, this.pritisk[1]);
-            this.keys['Digit2'] = this.pritisk[1];
+            if (this.abilityUsed == false) {
+                this.pritisk[1] = !this.pritisk[1];
+                this.Nsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.nature(this.obj2, this.pritisk[1]);
+                this.keys['Digit2'] = this.pritisk[1];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Nsfx.pause();
+                this.Nsfx.currentTime = 0;
+            }
         }
         else if (this.keys['Digit3']) {
-            this.pritisk[2] = !this.pritisk[2];
-            this.ability.fire(this.obj3, this.pritisk[2]);
-            this.keys['Digit3'] = this.pritisk[2];
+            if (this.abilityUsed == false) {
+                this.pritisk[2] = !this.pritisk[2];
+                this.Fsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.fire(this.obj3, this.pritisk[2]);
+                this.keys['Digit3'] = this.pritisk[2];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Fsfx.pause();
+                this.Fsfx.currentTime = 0;
+            }
         }
         else if (this.keys['Digit4']) {
-            this.pritisk[3] = !this.pritisk[3];
-            this.ability.stone(this.obj4, this.pritisk[3]);
-            this.keys['Digit4'] = this.pritisk[3];
+            if (this.abilityUsed == false) {
+                this.pritisk[3] = !this.pritisk[3];
+                this.Esfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.earth(this.obj4, this.pritisk[3]);
+                this.keys['Digit4'] = this.pritisk[3];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Esfx.pause();
+                this.Esfx.currentTime = 0;
+            }
         }
         else if (this.keys['Space']) {
             this.pritisk[4] = !this.pritisk[4];
@@ -307,8 +356,8 @@ export class Char_cont {
         return this.pointerSensitivity;
     }
 
-    getV3() {
-        return
+    abilityInUse() {
+        return this.abilityUsed;
     }
 
     // lahko probam pobrat char velocity, speed, decay in pointer sensitivity, pol pa acc prlagodim v datoteki tulk da bo micknu zamika zad za characterjem

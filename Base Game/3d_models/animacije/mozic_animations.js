@@ -54,3 +54,16 @@ export class jump {
         // console.log("updatan");
     }
 }
+
+export class abilityAinm {
+    constructor(node1, node2) {
+        this.node1 = node1;
+        this.node2 = node2;
+    }
+    update(time) {
+        let move = quat.setAxisAngle(quat.create(), [0,0,1], Math.sin(time*2)*0.99);
+        this.node1.rotation = move;
+        // let moveLR = quat.setAxisAngle(quat.create(), [0,1,1], Math.sin(time)*2);
+        this.node2.rotation = move;
+    }
+}

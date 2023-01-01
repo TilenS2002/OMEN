@@ -15,7 +15,7 @@ export class Cam_cont {
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
-        this.maxSpeed = 10;
+        this.maxSpeed = 5;
         this.decay = 0.99;
         this.pointerSensitivity = char.getPS();
 
