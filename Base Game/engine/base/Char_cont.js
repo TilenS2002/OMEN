@@ -79,7 +79,7 @@ export class Char_cont {
 
         this.velocity2 = [0, 0, 0];
         this.acceleration = 5;
-        this.maxSpeed = 10;
+        this.maxSpeed = 5;
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
         this.ability = new abilities();
@@ -181,19 +181,29 @@ export class Char_cont {
         vec3.scaleAndAdd(this.velocity2, this.velocity2, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
-        if ((!this.keys['KeyW'] &&
+        if (this.connected) {
+            if ((!this.gamepads.axesStatus[1] < -0.08) && 
+                (!this.gamepads.axesStatus[1] > 0.08) && 
+                (!this.gamepads.axesStatus[0] < -0.08) &&
+                (!this.gamepads.axesStatus[0] > 0.08))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity2, this.velocity2, decay);
+                this.is_moving = false;
+            }
+        }
+        else {
+            if ((!this.keys['KeyW'] &&
             !this.keys['KeyS'] &&
             !this.keys['KeyD'] &&
-            !this.keys['KeyA']) || (
-            (!this.gamepads.axesStatus[1] < -0.08) && 
-            (!this.gamepads.axesStatus[1] > 0.08) && 
-            (!this.gamepads.axesStatus[0] < -0.08) &&
-            (!this.gamepads.axesStatus[0] > 0.08)))
-        {
-            const decay = Math.exp(dt * Math.log(1 - this.decay));
-            vec3.scale(this.velocity2, this.velocity2, decay);
-            this.is_moving = false;
+            !this.keys['KeyA']))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity2, this.velocity2, decay);
+                this.is_moving = false;
+            }
         }
+        
 
         // Limit speed to prevent accelerating to infinity and beyond.
         const speed = vec3.length(this.velocity2);
