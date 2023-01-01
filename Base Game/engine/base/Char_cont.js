@@ -137,19 +137,27 @@ export class Char_cont {
         });
     }
     update(dt) {
-        // Calculate forward and right vectors.
-        const cos = Math.cos(this.yaw);
-        const sin = Math.sin(this.yaw);
-        const right = [-sin, 0, -cos];
-        const forward = [cos, 0, -sin];
+        
         // const up = [0,1,0];
+        let cos = Math.cos(this.yaw);
+        let sin = Math.sin(this.yaw);
+        // this.axesRotation = this.gamepads.axesStatus[2];
         if (this.connected) {
             this.gamepads.update();
+            // Calculate forward and right vectors.
+            // this.yaw = ((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2
+            cos = Math.cos(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+            sin = Math.sin(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
             // console.log(this.gamepads.axesStatus)
             // console.log(this.is_moving)
         }
-        // else
-            // console.log("waiting for input")
+        else {
+            cos = Math.cos(this.yaw);
+            sin = Math.sin(this.yaw);
+        }
+        const right = [-sin, 0, -cos];
+        const forward = [cos, 0, -sin];
+        console.log("waiting for input")
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
@@ -365,6 +373,10 @@ export class Char_cont {
 
     getConnected() {
         return this.connected;
+    }
+
+    getAxesValues() {
+        return this.gamepads.axesStatus;
     }
 
 }
