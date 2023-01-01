@@ -360,8 +360,4 @@ export class Char_cont {
         return this.abilityUsed;
     }
 
-    // lahko probam pobrat char velocity, speed, decay in pointer sensitivity, pol pa acc prlagodim v datoteki tulk da bo micknu zamika zad za characterjem
-
-
-
 }
