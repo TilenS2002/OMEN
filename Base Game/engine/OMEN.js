@@ -2,7 +2,7 @@ import { Application } from './base/Application.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
-import { Dnoga_movement, Droka_movement, jump, Lnoga_movement, Lroka_movement } from '../3d_models/animacije/mozic_animations.js'
+import { Dnoga_movement, Droka_movement, jump, Lnoga_movement, Lroka_movement, abilityAinm } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 import { Char_cont } from './base/Char_cont.js';
@@ -29,12 +29,21 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         this.platformTest = await this.loader2.loadNode('Cube');
         this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
+        // prebam nalozt usak node posebej
+        // this.Droka = await this.loader.loadNode('desna_roka');
+        // this.Lroka = await this.loader.loadNode('leva_roka');
+        // this.Dnoga = await this.loader.loadNode('noga_desna');
+        // this.Lnoga = await this.loader.loadNode('leva_noga');
+        this.Dnoga = await this.loader.loadNode('noga desna');
+        this.Lnoga = await this.loader.loadNode('leva noga');
+        this.Droka = await this.loader.loadNode('desna roka');
+        this.Lroka = await this.loader.loadNode('leva roka');
         // console.log("Camera: ", this.camera);
         // console.log("Buddy: ", this.telo);
         // console.log("Prazna: ", this.prazno);
         // console.log("Droka: ", this.Droka);
         this.controller = new Char_cont(this.telo, this.canvas, this.platform, this.platform, this.platform, this.platform);
-        
+        this.anim = new abilityAinm(this.Lroka, this.Droka);
         this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
         
@@ -48,19 +57,13 @@ class App extends Application {
             throw new Error('Camera node does not contain a camera reference');
         }
 
-        // prebam nalozt usak node posebej
-        // this.Droka = await this.loader.loadNode('desna_roka');
-        // this.Lroka = await this.loader.loadNode('leva_roka');
-        // this.Dnoga = await this.loader.loadNode('noga_desna');
-        // this.Lnoga = await this.loader.loadNode('leva_noga');
-        this.Droka = await this.loader.loadNode('desna roka');
-        this.Lroka = await this.loader.loadNode('leva roka');
-        this.Dnoga = await this.loader.loadNode('noga desna');
-        this.Lnoga = await this.loader.loadNode('leva noga');
+       
         // this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
 
-        this.footsteps = new Audio('../audio/concrete-footsteps-6752.mp3');
+        this.footsteps = new Audio('../audio/footsteps/concrete-footsteps-6752.mp3');
         this.footsteps.volume = 0.3;
+        this.ambience = new Audio('../audio/ambient/the-cradle-113847.mp3');
+        this.ambience.volume = 0.14;
         this.idleD = new idle_animation_DR(this.Droka);
         this.idleL = new idle_animation_LR(this.Lroka);
         this.nogaD = new Dnoga_movement(this.Dnoga);
@@ -80,9 +83,15 @@ class App extends Application {
         this.update();
     }
 
+    isPlaying(audio) {
+        return !audio.paused;
+    }
+
     update() {
         this.time = performance.now();
         const time = performance.now() / 1000;
+        if (!this.isPlaying(this.ambience))
+            this.ambience.play();
         // this.krog.update(time);
         // this.krog.popravek=false;
         this.platform.update(time);
@@ -101,9 +110,13 @@ class App extends Application {
         }
         const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
+        if (this.controller.abilityUsed) {
+            this.anim.update(time);
+        }
         this.controller.update(dt);
         this.camCont.update(dt);
         this.Physics.update(dt);
+        // console.log(time);
         // console.log(this.telo.velocity);
     }
 

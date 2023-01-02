@@ -79,12 +79,23 @@ export class Char_cont {
 
         this.velocity2 = [0, 0, 0];
         this.acceleration = 5;
-        this.maxSpeed = 10;
+        this.maxSpeed = 5;
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
         this.ability = new abilities();
         this.pritisk = [false, false, false, false, false];
-        
+
+        this.Wsfx = new Audio('../audio/abilities/water/mixkit-heal-soft-water-spell-878.wav');
+        this.Nsfx = new Audio('../audio/abilities/nature/mixkit-magical-light-moving-2584.wav');
+        this.Fsfx = new Audio('../audio/abilities/fire/mixkit-fire-swoosh-burning-1328.wav');
+        this.Esfx = new Audio('../audio/abilities/earth/stone-push-37412.mp3');
+        this.Wsfx.volume = 0.4;
+        this.Nsfx.volume = 0.4;
+        this.Fsfx.volume = 0.4;
+        this.Esfx.volume = 0.4;
+
+        this.abilityUsed = false;
+
         this.initHandlers();
     }
 
@@ -101,7 +112,7 @@ export class Char_cont {
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
         doc.addEventListener('keypress', this.keypressedHandler);
-        element.addEventListener('gamepadconnected', this.gamepadHandler);
+        // element.addEventListener('gamepadconnected', this.gamepadHandler);
 
         window.addEventListener('gamepadconnected', (e) => {
             this.connected = !this.connected;
@@ -126,74 +137,96 @@ export class Char_cont {
         });
     }
     update(dt) {
-        // Calculate forward and right vectors.
-        const cos = Math.cos(this.yaw);
-        const sin = Math.sin(this.yaw);
-        const right = [-sin, 0, -cos];
-        const forward = [cos, 0, -sin];
+        
         // const up = [0,1,0];
+        let cos = Math.cos(this.yaw);
+        let sin = Math.sin(this.yaw);
+        // this.axesRotation = this.gamepads.axesStatus[2];
         if (this.connected) {
             this.gamepads.update();
+            // Calculate forward and right vectors.
+            // this.yaw = ((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2
+            cos = Math.cos(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+            sin = Math.sin(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
             // console.log(this.gamepads.axesStatus)
             // console.log(this.is_moving)
         }
-        else
-            console.log("waiting for input")
+        else {
+            cos = Math.cos(this.yaw);
+            sin = Math.sin(this.yaw);
+        }
+        const right = [-sin, 0, -cos];
+        const forward = [cos, 0, -sin];
+        console.log("waiting for input")
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.08)) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
             vec3.add(acc, acc, forward);
             // console.log(this.is_moving);
             this.is_moving = true;
             // console.log(this.is_moving);
         }
-        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.08)) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
             vec3.sub(acc, acc, forward);
             this.is_moving = true;
         }
-        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.08)) {
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
             vec3.sub(acc, acc, right);
             this.is_moving = true;
         }
-        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.08)) {
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
             vec3.add(acc, acc, right);
             this.is_moving = true;
         }
         if (this.gamepads.buttonPressed('A')) {
             this.pritisk[0] = !this.pritisk[0];
+            this.Wsfx.play();
             this.ability.water(this.obj1, this.pritisk[0]);
         }
         if (this.gamepads.buttonPressed('B')) {
             this.pritisk[1] = !this.pritisk[1];
-            this.ability.earth(this.obj2, this.pritisk[1]);
+            this.Nsfx.play();
+            this.ability.nature(this.obj2, this.pritisk[1]);
         }
         if (this.gamepads.buttonPressed('X')) {
             this.pritisk[2] = !this.pritisk[2];
+            this.Fsfx.play();
             this.ability.fire(this.obj3, this.pritisk[2]);
         }
         if (this.gamepads.buttonPressed('Y')) {
             this.pritisk[3] = !this.pritisk[3];
-            this.ability.stone(this.obj1, this.pritisk[3]);
+            this.Esfx.play();
+            this.ability.earth(this.obj1, this.pritisk[3]);
         }
         
         // Update velocity based on acceleration.
         vec3.scaleAndAdd(this.velocity2, this.velocity2, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
-        if ((!this.keys['KeyW'] &&
+        if (this.connected) {
+            if ((this.gamepads.axesStatus[1] > -0.08) && 
+                (this.gamepads.axesStatus[1] < 0.08) && 
+                (this.gamepads.axesStatus[0] > -0.08) &&
+                (this.gamepads.axesStatus[0] < 0.08))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity2, this.velocity2, decay);
+                this.is_moving = false;
+            }
+        }
+        else {
+            if ((!this.keys['KeyW'] &&
             !this.keys['KeyS'] &&
             !this.keys['KeyD'] &&
-            !this.keys['KeyA']) || (
-            (!this.gamepads.axesStatus[1] < -0.08) && 
-            (!this.gamepads.axesStatus[1] > 0.08) && 
-            (!this.gamepads.axesStatus[0] < -0.08) &&
-            (!this.gamepads.axesStatus[0] > 0.08)))
-        {
-            const decay = Math.exp(dt * Math.log(1 - this.decay));
-            vec3.scale(this.velocity2, this.velocity2, decay);
-            this.is_moving = false;
+            !this.keys['KeyA']))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity2, this.velocity2, decay);
+                this.is_moving = false;
+            }
         }
+        
 
         // Limit speed to prevent accelerating to infinity and beyond.
         const speed = vec3.length(this.velocity2);
@@ -209,7 +242,7 @@ export class Char_cont {
         const rotation = quat.create();
         if (this.connected) {
             let compu = this.gamepads.axesStatus[2];
-            if (this.gamepads.axesStatus[2] > 0.09 || this.gamepads.axesStatus[2] < -0.09) {
+            if (this.gamepads.axesStatus[2] > 0.2 || this.gamepads.axesStatus[2] < -0.2) {
                 this.axesRotation += compu;
             }
             else {
@@ -255,28 +288,65 @@ export class Char_cont {
 
     keypressedHandler() {
         if (this.keys['Digit1']) {
-            this.pritisk[0] = !this.pritisk[0];
-            this.ability.water(this.obj1, this.pritisk[0]);
-            this.keys['Digit1'] = this.pritisk[0];
+            if (this.abilityUsed == false) {
+                this.pritisk[0] = !this.pritisk[0];
+                this.Wsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.water(this.obj1, this.pritisk[0]);
+                this.keys['Digit1'] = this.pritisk[0];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Wsfx.pause();
+                this.Wsfx.currentTime = 0;
+            }
+            
         }
         else if (this.keys['Digit2']) {
-            this.pritisk[1] = !this.pritisk[1];
-            this.ability.earth(this.obj2, this.pritisk[1]);
-            this.keys['Digit2'] = this.pritisk[1];
+            if (this.abilityUsed == false) {
+                this.pritisk[1] = !this.pritisk[1];
+                this.Nsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.nature(this.obj2, this.pritisk[1]);
+                this.keys['Digit2'] = this.pritisk[1];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Nsfx.pause();
+                this.Nsfx.currentTime = 0;
+            }
         }
         else if (this.keys['Digit3']) {
-            this.pritisk[2] = !this.pritisk[2];
-            this.ability.fire(this.obj3, this.pritisk[2]);
-            this.keys['Digit3'] = this.pritisk[2];
+            if (this.abilityUsed == false) {
+                this.pritisk[2] = !this.pritisk[2];
+                this.Fsfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.fire(this.obj3, this.pritisk[2]);
+                this.keys['Digit3'] = this.pritisk[2];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Fsfx.pause();
+                this.Fsfx.currentTime = 0;
+            }
         }
         else if (this.keys['Digit4']) {
-            this.pritisk[3] = !this.pritisk[3];
-            this.ability.stone(this.obj4, this.pritisk[3]);
-            this.keys['Digit4'] = this.pritisk[3];
+            if (this.abilityUsed == false) {
+                this.pritisk[3] = !this.pritisk[3];
+                this.Esfx.play();
+                this.abilityUsed = !this.abilityUsed;
+                this.ability.earth(this.obj4, this.pritisk[3]);
+                this.keys['Digit4'] = this.pritisk[3];
+            }
+            else {
+                this.abilityUsed = !this.abilityUsed;
+                this.Esfx.pause();
+                this.Esfx.currentTime = 0;
+            }
         }
         else if (this.keys['Space']) {
             this.pritisk[4] = !this.pritisk[4];
-            this.ability.stone(this.obj1, this.pritisk[4]);
+            console.log("skoci!")
             this.keys['Space'] = this.pritisk[4];
         } 
     }
@@ -297,12 +367,16 @@ export class Char_cont {
         return this.pointerSensitivity;
     }
 
-    getV3() {
-        return
+    abilityInUse() {
+        return this.abilityUsed;
     }
 
-    // lahko probam pobrat char velocity, speed, decay in pointer sensitivity, pol pa acc prlagodim v datoteki tulk da bo micknu zamika zad za characterjem
+    getConnected() {
+        return this.connected;
+    }
 
-
+    getAxesValues() {
+        return this.gamepads.axesStatus;
+    }
 
 }

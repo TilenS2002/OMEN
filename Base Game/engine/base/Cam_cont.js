@@ -7,15 +7,17 @@ export class Cam_cont {
         this.node = node;
         this.domElement = domElement;
         this.char = char;
-
+        this.connected = char.getConnected();
         this.keys = {};
 
-        this.pitch = char.getCharRotation()[0];
-        this.yaw = char.getCharRotation()[1];
+        this.pitch = this.char.getCharRotation()[1];
+        this.yaw = this.char.getCharRotation()[0];
+
+        this.axes = this.char.getAxesValues() || {};
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
-        this.maxSpeed = 10;
+        this.maxSpeed = 5;
         this.decay = 0.99;
         this.pointerSensitivity = char.getPS();
 
@@ -33,6 +35,19 @@ export class Cam_cont {
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
 
+        window.addEventListener('gamepadconnected', (e) => {
+            this.connected = !this.connected;
+            // this.gamepads.connect(e);
+            if (this.connected)
+                this.pointerSensitivity = 0.2;
+        });
+        window.addEventListener("gamepaddisconnected", (e) => {
+            this.connected = !this.connected;
+            // this.gamepads.disconnect();
+            if (!this.connected)
+                this.pointerSensitivity = 0.002;
+          });
+
         element.addEventListener('click', e => element.requestPointerLock());
         doc.addEventListener('pointerlockchange', e => {
             if (doc.pointerLockElement === element) {
@@ -46,23 +61,32 @@ export class Cam_cont {
     update(dt) {
         // Calculate forward and right vectors.
         // console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
-        const cos = Math.cos(this.yaw);
-        const sin = Math.sin(this.yaw);
+        this.axes = this.char.getAxesValues();
+        let cos = Math.cos(this.yaw);
+        let sin = Math.sin(this.yaw);
+        if (this.connected) {
+            cos = Math.cos(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+            sin = Math.sin(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+        }
+        else {
+            cos = Math.cos(this.yaw);
+            sin = Math.sin(this.yaw);
+        }
         const right = [-sin, 0, -cos];
         const forward = [cos, 0, -sin];
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
-        if (this.keys['KeyW']) {
+        if (this.keys['KeyW'] || (this.connected && this.axes[1] < -0.1)) {
             vec3.add(acc, acc, forward);
         }
-        if (this.keys['KeyS']) {
+        if (this.keys['KeyS'] || (this.connected && this.axes[1] > 0.1)) {
             vec3.sub(acc, acc, forward);
         }
-        if (this.keys['KeyD']) {
+        if (this.keys['KeyD'] || (this.connected && this.axes[0] > 0.1)) {
             vec3.sub(acc, acc, right);
         }
-        if (this.keys['KeyA']) {
+        if (this.keys['KeyA'] || (this.connected && this.axes[0] < -0.1)) {
             vec3.add(acc, acc, right);
         }
 
@@ -70,13 +94,25 @@ export class Cam_cont {
         vec3.scaleAndAdd(this.velocity, this.velocity, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
-        if (!this.keys['KeyW'] &&
+        if (this.connected) {
+            if ((this.axes[1] > -0.08) && 
+                (this.axes[1] < 0.08) && 
+                (this.axes[0] > -0.08) &&
+                (this.axes[0] < 0.08))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity, this.velocity, decay);
+            }
+        }
+        else {
+            if ((!this.keys['KeyW'] &&
             !this.keys['KeyS'] &&
             !this.keys['KeyD'] &&
-            !this.keys['KeyA'])
-        {
-            const decay = Math.exp(dt * Math.log(1 - this.decay));
-            vec3.scale(this.velocity, this.velocity, decay);
+            !this.keys['KeyA']))
+            {
+                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                vec3.scale(this.velocity, this.velocity, decay);
+            }
         }
 
         // Limit speed to prevent accelerating to infinity and beyond.

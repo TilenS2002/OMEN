@@ -1,26 +1,21 @@
 export class abilities {
-    constructor() {
-        this.bool = false
-        this.setBool = function () {
-            this.bool = !this.bool;
-        }
-    }
+    constructor() {}
     water(obj, bool) {
         // this.setBool();
-        console.log(bool);
+        // console.log(bool);
         obj.setPremik(bool);
         return "water";
     }
-    earth(obj, bool) {
+    nature(obj, bool) {
         obj.setPremik(bool);
-        return "earth";
+        return "nature";
     }
     fire(obj, bool) {
         obj.setPremik(bool);
         return "fire";
     }
-    stone(obj, bool) {
+    earth(obj, bool) {
         obj.setPremik(bool);
-        return "stone";
+        return "earth";
     }
 }
