@@ -17,8 +17,8 @@ class App extends Application {
         await this.loader2.load('../3d_models/untitled.gltf');
 
         this.loader = new GLTFLoader();
-        // await this.loader.load('../3d_models/player/MOZIC_REF_FIX.gltf');
-        await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
+        await this.loader.load('../3d_models/player/MOZIC.gltf');
+        // await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.startTime = performance.now();
 
@@ -30,14 +30,14 @@ class App extends Application {
         this.platformTest = await this.loader2.loadNode('Cube');
         this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         // prebam nalozt usak node posebej
-        // this.Droka = await this.loader.loadNode('desna_roka');
-        // this.Lroka = await this.loader.loadNode('leva_roka');
-        // this.Dnoga = await this.loader.loadNode('noga_desna');
-        // this.Lnoga = await this.loader.loadNode('leva_noga');
-        this.Dnoga = await this.loader.loadNode('noga desna');
-        this.Lnoga = await this.loader.loadNode('leva noga');
-        this.Droka = await this.loader.loadNode('desna roka');
-        this.Lroka = await this.loader.loadNode('leva roka');
+        this.Droka = await this.loader.loadNode('desna_roka');
+        this.Lroka = await this.loader.loadNode('leva_roka');
+        this.Dnoga = await this.loader.loadNode('noga_desna');
+        this.Lnoga = await this.loader.loadNode('leva_noga');
+        // this.Dnoga = await this.loader.loadNode('noga desna');
+        // this.Lnoga = await this.loader.loadNode('leva noga');
+        // this.Droka = await this.loader.loadNode('desna roka');
+        // this.Lroka = await this.loader.loadNode('leva roka');
         // console.log("Camera: ", this.camera);
         // console.log("Buddy: ", this.telo);
         // console.log("Prazna: ", this.prazno);
