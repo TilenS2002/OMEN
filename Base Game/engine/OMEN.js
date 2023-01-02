@@ -15,6 +15,7 @@ class App extends Application {
         this.loader2 = new GLTFLoader();
         // await this.loader2.load('../3d_models/assets/krog.gltf');
         await this.loader2.load('../3d_models/untitled.gltf');
+        // await this.loader2.load('../3d_models/map/mapa_nina.gltf');
 
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
