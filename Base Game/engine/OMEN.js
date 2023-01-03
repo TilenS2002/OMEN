@@ -55,7 +55,7 @@ class App extends Application {
         // this.Lroka = await this.loader.loadNode('leva roka');
         // console.log("Camera: ", this.camera);
         // console.log("Buddy: ", this.telo);
-        console.log("Prazna: ", this.test.extras);
+        // console.log("Prazna: ", this.test.extras);
         // console.log("Droka: ", this.Droka);
         this.controller = new Char_cont(this.telo, this.canvas, this.platform, this.platform, this.platform, this.platform);
         this.anim = new abilityAinm(this.Lroka, this.Droka);
@@ -91,20 +91,20 @@ class App extends Application {
         this.collide = [];
         this.scene.traverse(node => {
             if (node.extras && node.extras.hidden) {
-                console.log(node.extras.hidden);
-                // node = node.mesh.material.opacity = 0.0;
+                // console.log(node.extras.hidden);
+                node.mesh = node.mesh.opacity = 0;
                 this.hid.push(node);
             }
             if (node.extras && node.extras.collidable && !this.char.includes(node)) {
-                console.log(node.extras.collidable);
+                // console.log(node.extras.collidable);
                 this.collide.push(node);
             }
         });
-        this.hid.forEach(element => {
-            console.log(element);
-        });
+        // this.hid.forEach(element => {
+        //     console.log(element);
+        // });
 
-        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.hid, this.collide);
+        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
         // this.win = browser.windows.get()
         // test rotacije
         // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
