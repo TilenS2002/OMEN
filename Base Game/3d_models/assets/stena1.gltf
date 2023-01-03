@@ -14,9 +14,6 @@
     ],
     "nodes" : [
         {
-            "extras" : {
-                "collidable" : 1
-            },
             "mesh" : 0,
             "name" : "Cube.015",
             "scale" : [
