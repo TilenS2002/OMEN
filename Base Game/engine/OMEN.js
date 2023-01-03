@@ -14,8 +14,8 @@ class App extends Application {
 
         this.loader2 = new GLTFLoader();
         // await this.loader2.load('../3d_models/assets/krog.gltf');
-        await this.loader2.load('../3d_models/untitled.gltf');
-        // await this.loader2.load('../3d_models/map/mapa_nina.gltf');
+        // await this.loader2.load('../3d_models/untitled.gltf');
+        await this.loader2.load('../3d_models/map/mapa_test.gltf');
 
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
@@ -28,8 +28,8 @@ class App extends Application {
         // controller, popravi da bo premikou characterja, ne kamere
         // this.prazno = await this.loader.loadNode("Empty.001")
         this.telo = await this.loader.loadNode('telo');
-        this.platformTest = await this.loader2.loadNode('Cube');
-        this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
+        // this.platformTest = await this.loader2.loadNode('Cube');
+        // this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         // prebam nalozt usak node posebej
         this.Droka = await this.loader.loadNode('desna_roka');
         this.Lroka = await this.loader.loadNode('leva_roka');
@@ -72,7 +72,7 @@ class App extends Application {
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
         // this.skok = new jump(this.Lroka);
-        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera);
+        // this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera);
         // this.win = browser.windows.get()
         // test rotacije
         // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
@@ -95,7 +95,7 @@ class App extends Application {
             this.ambience.play();
         // this.krog.update(time);
         // this.krog.popravek=false;
-        this.platform.update(time);
+        // this.platform.update(time);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
@@ -116,7 +116,7 @@ class App extends Application {
         }
         this.controller.update(dt);
         this.camCont.update(dt);
-        this.Physics.update(dt);
+        // this.Physics.update(dt);
         // console.log(time);
         // console.log(this.telo.velocity);
     }
