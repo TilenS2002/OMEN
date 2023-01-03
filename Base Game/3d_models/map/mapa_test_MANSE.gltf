@@ -2036,6 +2036,9 @@
             "doubleSided" : true,
             "name" : "Material.016",
             "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 13
+                },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
             }
@@ -2903,6 +2906,10 @@
         {
             "sampler" : 0,
             "source" : 12
+        },
+        {
+            "sampler" : 0,
+            "source" : 13
         }
     ],
     "images" : [
@@ -2970,6 +2977,11 @@
             "mimeType" : "image/png",
             "name" : "tekstura_stena1.png.002",
             "uri" : "../assets/teksture/tekstura_stena1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_stena_rob.png",
+            "uri" : "../assets/teksture/tekstura_stena_rob.png"
         }
     ],
     "accessors" : [
