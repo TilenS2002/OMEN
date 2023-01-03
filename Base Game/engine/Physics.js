@@ -3,7 +3,7 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene, body, Dnoga, Droka, Lnoga, Lroka, cam) {
+    constructor(scene, body, Dnoga, Droka, Lnoga, Lroka, cam, kulci) {
         this.body = body;
         this.Dnoga = Dnoga;
         this.Droka = Droka;
@@ -11,6 +11,7 @@ export class Physics {
         this.Lroka = Lroka;
         this.scene = scene;
         this.cam = cam;
+        this.colili = kulci;
     }
 
     update(dt) {
@@ -22,8 +23,8 @@ export class Physics {
 
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
-                    if (node !== other && node !== this.body && node !== this.Dnoga && node !== this.Droka && node !== this.Lnoga && node !== this.Lroka && node !== this.cam) {
-                        this.resolveCollision(node, other);
+                    if (node !== other && node !== this.body && node !== this.Dnoga && node !== this.Droka && node !== this.Lnoga && node !== this.Lroka && this.colili.includes(other) && !this.colili.includes(node)) {
+                        this.resolveCollision(this.body, other);
                     }
                 });
             }
@@ -78,6 +79,7 @@ export class Physics {
             return;
         }
         // console.log("trk")
+        console.log(a.name," ",b.name);
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);

@@ -93,7 +93,7 @@ export class Char_cont {
         this.Nsfx.volume = 0.4;
         this.Fsfx.volume = 0.4;
         this.Esfx.volume = 0.4;
-
+        this.cam = [[],[],[],[]];
         this.abilityUsed = false;
 
         this.initHandlers();
@@ -157,26 +157,30 @@ export class Char_cont {
         }
         const right = [-sin, 0, -cos];
         const forward = [cos, 0, -sin];
-        console.log("waiting for input")
+        // console.log("waiting for input")
 
         // Map user input to the acceleration vector.
         const acc = vec3.create();
         if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
             vec3.add(acc, acc, forward);
+            this.cam[0] = vec3.add(acc, acc, forward);
             // console.log(this.is_moving);
             this.is_moving = true;
             // console.log(this.is_moving);
         }
         if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
             vec3.sub(acc, acc, forward);
+            this.cam[1] = vec3.sub(acc, acc, forward);
             this.is_moving = true;
         }
         if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
             vec3.sub(acc, acc, right);
+            this.cam[2] = vec3.sub(acc, acc, right);
             this.is_moving = true;
         }
         if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
             vec3.add(acc, acc, right);
+            this.cam[3] = vec3.add(acc, acc, right);
             this.is_moving = true;
         }
         if (this.gamepads.buttonPressed('A')) {
@@ -378,5 +382,8 @@ export class Char_cont {
     getAxesValues() {
         return this.gamepads.axesStatus;
     }
-
+    
+    getCam() {
+        return this.cam;
+    }
 }
