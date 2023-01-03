@@ -15,7 +15,11 @@ class App extends Application {
         this.loader2 = new GLTFLoader();
         // await this.loader2.load('../3d_models/assets/krog.gltf');
         // await this.loader2.load('../3d_models/untitled.gltf');
-        await this.loader2.load('../3d_models/map/mapa_test.gltf');
+        // await this.loader2.load('../3d_models/assets/kamn.gltf');
+        // await this.loader2.load('../3d_models/assets/stena2.gltf');
+        // await this.loader2.load('../3d_models/untitled.gltf');
+        // await this.loader2.load('../3d_models/untitled.gltf');
+        await this.loader2.load('../3d_models/map/mapa_test_MANSE.gltf');
 
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
@@ -39,6 +43,11 @@ class App extends Application {
         this.Lroka = await this.loader.loadNode('leva_roka');
         this.Dnoga = await this.loader.loadNode('noga_desna');
         this.Lnoga = await this.loader.loadNode('leva_noga');
+        this.spawn = await this.loader2.loadNode('spawnpoint');
+        this.camSP = await this.loader2.loadNode('camspawn');
+
+        this.telo.translation = this.spawn.translation;
+        this.camera.translation = this.camSP.translation;
         // this.Dnoga = await this.loader.loadNode('noga desna');
         // this.Lnoga = await this.loader.loadNode('leva noga');
         // this.Droka = await this.loader.loadNode('desna roka');
