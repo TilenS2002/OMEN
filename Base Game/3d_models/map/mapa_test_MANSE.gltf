@@ -1864,9 +1864,9 @@
                 7
             ],
             "translation" : [
-                27.389183044433594,
-                1.0169274806976318,
-                -73.0093994140625
+                24.389183044433594,
+                0.016927480697631836,
+                -74.0093994140625
             ]
         },
         {
@@ -2034,7 +2034,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.016",
+            "name" : "Material.017",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 13
@@ -2826,7 +2826,7 @@
             ]
         },
         {
-            "name" : "Cube.031",
+            "name" : "Cube.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -2980,7 +2980,7 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_stena_rob.png",
+            "name" : "tekstura_stena_rob.png.001",
             "uri" : "../assets/teksture/tekstura_stena_rob.png"
         }
     ],
@@ -4576,7 +4576,7 @@
         {
             "bufferView" : 173,
             "componentType" : 5126,
-            "count" : 202,
+            "count" : 200,
             "max" : [
                 -0.8333333134651184,
                 17,
@@ -4592,13 +4592,13 @@
         {
             "bufferView" : 174,
             "componentType" : 5126,
-            "count" : 202,
+            "count" : 200,
             "type" : "VEC2"
         },
         {
             "bufferView" : 175,
             "componentType" : 5126,
-            "count" : 202,
+            "count" : 200,
             "type" : "VEC3"
         },
         {
@@ -5683,50 +5683,50 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 2424,
+            "byteLength" : 2400,
             "byteOffset" : 786716,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 1616,
-            "byteOffset" : 789140,
+            "byteLength" : 1600,
+            "byteOffset" : 789116,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 2424,
-            "byteOffset" : 790756,
+            "byteLength" : 2400,
+            "byteOffset" : 790716,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 744,
-            "byteOffset" : 793180,
+            "byteOffset" : 793116,
             "target" : 34963
         },
         {
             "buffer" : 0,
             "byteLength" : 288,
-            "byteOffset" : 793924,
+            "byteOffset" : 793860,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 192,
-            "byteOffset" : 794212,
+            "byteOffset" : 794148,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 288,
-            "byteOffset" : 794404,
+            "byteOffset" : 794340,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 72,
-            "byteOffset" : 794692,
+            "byteOffset" : 794628,
             "target" : 34963
         }
     ],
@@ -5738,7 +5738,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 794764,
+            "byteLength" : 794700,
             "uri" : "mapa_test_MANSE.bin"
         }
     ]
