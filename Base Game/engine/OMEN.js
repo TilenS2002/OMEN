@@ -28,6 +28,10 @@ class App extends Application {
         // controller, popravi da bo premikou characterja, ne kamere
         // this.prazno = await this.loader.loadNode("Empty.001")
         this.telo = await this.loader.loadNode('telo');
+        this.startPos = await this.loader2.loadNode('startpoint');
+        this.camPos = await this.loader2.loadNode('camstart');
+        this.telo.translation = this.startPos.translation;
+        this.camera.translation = this.camPos.translation;
         // this.platformTest = await this.loader2.loadNode('Cube');
         // this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         // prebam nalozt usak node posebej
