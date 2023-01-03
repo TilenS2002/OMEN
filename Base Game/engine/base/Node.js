@@ -46,6 +46,10 @@ export class Node {
             child.parent = this;
         }
         this.parent = null;
+        if (options.name)
+            this.name = options.name;
+        if (options.extras)
+            this.extras = options.extras;
     }
 
     updateTransformationComponents() {

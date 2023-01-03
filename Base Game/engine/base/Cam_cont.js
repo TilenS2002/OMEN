@@ -76,18 +76,22 @@ export class Cam_cont {
         const forward = [cos, 0, -sin];
 
         // Map user input to the acceleration vector.
-        const acc = vec3.create();
+        let acc = vec3.create();
         if (this.keys['KeyW'] || (this.connected && this.axes[1] < -0.1)) {
-            vec3.add(acc, acc, forward);
+            // vec3.add(acc, acc, forward);
+            acc = this.char.getCam()[0];
         }
         if (this.keys['KeyS'] || (this.connected && this.axes[1] > 0.1)) {
-            vec3.sub(acc, acc, forward);
+            // vec3.sub(acc, acc, forward);
+            acc = this.char.getCam()[1];
         }
         if (this.keys['KeyD'] || (this.connected && this.axes[0] > 0.1)) {
-            vec3.sub(acc, acc, right);
+            // vec3.sub(acc, acc, right);
+            acc = this.char.getCam()[2];
         }
         if (this.keys['KeyA'] || (this.connected && this.axes[0] < -0.1)) {
-            vec3.add(acc, acc, right);
+            // vec3.add(acc, acc, right);
+            acc = this.char.getCam()[3];
         }
 
         // Update velocity based on acceleration.

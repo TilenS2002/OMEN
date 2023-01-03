@@ -21,6 +21,7 @@ class App extends Application {
         // await this.loader2.load('../3d_models/untitled.gltf');
         await this.loader2.load('../3d_models/map/mapa_test_MANSE.gltf');
 
+        
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
         // await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
@@ -31,7 +32,9 @@ class App extends Application {
         this.camera = await this.loader.loadNode('Camera');
         // controller, popravi da bo premikou characterja, ne kamere
         // this.prazno = await this.loader.loadNode("Empty.001")
+        
         this.telo = await this.loader.loadNode('telo');
+        
         // this.platformTest = await this.loader2.loadNode('Cube');
         // this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
         // prebam nalozt usak node posebej
@@ -44,13 +47,15 @@ class App extends Application {
 
         this.telo.translation = this.spawn.translation;
         this.camera.translation = this.camSP.translation;
+        this.test = await this.loader2.loadNode('Cube.269');
+        this.char = [this.telo, this.Dnoga, this.Lnoga, this.Droka, this.Lroka];
         // this.Dnoga = await this.loader.loadNode('noga desna');
         // this.Lnoga = await this.loader.loadNode('leva noga');
         // this.Droka = await this.loader.loadNode('desna roka');
         // this.Lroka = await this.loader.loadNode('leva roka');
         // console.log("Camera: ", this.camera);
         // console.log("Buddy: ", this.telo);
-        // console.log("Prazna: ", this.prazno);
+        console.log("Prazna: ", this.test.extras);
         // console.log("Droka: ", this.Droka);
         this.controller = new Char_cont(this.telo, this.canvas, this.platform, this.platform, this.platform, this.platform);
         this.anim = new abilityAinm(this.Lroka, this.Droka);
@@ -81,7 +86,25 @@ class App extends Application {
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
         // this.skok = new jump(this.Lroka);
-        // this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera);
+
+        this.hid = [];
+        this.collide = [];
+        this.scene.traverse(node => {
+            if (node.extras && node.extras.hidden) {
+                console.log(node.extras.hidden);
+                // node = node.mesh.material.opacity = 0.0;
+                this.hid.push(node);
+            }
+            if (node.extras && node.extras.collidable && !this.char.includes(node)) {
+                console.log(node.extras.collidable);
+                this.collide.push(node);
+            }
+        });
+        this.hid.forEach(element => {
+            console.log(element);
+        });
+
+        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.hid, this.collide);
         // this.win = browser.windows.get()
         // test rotacije
         // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
@@ -125,7 +148,7 @@ class App extends Application {
         }
         this.controller.update(dt);
         this.camCont.update(dt);
-        // this.Physics.update(dt);
+        this.Physics.update(dt);
         // console.log(time);
         // console.log(this.telo.velocity);
     }
