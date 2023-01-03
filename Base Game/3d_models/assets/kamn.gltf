@@ -14,9 +14,6 @@
     ],
     "nodes" : [
         {
-            "extras" : {
-                "collision" : 1
-            },
             "mesh" : 0,
             "name" : "Icosphere",
             "rotation" : [
