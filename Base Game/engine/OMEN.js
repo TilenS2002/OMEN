@@ -47,7 +47,7 @@ class App extends Application {
 
         this.telo.translation = this.spawn.translation;
         this.camera.translation = this.camSP.translation;
-        this.test = await this.loader2.loadNode('Cube.269');
+        // this.test = await this.loader2.loadNode('Cube.269');
         this.char = [this.telo, this.Dnoga, this.Lnoga, this.Droka, this.Lroka];
         // this.Dnoga = await this.loader.loadNode('noga desna');
         // this.Lnoga = await this.loader.loadNode('leva noga');
@@ -144,6 +144,7 @@ class App extends Application {
         const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
         if (this.controller.abilityUsed) {
+            this.anim.start();
             this.anim.update(time);
         }
         this.controller.update(dt);
