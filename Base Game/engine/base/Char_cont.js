@@ -139,50 +139,78 @@ export class Char_cont {
     update(dt) {
         
         // const up = [0,1,0];
-        let cos = Math.cos(this.yaw);
-        let sin = Math.sin(this.yaw);
+        console.log(this.gamepads.buttonsStatus)
+        let cos = Math.cos(0);
+        let sin = Math.sin(0);
         // this.axesRotation = this.gamepads.axesStatus[2];
-        if (this.connected) {
-            this.gamepads.update();
-            // Calculate forward and right vectors.
-            // this.yaw = ((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2
-            cos = Math.cos(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-            sin = Math.sin(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-            // console.log(this.gamepads.axesStatus)
-            // console.log(this.is_moving)
-        }
-        else {
-            cos = Math.cos(this.yaw);
-            sin = Math.sin(this.yaw);
-        }
-        const right = [-sin, 0, -cos];
-        const forward = [cos, 0, -sin];
+        // if (this.connected) {
+        //     this.gamepads.update();
+        //     // Calculate forward and right vectors.
+        //     // this.yaw = ((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2
+        //     cos = Math.cos(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+        //     sin = Math.sin(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+        //     // console.log(this.gamepads.axesStatus)
+        //     // console.log(this.is_moving)
+        // }
+        // else {
+        //     cos = Math.cos(this.yaw);
+        //     sin = Math.sin(this.yaw);
+        // }
+        const forward = [-sin, 0, -cos];
+        const right = [10, 0, 0];
         // console.log("waiting for input")
 
         // Map user input to the acceleration vector.
+        const rotation = quat.create();
         const acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.buttonPressed('DPad-Up'))) {
             vec3.add(acc, acc, forward);
             this.cam[0] = vec3.add(acc, acc, forward);
+            quat.rotateY(rotation, rotation, 1.7320000000000046);
             // console.log(this.is_moving);
             this.is_moving = true;
             // console.log(this.is_moving);
         }
-        if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.buttonPressed('DPad-Down'))) {
             vec3.sub(acc, acc, forward);
             this.cam[1] = vec3.sub(acc, acc, forward);
+            quat.rotateY(rotation, rotation, 4.899185307179586);
             this.is_moving = true;
         }
-        if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
-            vec3.sub(acc, acc, right);
-            this.cam[2] = vec3.sub(acc, acc, right);
-            this.is_moving = true;
-        }
-        if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Right'))) {
             vec3.add(acc, acc, right);
-            this.cam[3] = vec3.add(acc, acc, right);
+            this.cam[2] = vec3.add(acc, acc, right);
+            quat.rotateY(rotation, rotation, 0);
             this.is_moving = true;
         }
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Left'))) {
+            vec3.sub(acc, acc, right);
+            this.cam[3] = vec3.sub(acc, acc, right);
+            quat.rotateY(rotation, rotation, 3.1100000000000385);
+            this.is_moving = true;
+        }
+        // if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
+        //     vec3.add(acc, acc, forward);
+        //     this.cam[0] = vec3.add(acc, acc, forward);
+        //     // console.log(this.is_moving);
+        //     this.is_moving = true;
+        //     // console.log(this.is_moving);
+        // }
+        // if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
+        //     vec3.sub(acc, acc, forward);
+        //     this.cam[1] = vec3.sub(acc, acc, forward);
+        //     this.is_moving = true;
+        // }
+        // if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
+        //     vec3.sub(acc, acc, right);
+        //     this.cam[2] = vec3.sub(acc, acc, right);
+        //     this.is_moving = true;
+        // }
+        // if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
+        //     vec3.add(acc, acc, right);
+        //     this.cam[3] = vec3.add(acc, acc, right);
+        //     this.is_moving = true;
+        // }
         if (this.gamepads.buttonPressed('A')) {
             this.pritisk[0] = !this.pritisk[0];
             this.Wsfx.play();
@@ -203,16 +231,18 @@ export class Char_cont {
             this.Esfx.play();
             this.ability.earth(this.obj1, this.pritisk[3]);
         }
+
+        this.node.rotation = rotation;
         
         // Update velocity based on acceleration.
         vec3.scaleAndAdd(this.velocity2, this.velocity2, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
         if (this.connected) {
-            if ((this.gamepads.axesStatus[1] > -0.08) && 
-                (this.gamepads.axesStatus[1] < 0.08) && 
-                (this.gamepads.axesStatus[0] > -0.08) &&
-                (this.gamepads.axesStatus[0] < 0.08))
+            if (!this.gamepads.buttonPressed('DPad-Up') && 
+                !this.gamepads.buttonPressed('DPad-Down') && 
+                !this.gamepads.buttonPressed('DPad-Right') &&
+                !this.gamepads.buttonPressed('DPad-Left'))
             {
                 const decay = Math.exp(dt * Math.log(1 - this.decay));
                 vec3.scale(this.velocity2, this.velocity2, decay);
@@ -243,23 +273,24 @@ export class Char_cont {
             this.node.translation, this.velocity2, dt);
 
         // Update rotation based on the Euler angles.
-        const rotation = quat.create();
-        if (this.connected) {
-            let compu = this.gamepads.axesStatus[2];
-            if (this.gamepads.axesStatus[2] > 0.2 || this.gamepads.axesStatus[2] < -0.2) {
-                this.axesRotation += compu;
-            }
-            else {
-                this.axesRotation -= compu;
-            }
-            quat.rotateY(rotation, rotation, this.axesRotation*this.pointerSensitivity);
-            quat.rotateX(rotation, rotation, 0);
-        }
-        else {
-            quat.rotateY(rotation, rotation, this.yaw);
-            quat.rotateX(rotation, rotation, 0);
-        }
-        this.node.rotation = rotation;
+        // const rotation = quat.create();
+        // if (this.connected) {
+        //     let compu = this.gamepads.axesStatus[2];
+        //     if (this.gamepads.axesStatus[2] > 0.2 || this.gamepads.axesStatus[2] < -0.2) {
+        //         this.axesRotation += compu;
+        //     }
+        //     else {
+        //         this.axesRotation -= compu;
+        //     }
+        //     quat.rotateY(rotation, rotation, this.axesRotation*this.pointerSensitivity);
+        //     quat.rotateX(rotation, rotation, 0);
+        // }
+        // else {
+        //     quat.rotateY(rotation, rotation, this.yaw);
+        //     quat.rotateX(rotation, rotation, 0);
+        // }
+        // console.log(this.yaw);
+        // this.node.rotation = rotation;
         // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
         this.node.velocitySet(this.velocity2);
     }
