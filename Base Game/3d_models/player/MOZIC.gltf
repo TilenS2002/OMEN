@@ -90,7 +90,10 @@
                 3
             ],
             "extras" : {
-                "collidable" : 1
+                "collidable" : 1,
+                "is_jump" : 1,
+                "is_fall" : 1,
+                "is_stand" : 1
             },
             "mesh" : 4,
             "name" : "telo",
