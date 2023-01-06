@@ -20,6 +20,7 @@ class App extends Application {
         // await this.loader2.load('../3d_models/untitled.gltf');
         // await this.loader2.load('../3d_models/untitled.gltf');
         await this.loader2.load('../3d_models/map/mapa_test_MANSE.gltf');
+        // await this.loader2.load('../3d_models/map/test_luci.gltf');
 
         
         this.loader = new GLTFLoader();
