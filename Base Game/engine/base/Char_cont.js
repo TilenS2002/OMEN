@@ -139,7 +139,8 @@ export class Char_cont {
     update(dt) {
         
         // const up = [0,1,0];
-        console.log(this.gamepads.buttonsStatus)
+        this.gamepads.update();
+        // console.log(this.gamepads.buttonsStatus)
         let cos = Math.cos(0);
         let sin = Math.sin(0);
         // this.axesRotation = this.gamepads.axesStatus[2];
@@ -163,7 +164,7 @@ export class Char_cont {
         // Map user input to the acceleration vector.
         const rotation = quat.create();
         const acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.gamepads.buttonPressed('DPad-Up'))) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.buttonPressed('DPad-Up', 'Held'))) {
             vec3.add(acc, acc, forward);
             this.cam[0] = vec3.add(acc, acc, forward);
             quat.rotateY(rotation, rotation, 1.7320000000000046);
@@ -171,19 +172,19 @@ export class Char_cont {
             this.is_moving = true;
             // console.log(this.is_moving);
         }
-        if (this.keys['KeyS'] || (this.connected && this.gamepads.buttonPressed('DPad-Down'))) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.buttonPressed('DPad-Down', 'Held'))) {
             vec3.sub(acc, acc, forward);
             this.cam[1] = vec3.sub(acc, acc, forward);
             quat.rotateY(rotation, rotation, 4.899185307179586);
             this.is_moving = true;
         }
-        if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Right'))) {
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Right', 'Held'))) {
             vec3.add(acc, acc, right);
             this.cam[2] = vec3.add(acc, acc, right);
             quat.rotateY(rotation, rotation, 0);
             this.is_moving = true;
         }
-        if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Left'))) {
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Left', 'Held'))) {
             vec3.sub(acc, acc, right);
             this.cam[3] = vec3.sub(acc, acc, right);
             quat.rotateY(rotation, rotation, 3.1100000000000385);
@@ -410,8 +411,8 @@ export class Char_cont {
         return this.connected;
     }
 
-    getAxesValues() {
-        return this.gamepads.axesStatus;
+    getButtonValues() {
+        return this.gamepads.buttonsStatus;
     }
     
     getCam() {
