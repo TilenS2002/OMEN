@@ -2,7 +2,7 @@ import { Application } from './base/Application.js';
 import { GLTFLoader } from './GLTFLoader.js';
 import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
-import { Dnoga_movement, Droka_movement, jump, Lnoga_movement, Lroka_movement, abilityAinm } from '../3d_models/animacije/mozic_animations.js'
+import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement, abilityAinm } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 import { Char_cont } from './base/Char_cont.js';

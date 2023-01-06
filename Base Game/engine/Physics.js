@@ -12,9 +12,26 @@ export class Physics {
         this.scene = scene;
         this.cam = cam;
         this.colili = kulci;
+        
+        const GRAVITY = 9.81; // gravitational acceleration (m/s^2)
+
+        // Initialize the position and velocity of the object
+        let x = 0;
+        let y = 0;
+        let vx = 0;
+        let vy = 0;
+
+        // Update the position of the object based on its velocity and the elapsed time
+        function updatePosition(dt) {
+            x += vx * dt;
+            y += vy * dt;
+            // Apply gravity to the vertical velocity
+            vy += GRAVITY * dt;
+        }
     }
 
     update(dt) {
+        updatePosition(dt);
         this.scene.traverse(node => {
             // Move every node with defined velocity.
             if (node.velocity) {
