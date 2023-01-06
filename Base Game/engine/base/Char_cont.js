@@ -262,7 +262,7 @@ export class Char_cont {
             }
         }
         
-
+        this.keypressedHandler();
         // Limit speed to prevent accelerating to infinity and beyond.
         const speed = vec3.length(this.velocity2);
         if (speed > this.maxSpeed) {
@@ -320,6 +320,10 @@ export class Char_cont {
 
     keydownHandler(e) {
         this.keys[e.code] = true;
+    }
+
+    keyupHandler(e) {
+        this.keys[e.code] = false;
     }
 
     keypressedHandler() {
@@ -381,14 +385,28 @@ export class Char_cont {
             }
         }
         else if (this.keys['Space']) {
-            this.pritisk[4] = !this.pritisk[4];
-            console.log("skoci!")
-            this.keys['Space'] = this.pritisk[4];
+            let startTime = performance.now()/1000;
+            let time = 0;
+            while (time - startTime < 1) {
+                this.pritisk[4] = !this.pritisk[4];
+                //console.log("skoci!");
+                time = performance.now()/1000;
+                //console.log(time-startTime);
+                this.node.translation = vec3.scaleAndAdd(vec3.create(),
+                this.node.translation, [0,0.5,0], (time-startTime)*0.005);
+                this.keys['Space'] = this.pritisk[4];
+            }
+            startTime = performance.now()/1000;
+            while (time - startTime < 1) {
+                this.pritisk[4] = !this.pritisk[4];
+                //console.log("skoci!");
+                time = performance.now()/1000;
+                // console.log(time-startTime);
+                // this.node.translation = vec3.scaleAndAdd(vec3.create(),
+                // this.node.translation, [0,0,0], (time-startTime)*0.005);
+                this.keys['Space'] = this.pritisk[4];
+            }
         } 
-    }
-
-    keyupHandler(e) {
-        this.keys[e.code] = false;
     }
 
     is_moving() {

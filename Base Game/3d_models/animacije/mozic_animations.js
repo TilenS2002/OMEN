@@ -44,17 +44,6 @@ export class Lroka_movement {
     }
 }
 
-export class jump {
-    constructor(node) {
-        this.node = node;
-    }
-    update() {
-        let jump = quat.setAxisAngle(quat.create(), [1,0,0], Math.sin(1)*0.4);
-        this.node.rotate = jump;
-        // console.log("updatan");
-    }
-}
-
 export class abilityAinm {
     constructor(node1, node2) {
         this.node1 = node1;
