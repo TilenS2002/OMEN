@@ -13,7 +13,7 @@ export class Cam_cont {
         this.pitch = this.char.getCharRotation()[1];
         this.yaw = this.char.getCharRotation()[0];
 
-        this.axes = this.char.getAxesValues() || {};
+        this.buttons = this.char.getButtonValues() || {};
 
         this.velocity = [0, 0, 0];
         this.acceleration = 5;
@@ -61,35 +61,36 @@ export class Cam_cont {
     update(dt) {
         // Calculate forward and right vectors.
         // console.log("prejel char cont rot: ", this.pitch, " ", this.yaw);
-        this.axes = this.char.getAxesValues();
-        let cos = Math.cos(this.yaw);
-        let sin = Math.sin(this.yaw);
-        if (this.connected) {
-            cos = Math.cos(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-            sin = Math.sin(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-        }
-        else {
-            cos = Math.cos(this.yaw);
-            sin = Math.sin(this.yaw);
-        }
-        const right = [-sin, 0, -cos];
-        const forward = [cos, 0, -sin];
+        this.buttons = this.char.getButtonValues();
+        // console.log(this.buttons)
+        // let cos = Math.cos(0);
+        // let sin = Math.sin(0);
+        // if (this.connected) {
+        //     cos = Math.cos(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+        //     sin = Math.sin(((this.axes[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
+        // }
+        // else {
+        //     cos = Math.cos(this.yaw);
+        //     sin = Math.sin(this.yaw);
+        // }
+        // const right = [-sin, 0, -cos];
+        // const forward = [cos, 0, -sin];
 
         // Map user input to the acceleration vector.
         let acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.axes[1] < -0.1)) {
+        if (this.keys['KeyW'] || (this.connected && this.buttons == 'DPad-Up')) {
             // vec3.add(acc, acc, forward);
             acc = this.char.getCam()[0];
         }
-        if (this.keys['KeyS'] || (this.connected && this.axes[1] > 0.1)) {
+        if (this.keys['KeyS'] || (this.connected && this.buttons == 'DPad-Down')) {
             // vec3.sub(acc, acc, forward);
             acc = this.char.getCam()[1];
         }
-        if (this.keys['KeyD'] || (this.connected && this.axes[0] > 0.1)) {
+        if (this.keys['KeyD'] || (this.connected && this.buttons == 'DPad-Left')) {
             // vec3.sub(acc, acc, right);
             acc = this.char.getCam()[2];
         }
-        if (this.keys['KeyA'] || (this.connected && this.axes[0] < -0.1)) {
+        if (this.keys['KeyA'] || (this.connected && this.buttons == 'DPad-Right')) {
             // vec3.add(acc, acc, right);
             acc = this.char.getCam()[3];
         }
@@ -99,10 +100,10 @@ export class Cam_cont {
 
         // If there is no user input, apply decay.
         if (this.connected) {
-            if ((this.axes[1] > -0.08) && 
-                (this.axes[1] < 0.08) && 
-                (this.axes[0] > -0.08) &&
-                (this.axes[0] < 0.08))
+            if (!this.buttons == 'DPad-Up' && 
+                !this.buttons == 'DPad-Down' && 
+                !this.buttons == 'DPad-Left' &&
+                !this.buttons == 'DPad-Right')
             {
                 const decay = Math.exp(dt * Math.log(1 - this.decay));
                 vec3.scale(this.velocity, this.velocity, decay);
