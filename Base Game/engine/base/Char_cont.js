@@ -78,6 +78,7 @@ export class Char_cont {
         this.pitch = 0;
         this.yaw = 0;
 
+        this.GRAVITY = 9.81; // gravitational acceleration (m/s^2)
         this.velocityChar = [0, 0, 0];
         this.velocityCam = [0, 0, 0];
         this.acceleration = 5;
@@ -150,10 +151,14 @@ export class Char_cont {
         const forward = [-sin, 0, -cos];
         const right = [10, 0, 0];
 
+
         // Map user input to the acceleration vector.
         const rotation = quat.create();
         const acc = vec3.create();
         // console.log(vec3.sub(this.posNow, this.posNow, this.posPrev));
+        this.velocityChar[1] -= this.GRAVITY*dt;
+        this.velocityCam[1] -=this.GRAVITY*dt;
+        // console.log(this.velocityChar);
         if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Up', 'Held'))) {
             vec3.add(acc, acc, forward);
             quat.rotateY(rotation, rotation, 1.7320000000000046);
