@@ -231,6 +231,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 0,
             "name" : "Cube.188",
             "rotation" : [
@@ -247,10 +250,13 @@
             "translation" : [
                 28.817169189453125,
                 -9.93028450012207,
-                -30.434814453125
+                -30.634815216064453
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 1,
             "name" : "Cube.014",
             "rotation" : [
@@ -271,6 +277,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 2,
             "name" : "Cube.021",
             "rotation" : [
@@ -291,6 +300,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 3,
             "name" : "Cube.030",
             "rotation" : [
@@ -526,6 +538,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 14,
             "name" : "Cube.196",
             "rotation" : [
@@ -540,12 +555,15 @@
                 10
             ],
             "translation" : [
-                8.617164611816406,
+                8.717164993286133,
                 -10.030284881591797,
                 -30.53485107421875
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 15,
             "name" : "Cube.204",
             "rotation" : [
@@ -566,6 +584,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 15,
             "name" : "Cube.208",
             "rotation" : [
@@ -586,6 +607,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 15,
             "name" : "Cube.210",
             "rotation" : [
@@ -606,6 +630,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 15,
             "name" : "Cube.239",
             "rotation" : [
@@ -626,6 +653,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 15,
             "name" : "Cube.280",
             "scale" : [
@@ -640,6 +670,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 16,
             "name" : "Cube.003",
             "scale" : [
@@ -722,6 +755,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 19,
             "name" : "Cube.045",
             "scale" : [
@@ -736,6 +772,9 @@
             ]
         },
         {
+            "extras" : {
+                "collidable" : 1
+            },
             "mesh" : 20,
             "name" : "Cube.046",
             "scale" : [
@@ -3472,7 +3511,7 @@
             ],
             "translation" : [
                 37.290157318115234,
-                -8.86093521118164,
+                -9.060935020446777,
                 -52.56584930419922
             ]
         },
