@@ -2047,11 +2047,16 @@
         {
             "extras" : {
                 "jumpable" : 1,
-                "collidable" : 1,
-                "onEarth" : 1
+                "collidable" : 1
             },
             "mesh" : 77,
             "name" : "platform1.009",
+            "rotation" : [
+                0,
+                0.7071068286895752,
+                0,
+                0.7071068286895752
+            ],
             "scale" : [
                 5,
                 30,
@@ -2095,12 +2100,6 @@
             },
             "mesh" : 79,
             "name" : "platform1.013",
-            "rotation" : [
-                0,
-                0.7071068286895752,
-                0,
-                0.7071068286895752
-            ],
             "scale" : [
                 5,
                 30,
