@@ -4,7 +4,7 @@ import { Renderer } from './Renderer.js';
 import { idle_animation_LR, idle_animation_DR } from '../3d_models/animacije/idle_animation.js';
 import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement, abilityAinm } from '../3d_models/animacije/mozic_animations.js'
 import { Physics } from './Physics.js';
-import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
+import { Krog_rotation, Platform_movement, Ability_movement } from '../3d_models/animacije/level_animations.js';
 import { Char_cont } from './base/Char_cont.js';
 import { vec3 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
@@ -29,8 +29,6 @@ class App extends Application {
         this.platTest = new Platform_movement(this.platformaStart);
         this.platforma1 = await this.loader2.loadNode('platform1.008');
         this.plat1 = new Platform_movement(this.platforma1);
-        this.platforma2 = await this.loader2.loadNode('platform1.005');
-        this.plat2 = new Platform_movement(this.platforma2);
         this.platforma3 = await this.loader2.loadNode('platform1.066');
         this.plat3 = new Platform_movement(this.platforma3);
         this.platforma4 = await this.loader2.loadNode('platform1.065');
@@ -85,7 +83,11 @@ class App extends Application {
         this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
         this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         
-        this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.platform, this.platform, this.platform, this.platform);
+        this.wada = await this.loader2.loadNode('platform1.056');
+        this.wagn = await this.loader2.loadNode('platform1.005');
+        this.narava = this.loader2.loadNode('platform1.001');
+        this.erf = this.loader2.loadNode('platform1.013');
+        this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.wada, this.wagn, this.narava, this.erf);
         
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -102,10 +104,10 @@ class App extends Application {
         const time = performance.now() / 1000;
         if (!this.isPlaying(this.ambience))
             this.ambience.play();
+        // console.log(this.plat1.rotation);
         this.krog.update(time);
         this.platTest.update(0,0,Math.sin(time)*9);
         this.plat1.update(Math.sin(time)*9, 0, 0);
-        this.plat2.update(0, 0, Math.sin(time)*8);
         this.plat3.update(Math.sin(time)*9, 0, 0);
         this.plat4.update(-Math.sin(time)*9, 0, 0);
         if (!this.controller.is_moving) {
@@ -122,10 +124,10 @@ class App extends Application {
         }
         const dt = (this.time - this.startTime) * 0.005;
         this.startTime = this.time;
-        if (this.controller.abilityUsed) {
-            this.anim.start();
-            this.anim.update(time);
-        }
+        // if (this.controller.abilityUsed) {
+        //     this.anim.start();
+        //     this.anim.update(time);
+        // }
         this.controller.update(dt);
         this.Physics.update(dt);
     }
