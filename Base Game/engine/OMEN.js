@@ -24,6 +24,8 @@ class App extends Application {
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
         this.telo = await this.loader.loadNode('telo');
+        this.box = await this.loader.loadNode('collajd');
+        this.box.mesh = this.box.mesh.opacity = 0;
         
         this.platformaStart = await this.loader2.loadNode('platform1.003');
         this.platTest = new Platform_movement(this.platformaStart);
@@ -80,7 +82,7 @@ class App extends Application {
                 this.collide.push(node);
             }
         });
-        this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
+        this.Physics = new Physics(this.scene, this.telo, this.box, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
         this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         
         this.wada = await this.loader2.loadNode('platform1.056');

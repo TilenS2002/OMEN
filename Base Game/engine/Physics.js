@@ -3,12 +3,13 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene, body, Dnoga, Droka, Lnoga, Lroka, cam, kulci) {
+    constructor(scene, body, box, Dnoga, Droka, Lnoga, Lroka, cam, kulci) {
         this.body = body;
         this.Dnoga = Dnoga;
         this.Droka = Droka;
         this.Lnoga = Lnoga;
         this.Lroka = Lroka;
+        this.box = box
         this.scene = scene;
         this.cam = cam;
         this.colili = kulci;
@@ -34,17 +35,18 @@ export class Physics {
         this.updatePosition(dt);
         this.scene.traverse(node => {
             // Move every node with defined velocity.
-            if (node.velocity) {
+            if (node == this.body) {
                 vec3.scaleAndAdd(node.translation, node.translation, node.velocity, dt);
                 node.updateTransformationMatrix();
 
                 // After moving, check for collision with every other node.
                 this.scene.traverse(other => {
-                    if (node !== other && node !== this.body && node !== this.Dnoga && node !== this.Droka && node !== this.Lnoga && node !== this.Lroka && this.colili.includes(other) && !this.colili.includes(node)) {
-                        this.resolveCollision(this.body, other);
+                    if (node !== other && other != this.box && this.colili.includes(other) && !this.colili.includes(node)) {
+                        this.resolveCollision(node, other);
                     }
                 });
             }
+            
         });
     }
 
@@ -94,7 +96,7 @@ export class Physics {
             return;
         }
         // console.log("trk")
-        console.log(a.name," ",b.name);
+        // console.log(a.name," ",b.name);
         // Move node A minimally to avoid collision.
         const diffa = vec3.sub(vec3.create(), bBox.max, aBox.min);
         const diffb = vec3.sub(vec3.create(), aBox.max, bBox.min);
