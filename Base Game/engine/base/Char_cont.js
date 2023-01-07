@@ -4,9 +4,11 @@ import { abilities } from '../abilities.js';
 
 export class Char_cont {
 
-    constructor(node, domElement, obj1, obj2, obj3, obj4) {
-        this.node = node;
+    constructor(node1, node2, domElement, camFollow, obj1, obj2, obj3, obj4) {
+        this.char = node1;
+        this.camdis = node2;
         this.domElement = domElement;
+        this.camFollow = camFollow;
         this.axesRotation = 0;
         this.keys = {};
         this.connected = false;
@@ -15,7 +17,7 @@ export class Char_cont {
             controller: {},
             connect(e) {
                 this.controller = e.gamepad;
-                console.log("Connected")
+                console.log("Connected");
             },
             disconnect() {
                 delete this.controller;
@@ -77,13 +79,16 @@ export class Char_cont {
         this.pitch = 0;
         this.yaw = 0;
 
-        this.velocity2 = [0, 0, 0];
+        this.velocityChar = [0, 0, 0];
+        this.velocityCam = [0, 0, 0];
         this.acceleration = 5;
         this.maxSpeed = 5;
         this.decay = 0.99;
         this.pointerSensitivity = 0.002;
         this.ability = new abilities();
         this.pritisk = [false, false, false, false, false];
+        this.posNow = vec3.create();
+        this.posPrev = vec3.create();
 
         this.Wsfx = new Audio('../audio/abilities/water/mixkit-heal-soft-water-spell-878.wav');
         this.Nsfx = new Audio('../audio/abilities/nature/mixkit-magical-light-moving-2584.wav');
@@ -112,8 +117,6 @@ export class Char_cont {
         doc.addEventListener('keydown', this.keydownHandler);
         doc.addEventListener('keyup', this.keyupHandler);
         doc.addEventListener('keypress', this.keypressedHandler);
-        // element.addEventListener('gamepadconnected', this.gamepadHandler);
-
         window.addEventListener('gamepadconnected', (e) => {
             this.connected = !this.connected;
             this.gamepads.connect(e);
@@ -137,81 +140,55 @@ export class Char_cont {
         });
     }
     update(dt) {
-        
-        // const up = [0,1,0];
         this.gamepads.update();
         // console.log(this.gamepads.buttonsStatus)
+        // console.log(this.camdis.globalMatrix);
+        
+        const curDist = vec3.distance(this.char.translation, this.camdis.translation);
         let cos = Math.cos(0);
         let sin = Math.sin(0);
-        // this.axesRotation = this.gamepads.axesStatus[2];
-        // if (this.connected) {
-        //     this.gamepads.update();
-        //     // Calculate forward and right vectors.
-        //     // this.yaw = ((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2
-        //     cos = Math.cos(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-        //     sin = Math.sin(((this.gamepads.axesStatus[2] % Math.PI*2) + Math.PI*2) % Math.PI*2);
-        //     // console.log(this.gamepads.axesStatus)
-        //     // console.log(this.is_moving)
-        // }
-        // else {
-        //     cos = Math.cos(this.yaw);
-        //     sin = Math.sin(this.yaw);
-        // }
         const forward = [-sin, 0, -cos];
         const right = [10, 0, 0];
-        // console.log("waiting for input")
 
         // Map user input to the acceleration vector.
         const rotation = quat.create();
         const acc = vec3.create();
-        if (this.keys['KeyW'] || (this.connected && this.gamepads.buttonPressed('DPad-Up', 'Held'))) {
+        // console.log(vec3.sub(this.posNow, this.posNow, this.posPrev));
+        if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Up', 'Held'))) {
             vec3.add(acc, acc, forward);
-            this.cam[0] = vec3.add(acc, acc, forward);
             quat.rotateY(rotation, rotation, 1.7320000000000046);
-            // console.log(this.is_moving);
             this.is_moving = true;
-            // console.log(this.is_moving);
         }
-        if (this.keys['KeyS'] || (this.connected && this.gamepads.buttonPressed('DPad-Down', 'Held'))) {
+        if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Down', 'Held'))) {
+            // if (curDist[0] > this.camFollow[0]) {
+            //     vec3.add(accCam, accCam, forward);
+            // }
             vec3.sub(acc, acc, forward);
-            this.cam[1] = vec3.sub(acc, acc, forward);
+            // this.cam[1] = vec3.sub(acc, acc, forward);
             quat.rotateY(rotation, rotation, 4.899185307179586);
             this.is_moving = true;
+            
         }
-        if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Right', 'Held'))) {
+        if (this.keys['KeyS'] || (this.connected && this.gamepads.buttonPressed('DPad-Right', 'Held'))) {
             vec3.add(acc, acc, right);
-            this.cam[2] = vec3.add(acc, acc, right);
+            
+            // this.cam[2] = vec3.add(acc, acc, right);
             quat.rotateY(rotation, rotation, 0);
             this.is_moving = true;
+            
         }
-        if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Left', 'Held'))) {
+        if (this.keys['KeyW'] || (this.connected && this.gamepads.buttonPressed('DPad-Left', 'Held'))) {
             vec3.sub(acc, acc, right);
-            this.cam[3] = vec3.sub(acc, acc, right);
+            
+            // this.cam[3] = vec3.sub(acc, acc, right);
             quat.rotateY(rotation, rotation, 3.1100000000000385);
             this.is_moving = true;
+            
         }
-        // if (this.keys['KeyW'] || (this.connected && this.gamepads.axesStatus[1] < -0.1)) {
-        //     vec3.add(acc, acc, forward);
-        //     this.cam[0] = vec3.add(acc, acc, forward);
-        //     // console.log(this.is_moving);
-        //     this.is_moving = true;
-        //     // console.log(this.is_moving);
-        // }
-        // if (this.keys['KeyS'] || (this.connected && this.gamepads.axesStatus[1] > 0.1)) {
-        //     vec3.sub(acc, acc, forward);
-        //     this.cam[1] = vec3.sub(acc, acc, forward);
-        //     this.is_moving = true;
-        // }
-        // if (this.keys['KeyD'] || (this.connected && this.gamepads.axesStatus[0] > 0.1)) {
-        //     vec3.sub(acc, acc, right);
-        //     this.cam[2] = vec3.sub(acc, acc, right);
-        //     this.is_moving = true;
-        // }
-        // if (this.keys['KeyA'] || (this.connected && this.gamepads.axesStatus[0] < -0.1)) {
-        //     vec3.add(acc, acc, right);
-        //     this.cam[3] = vec3.add(acc, acc, right);
-        //     this.is_moving = true;
-        // }
+        // console.log("trenutna distanca: ", curDist[2], " zeljena distanca: ", this.camFollow[2]); // W neg, S pos
+        // console.log(curDist[2] < this.camFollow[2]);
+        // console.log("trenutna distanca: ", curDist[0], " zeljena distanca: ", this.camFollow[0]); // A neg, D pos
+        // console.log(curDist[0] < this.camFollow[0]);
         if (this.gamepads.buttonPressed('A')) {
             this.pritisk[0] = !this.pritisk[0];
             this.Wsfx.play();
@@ -233,10 +210,12 @@ export class Char_cont {
             this.ability.earth(this.obj1, this.pritisk[3]);
         }
 
-        this.node.rotation = rotation;
+        this.char.rotation = rotation;
         
         // Update velocity based on acceleration.
-        vec3.scaleAndAdd(this.velocity2, this.velocity2, acc, dt * this.acceleration);
+        vec3.scaleAndAdd(this.velocityChar, this.velocityChar, acc, dt * this.acceleration);
+
+        vec3.scaleAndAdd(this.velocityCam, this.velocityCam, acc, dt * this.acceleration);
 
         // If there is no user input, apply decay.
         if (this.connected) {
@@ -246,7 +225,8 @@ export class Char_cont {
                 !this.gamepads.buttonPressed('DPad-Left'))
             {
                 const decay = Math.exp(dt * Math.log(1 - this.decay));
-                vec3.scale(this.velocity2, this.velocity2, decay);
+                vec3.scale(this.velocityChar, this.velocityChar, decay);
+                vec3.scale(this.velocityCam, this.velocityCam, decay);
                 this.is_moving = false;
             }
         }
@@ -257,43 +237,37 @@ export class Char_cont {
             !this.keys['KeyA']))
             {
                 const decay = Math.exp(dt * Math.log(1 - this.decay));
-                vec3.scale(this.velocity2, this.velocity2, decay);
+                vec3.scale(this.velocityChar, this.velocityChar, decay);
+                vec3.scale(this.velocityCam, this.velocityCam, decay);
                 this.is_moving = false;
             }
         }
         
         this.keypressedHandler();
         // Limit speed to prevent accelerating to infinity and beyond.
-        const speed = vec3.length(this.velocity2);
-        if (speed > this.maxSpeed) {
-            vec3.scale(this.velocity2, this.velocity2, this.maxSpeed / speed);
+        const speedChar = vec3.length(this.velocityChar);
+        if (speedChar > this.maxSpeed) {
+            vec3.scale(this.velocityChar, this.velocityChar, this.maxSpeed / speedChar);
+        }
+        const speedCam = vec3.length(this.velocityCam);
+        if (speedCam > this.maxSpeed) {
+            vec3.scale(this.velocityCam, this.velocityCam, this.maxSpeed / speedCam);
         }
 
         // Update translation based on velocity.
-        this.node.translation = vec3.scaleAndAdd(vec3.create(),
-            this.node.translation, this.velocity2, dt);
-
-        // Update rotation based on the Euler angles.
-        // const rotation = quat.create();
-        // if (this.connected) {
-        //     let compu = this.gamepads.axesStatus[2];
-        //     if (this.gamepads.axesStatus[2] > 0.2 || this.gamepads.axesStatus[2] < -0.2) {
-        //         this.axesRotation += compu;
-        //     }
-        //     else {
-        //         this.axesRotation -= compu;
-        //     }
-        //     quat.rotateY(rotation, rotation, this.axesRotation*this.pointerSensitivity);
-        //     quat.rotateX(rotation, rotation, 0);
+        this.char.translation = vec3.scaleAndAdd(vec3.create(),
+            this.char.translation, this.velocityChar, dt);
+        // this.char.velocitySet(this.velocity2);
+        // if (curDist == this.camFollow) {
+        this.camdis.translation = vec3.scaleAndAdd(vec3.create(),
+        this.camdis.translation, this.velocityCam, dt);
         // }
         // else {
-        //     quat.rotateY(rotation, rotation, this.yaw);
-        //     quat.rotateX(rotation, rotation, 0);
+        //     console.log("trenutna razdalja: ",curDist, " originalana razdalja: ", this.camFollow)
+        //     this.camdis.translation = this.camdis.translation;
         // }
-        // console.log(this.yaw);
-        // this.node.rotation = rotation;
-        // console.log("pitch: ",this.pitch, "yaw: ",this.yaw)
-        this.node.velocitySet(this.velocity2);
+        
+        
     }
 
     pointermoveHandler(e) {
@@ -392,8 +366,8 @@ export class Char_cont {
                 //console.log("skoci!");
                 time = performance.now()/1000;
                 //console.log(time-startTime);
-                this.node.translation = vec3.scaleAndAdd(vec3.create(),
-                this.node.translation, [0,0.5,0], (time-startTime)*0.005);
+                this.char.translation = vec3.scaleAndAdd(vec3.create(),
+                this.char.translation, [0,0.5,0], (time-startTime)*0.005);
                 this.keys['Space'] = this.pritisk[4];
             }
             startTime = performance.now()/1000;
@@ -411,29 +385,5 @@ export class Char_cont {
 
     is_moving() {
         return this.is_moving;
-    }
-
-    getCharRotation() {
-        return [this.yaw, this.pitch];
-    }
-
-    getPS() {
-        return this.pointerSensitivity;
-    }
-
-    abilityInUse() {
-        return this.abilityUsed;
-    }
-
-    getConnected() {
-        return this.connected;
-    }
-
-    getButtonValues() {
-        return this.gamepads.buttonsStatus;
-    }
-    
-    getCam() {
-        return this.cam;
     }
 }

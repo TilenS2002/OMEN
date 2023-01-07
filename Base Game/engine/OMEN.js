@@ -6,39 +6,35 @@ import { Dnoga_movement, Droka_movement, Lnoga_movement, Lroka_movement, ability
 import { Physics } from './Physics.js';
 import { Krog_rotation, Platform_movement } from '../3d_models/animacije/level_animations.js';
 import { Char_cont } from './base/Char_cont.js';
-import { Cam_cont } from './base/Cam_cont.js';
+import { vec3 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 class App extends Application {
 
     async start() {
 
         this.loader2 = new GLTFLoader();
-        // await this.loader2.load('../3d_models/assets/krog.gltf');
-        // await this.loader2.load('../3d_models/untitled.gltf');
-        // await this.loader2.load('../3d_models/assets/kamn.gltf');
-        // await this.loader2.load('../3d_models/assets/stena2.gltf');
-        // await this.loader2.load('../3d_models/untitled.gltf');
-        // await this.loader2.load('../3d_models/untitled.gltf');
         await this.loader2.load('../3d_models/map/mapa_test_MANSE.gltf');
         // await this.loader2.load('../3d_models/map/test_luci.gltf');
-
         
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
-        // await this.loader.load('../3d_models/player/MOZIC_res_finish.gltf');
 
         this.startTime = performance.now();
 
         this.scene = await this.loader2.loadScene(this.loader.defaultScene);
         this.camera = await this.loader.loadNode('Camera');
-        // controller, popravi da bo premikou characterja, ne kamere
-        // this.prazno = await this.loader.loadNode("Empty.001")
-        
         this.telo = await this.loader.loadNode('telo');
         
-        // this.platformTest = await this.loader2.loadNode('Cube');
-        // this.platform = new Platform_movement(this.platformTest, this.platformTest.rotation);
-        // prebam nalozt usak node posebej
+        this.platformaStart = await this.loader2.loadNode('platform1.003');
+        this.platTest = new Platform_movement(this.platformaStart);
+        this.platforma1 = await this.loader2.loadNode('platform1.008');
+        this.plat1 = new Platform_movement(this.platforma1);
+        this.platforma2 = await this.loader2.loadNode('platform1.005');
+        this.plat2 = new Platform_movement(this.platforma2);
+        this.platforma3 = await this.loader2.loadNode('platform1.066');
+        this.plat3 = new Platform_movement(this.platforma3);
+        this.platforma4 = await this.loader2.loadNode('platform1.065');
+        this.plat4 = new Platform_movement(this.platforma4);
         this.Droka = await this.loader.loadNode('desna_roka');
         this.Lroka = await this.loader.loadNode('leva_roka');
         this.Dnoga = await this.loader.loadNode('noga_desna');
@@ -48,22 +44,13 @@ class App extends Application {
 
         this.telo.translation = this.spawn.translation;
         this.camera.translation = this.camSP.translation;
-        // this.test = await this.loader2.loadNode('Cube.269');
         this.char = [this.telo, this.Dnoga, this.Lnoga, this.Droka, this.Lroka];
-        // this.Dnoga = await this.loader.loadNode('noga desna');
-        // this.Lnoga = await this.loader.loadNode('leva noga');
-        // this.Droka = await this.loader.loadNode('desna roka');
-        // this.Lroka = await this.loader.loadNode('leva roka');
-        // console.log("Camera: ", this.camera);
-        // console.log("Buddy: ", this.telo);
-        // console.log("Prazna: ", this.test.extras);
-        // console.log("Droka: ", this.Droka);
-        this.controller = new Char_cont(this.telo, this.canvas, this.platform, this.platform, this.platform, this.platform);
+        
+        this.distanca = vec3.distance(this.telo.translation, this.camera.translation);
         this.anim = new abilityAinm(this.Lroka, this.Droka);
-        this.camCont = new Cam_cont(this.camera, this.canvas, this.controller);
         this.scene.addNode(this.telo);
         
-        // this.krogTest = await this.loader2.loadNode('KROG3');
+        this.krogTest = await this.loader2.loadNode('KROG3.017');
         
         if (!this.scene || !this.camera) {
             throw new Error('Scene or Camera not present in glTF');
@@ -72,9 +59,6 @@ class App extends Application {
         if (!this.camera.camera) {
             throw new Error('Camera node does not contain a camera reference');
         }
-
-       
-        // this.premik = new Platform_movement(this.platforma, this.platforma.rotation);
 
         this.footsteps = new Audio('../audio/footsteps/concrete-footsteps-6752.mp3');
         this.footsteps.volume = 0.3;
@@ -86,30 +70,22 @@ class App extends Application {
         this.nogaL = new Lnoga_movement(this.Lnoga);
         this.rokaD = new Droka_movement(this.Droka);
         this.rokaL = new Lroka_movement(this.Lroka);
-        // this.skok = new jump(this.Lroka);
 
         this.hid = [];
         this.collide = [];
         this.scene.traverse(node => {
             if (node.extras && node.extras.hidden) {
-                // console.log(node.extras.hidden);
                 node.mesh = node.mesh.opacity = 0;
                 this.hid.push(node);
             }
             if (node.extras && node.extras.collidable && !this.char.includes(node)) {
-                // console.log(node.extras.collidable);
                 this.collide.push(node);
             }
         });
-        // this.hid.forEach(element => {
-        //     console.log(element);
-        // });
-
         this.Physics = new Physics(this.scene, this.telo, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
-        // this.win = browser.windows.get()
-        // test rotacije
-        // this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
+        this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         
+        this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.platform, this.platform, this.platform, this.platform);
         
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
@@ -126,13 +102,15 @@ class App extends Application {
         const time = performance.now() / 1000;
         if (!this.isPlaying(this.ambience))
             this.ambience.play();
-        // this.krog.update(time);
-        // this.krog.popravek=false;
-        // this.platform.update(time);
+        this.krog.update(time);
+        this.platTest.update(0,0,Math.sin(time)*9);
+        this.plat1.update(Math.sin(time)*9, 0, 0);
+        this.plat2.update(0, 0, Math.sin(time)*8);
+        this.plat3.update(Math.sin(time)*9, 0, 0);
+        this.plat4.update(-Math.sin(time)*9, 0, 0);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);
-            // this.skok.update(time);
             this.footsteps.pause();
         }
         else {
@@ -149,10 +127,7 @@ class App extends Application {
             this.anim.update(time);
         }
         this.controller.update(dt);
-        this.camCont.update(dt);
         this.Physics.update(dt);
-        // console.log(time);
-        // console.log(this.telo.velocity);
     }
 
     render() {
