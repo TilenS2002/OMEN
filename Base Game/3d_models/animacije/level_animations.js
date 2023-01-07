@@ -1,13 +1,14 @@
 import {quat, vec3} from '../../engine/GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Krog_rotation {
-    constructor(node, rotacija) {
+    constructor(node) {
         this.node = node;
-        this.popravek = rotacija;
+        // this.popravek = rotacija;
     }
     update(time) {
-        let rotacija = quat.setAxisAngle(quat.create(), [1,0,0], Math.sin(time*0.01)*10);
-        this.node.rotacija = quat.multiply(quat.create(), rotacija,this.popravek);
+        let rotacija = quat.setAxisAngle(quat.create(), [10,0,0], Math.sin(time)*10);
+        // this.node.rotacija = quat.multiply(quat.create(), rotacija,this.popravek);
+        this.node.rotacija = rotacija
     }
 }
 
@@ -19,3 +20,32 @@ export class Platform_movement {
         this.node.translation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
     }
 }
+
+export class Ability_movement {
+    constructor(node) {
+        this.node = node;
+        this.bool = false;
+    }
+    update(x, y, z) {
+        if (!this.bool)
+            this.node.translation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
+    }
+    setPremik(bool) {
+        this.bool = bool;
+    }
+}
+
+export class Ability_rotate {
+    constructor(node) {
+        this.node = node;
+        this.bool = false;
+    }
+    update(x, y, z) {
+        if (!this.bool)
+            this.node.rotation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
+    }
+    setPremik(bool) {
+        this.bool = bool;
+    }
+}
+

@@ -1,9 +1,8 @@
 export class abilities {
     constructor() {}
     water(obj, bool) {
-        // this.setBool();
-        // console.log(bool);
         obj.setPremik(bool);
+        console.log("voda");
         return "water";
     }
     nature(obj, bool) {

@@ -1,5 +1,5 @@
 import { quat, vec3, mat4 } from '../GL_matrix_lib/dist/gl-matrix-module.js';
-
+import { Ability_movement, Ability_rotate } from '../../3d_models/animacije/level_animations.js';
 import { abilities } from '../abilities.js';
 
 export class Char_cont {
@@ -70,11 +70,10 @@ export class Char_cont {
             buttonsStatus: [],
             axesStatus: []
         }
-        
-        this.obj1 = obj1;
-        this.obj2 = obj2;
-        this.obj3 = obj3;
-        this.obj4 = obj4;
+        this.wadaUse = new Ability_movement(obj1);
+        this.wagnUse = new Ability_movement(obj2);
+        this.naravaUse = new Ability_movement(obj3);
+        this.erfUse = new Ability_rotate(obj4);
         
         this.pitch = 0;
         this.yaw = 0;
@@ -141,6 +140,7 @@ export class Char_cont {
     }
     update(dt) {
         this.gamepads.update();
+        this.time = performance.now()/1000;
         // console.log(this.gamepads.buttonsStatus)
         // console.log(this.camdis.globalMatrix);
         
@@ -267,7 +267,11 @@ export class Char_cont {
         //     this.camdis.translation = this.camdis.translation;
         // }
         
-        
+        // this.wadaUse.setPremik(true);
+        this.wadaUse.update(0, 0, Math.cos(this.time)*14);
+        this.wagnUse.update(0, Math.cos(this.time)*8, 0);
+        // this.naravaUse.update(0, Math.sin(this.time)*8, 0);
+        // this.erfUse.update(0, Math.cos(this.time)*8, 0);
     }
 
     pointermoveHandler(e) {
@@ -306,7 +310,7 @@ export class Char_cont {
                 this.pritisk[0] = !this.pritisk[0];
                 this.Wsfx.play();
                 this.abilityUsed = !this.abilityUsed;
-                this.ability.water(this.obj1, this.pritisk[0]);
+                this.ability.water(this.wadaUse, this.pritisk[0]);
                 this.keys['Digit1'] = this.pritisk[0];
             }
             else {
@@ -321,7 +325,7 @@ export class Char_cont {
                 this.pritisk[1] = !this.pritisk[1];
                 this.Nsfx.play();
                 this.abilityUsed = !this.abilityUsed;
-                this.ability.nature(this.obj2, this.pritisk[1]);
+                this.ability.nature(this.wagnUse, !this.pritisk[1]);
                 this.keys['Digit2'] = this.pritisk[1];
             }
             else {
@@ -335,7 +339,7 @@ export class Char_cont {
                 this.pritisk[2] = !this.pritisk[2];
                 this.Fsfx.play();
                 this.abilityUsed = !this.abilityUsed;
-                this.ability.fire(this.obj3, this.pritisk[2]);
+                this.ability.fire(this.naravaUse, this.pritisk[2]);
                 this.keys['Digit3'] = this.pritisk[2];
             }
             else {
@@ -349,7 +353,7 @@ export class Char_cont {
                 this.pritisk[3] = !this.pritisk[3];
                 this.Esfx.play();
                 this.abilityUsed = !this.abilityUsed;
-                this.ability.earth(this.obj4, this.pritisk[3]);
+                this.ability.earth(this.erfUse, this.pritisk[3]);
                 this.keys['Digit4'] = this.pritisk[3];
             }
             else {
