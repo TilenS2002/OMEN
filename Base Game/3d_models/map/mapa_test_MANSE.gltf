@@ -4772,7 +4772,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.029",
+            "name" : "Material.011",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 7
@@ -4783,7 +4783,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.023",
+            "name" : "Material.029",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 8
@@ -4794,7 +4794,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.120",
+            "name" : "Material.023",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 9
@@ -4805,7 +4805,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.092",
+            "name" : "Material.120",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 10
@@ -4816,7 +4816,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.093",
+            "name" : "Material.092",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 11
@@ -4827,7 +4827,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.096",
+            "name" : "Material.093",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 12
@@ -4838,7 +4838,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.103",
+            "name" : "Material.096",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 13
@@ -4849,10 +4849,21 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.069",
+            "name" : "Material.103",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 14
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.069",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 15
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -5374,7 +5385,7 @@
                         "NORMAL" : 112
                     },
                     "indices" : 73,
-                    "material" : 5
+                    "material" : 7
                 }
             ]
         },
@@ -5514,7 +5525,7 @@
                         "NORMAL" : 142
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5528,7 +5539,7 @@
                         "NORMAL" : 146
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5542,7 +5553,7 @@
                         "NORMAL" : 149
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5556,7 +5567,7 @@
                         "NORMAL" : 152
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5570,7 +5581,7 @@
                         "NORMAL" : 155
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5584,7 +5595,7 @@
                         "NORMAL" : 158
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5598,7 +5609,7 @@
                         "NORMAL" : 161
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5612,7 +5623,7 @@
                         "NORMAL" : 164
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5626,7 +5637,7 @@
                         "NORMAL" : 167
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5640,7 +5651,7 @@
                         "NORMAL" : 170
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5654,7 +5665,7 @@
                         "NORMAL" : 173
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5668,7 +5679,7 @@
                         "NORMAL" : 176
                     },
                     "indices" : 177,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5682,7 +5693,7 @@
                         "NORMAL" : 180
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5696,7 +5707,7 @@
                         "NORMAL" : 183
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5710,7 +5721,7 @@
                         "NORMAL" : 186
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5724,7 +5735,7 @@
                         "NORMAL" : 189
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5738,7 +5749,7 @@
                         "NORMAL" : 192
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5752,7 +5763,7 @@
                         "NORMAL" : 195
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5766,7 +5777,7 @@
                         "NORMAL" : 198
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5780,7 +5791,7 @@
                         "NORMAL" : 201
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5794,7 +5805,7 @@
                         "NORMAL" : 204
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -5808,7 +5819,7 @@
                         "NORMAL" : 207
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5822,7 +5833,7 @@
                         "NORMAL" : 210
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5836,7 +5847,7 @@
                         "NORMAL" : 213
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5850,7 +5861,7 @@
                         "NORMAL" : 216
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -5864,7 +5875,7 @@
                         "NORMAL" : 219
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -5878,7 +5889,7 @@
                         "NORMAL" : 222
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5892,7 +5903,7 @@
                         "NORMAL" : 225
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -5906,7 +5917,7 @@
                         "NORMAL" : 228
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5920,7 +5931,7 @@
                         "NORMAL" : 231
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5934,7 +5945,7 @@
                         "NORMAL" : 234
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5948,7 +5959,7 @@
                         "NORMAL" : 237
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5962,7 +5973,7 @@
                         "NORMAL" : 240
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5976,7 +5987,7 @@
                         "NORMAL" : 243
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -5990,7 +6001,7 @@
                         "NORMAL" : 246
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -6004,7 +6015,7 @@
                         "NORMAL" : 249
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -6018,7 +6029,7 @@
                         "NORMAL" : 252
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -6032,7 +6043,7 @@
                         "NORMAL" : 255
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -6046,7 +6057,7 @@
                         "NORMAL" : 258
                     },
                     "indices" : 143,
-                    "material" : 7
+                    "material" : 8
                 }
             ]
         },
@@ -6060,7 +6071,7 @@
                         "NORMAL" : 261
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -6074,7 +6085,7 @@
                         "NORMAL" : 264
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -6088,7 +6099,7 @@
                         "NORMAL" : 267
                     },
                     "indices" : 143,
-                    "material" : 8
+                    "material" : 9
                 }
             ]
         },
@@ -6102,7 +6113,7 @@
                         "NORMAL" : 270
                     },
                     "indices" : 143,
-                    "material" : 9
+                    "material" : 10
                 }
             ]
         },
@@ -6117,7 +6128,7 @@
                         "NORMAL" : 274
                     },
                     "indices" : 275,
-                    "material" : 10
+                    "material" : 11
                 }
             ]
         },
@@ -6131,7 +6142,7 @@
                         "NORMAL" : 278
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6145,7 +6156,7 @@
                         "NORMAL" : 281
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6159,7 +6170,7 @@
                         "NORMAL" : 284
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6173,7 +6184,7 @@
                         "NORMAL" : 287
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6187,7 +6198,7 @@
                         "NORMAL" : 290
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6201,7 +6212,7 @@
                         "NORMAL" : 293
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6228,7 +6239,7 @@
                         "NORMAL" : 300
                     },
                     "indices" : 275,
-                    "material" : 12
+                    "material" : 13
                 }
             ]
         },
@@ -6242,7 +6253,7 @@
                         "NORMAL" : 303
                     },
                     "indices" : 275,
-                    "material" : 13
+                    "material" : 14
                 }
             ]
         },
@@ -6256,7 +6267,7 @@
                         "NORMAL" : 306
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6270,7 +6281,7 @@
                         "NORMAL" : 309
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6284,7 +6295,7 @@
                         "NORMAL" : 312
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6298,7 +6309,7 @@
                         "NORMAL" : 315
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6312,7 +6323,7 @@
                         "NORMAL" : 318
                     },
                     "indices" : 275,
-                    "material" : 11
+                    "material" : 12
                 }
             ]
         },
@@ -6326,7 +6337,7 @@
                         "NORMAL" : 321
                     },
                     "indices" : 275,
-                    "material" : 13
+                    "material" : 14
                 }
             ]
         },
@@ -6340,7 +6351,7 @@
                         "NORMAL" : 324
                     },
                     "indices" : 275,
-                    "material" : 13
+                    "material" : 14
                 }
             ]
         },
@@ -6354,7 +6365,7 @@
                         "NORMAL" : 327
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6368,7 +6379,7 @@
                         "NORMAL" : 331
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6382,7 +6393,7 @@
                         "NORMAL" : 334
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6396,7 +6407,7 @@
                         "NORMAL" : 337
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6410,7 +6421,7 @@
                         "NORMAL" : 340
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6424,7 +6435,7 @@
                         "NORMAL" : 343
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6438,7 +6449,7 @@
                         "NORMAL" : 346
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6452,7 +6463,7 @@
                         "NORMAL" : 349
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6466,7 +6477,7 @@
                         "NORMAL" : 352
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6480,7 +6491,7 @@
                         "NORMAL" : 355
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6494,7 +6505,7 @@
                         "NORMAL" : 358
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6508,7 +6519,7 @@
                         "NORMAL" : 361
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6522,7 +6533,7 @@
                         "NORMAL" : 364
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6536,7 +6547,7 @@
                         "NORMAL" : 367
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6550,7 +6561,7 @@
                         "NORMAL" : 370
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6564,7 +6575,7 @@
                         "NORMAL" : 373
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6578,7 +6589,7 @@
                         "NORMAL" : 376
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6592,7 +6603,7 @@
                         "NORMAL" : 379
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6606,7 +6617,7 @@
                         "NORMAL" : 382
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6620,7 +6631,7 @@
                         "NORMAL" : 385
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6634,7 +6645,7 @@
                         "NORMAL" : 388
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6648,7 +6659,7 @@
                         "NORMAL" : 391
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6662,7 +6673,7 @@
                         "NORMAL" : 394
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6676,7 +6687,7 @@
                         "NORMAL" : 397
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6690,7 +6701,7 @@
                         "NORMAL" : 400
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6704,7 +6715,7 @@
                         "NORMAL" : 403
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6718,7 +6729,7 @@
                         "NORMAL" : 406
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6732,7 +6743,7 @@
                         "NORMAL" : 409
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6746,7 +6757,7 @@
                         "NORMAL" : 412
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6760,7 +6771,7 @@
                         "NORMAL" : 415
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6774,7 +6785,7 @@
                         "NORMAL" : 418
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6788,7 +6799,7 @@
                         "NORMAL" : 421
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6802,7 +6813,7 @@
                         "NORMAL" : 424
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6816,7 +6827,7 @@
                         "NORMAL" : 427
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6830,7 +6841,7 @@
                         "NORMAL" : 430
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6844,7 +6855,7 @@
                         "NORMAL" : 433
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6858,7 +6869,7 @@
                         "NORMAL" : 436
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6872,7 +6883,7 @@
                         "NORMAL" : 439
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6886,7 +6897,7 @@
                         "NORMAL" : 442
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6900,7 +6911,7 @@
                         "NORMAL" : 445
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6914,7 +6925,7 @@
                         "NORMAL" : 448
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6928,7 +6939,7 @@
                         "NORMAL" : 451
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6942,7 +6953,7 @@
                         "NORMAL" : 454
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6956,7 +6967,7 @@
                         "NORMAL" : 457
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6970,7 +6981,7 @@
                         "NORMAL" : 460
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6984,7 +6995,7 @@
                         "NORMAL" : 463
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -6998,7 +7009,7 @@
                         "NORMAL" : 466
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7012,7 +7023,7 @@
                         "NORMAL" : 469
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7026,7 +7037,7 @@
                         "NORMAL" : 472
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7040,7 +7051,7 @@
                         "NORMAL" : 475
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7054,7 +7065,7 @@
                         "NORMAL" : 478
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7068,7 +7079,7 @@
                         "NORMAL" : 481
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7082,7 +7093,7 @@
                         "NORMAL" : 484
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7096,7 +7107,7 @@
                         "NORMAL" : 487
                     },
                     "indices" : 328,
-                    "material" : 14
+                    "material" : 15
                 }
             ]
         },
@@ -7110,7 +7121,7 @@
                         "NORMAL" : 490
                     },
                     "indices" : 491,
-                    "material" : 15
+                    "material" : 16
                 }
             ]
         }
@@ -7150,11 +7161,11 @@
         },
         {
             "sampler" : 0,
-            "source" : 7
+            "source" : 8
         },
         {
             "sampler" : 0,
-            "source" : 7
+            "source" : 8
         },
         {
             "sampler" : 0,
@@ -7175,6 +7186,10 @@
         {
             "sampler" : 0,
             "source" : 12
+        },
+        {
+            "sampler" : 0,
+            "source" : 13
         }
     ],
     "images" : [
@@ -7205,13 +7220,18 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_stena2.png.002",
+            "name" : "tekstura_stena2.png",
             "uri" : "../assets/teksture/tekstura_stena2.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "tekstura_stena2.png.001",
             "uri" : "../assets/teksture/tekstura_stena2_001.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_stena2.png.002",
+            "uri" : "../assets/teksture/tekstura_stena2_002.png"
         },
         {
             "mimeType" : "image/png",
