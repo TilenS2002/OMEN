@@ -22,7 +22,7 @@ export class Physics {
         let vy = 0;
 
         // Update the position of the object based on its velocity and the elapsed time
-        function updatePosition(dt) {
+        this.updatePosition = function(dt) {
             x += vx * dt;
             y += vy * dt;
             // Apply gravity to the vertical velocity
@@ -31,7 +31,7 @@ export class Physics {
     }
 
     update(dt) {
-        updatePosition(dt);
+        this.updatePosition(dt);
         this.scene.traverse(node => {
             // Move every node with defined velocity.
             if (node.velocity) {
@@ -62,8 +62,6 @@ export class Physics {
         // Transform all vertices of the AABB from local to global space.
         const transform = node.globalMatrix;
         const { min, max } = node.aabb;
-        // console.log("min: ",min);
-        // console.log("max: ",min);
         const vertices = [
             [min[0], min[1], min[2]],
             [min[0], min[1], max[2]],
@@ -128,8 +126,8 @@ export class Physics {
             minDirection = [0, 0, -minDiff];
         }
 
-        // vec3.add(a.translation, a.translation, minDirection);
         a.translation = vec3.add(a.translation, a.translation, minDirection);
+        this.cam.translation = vec3.add(this.cam.translation, this.cam.translation, minDirection);
     }
 
 }
