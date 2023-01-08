@@ -173,8 +173,7 @@
                 158,
                 159,
                 160,
-                161,
-                162
+                161
             ]
         }
     ],
@@ -2561,7 +2560,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 107,
             "name" : "Icosphere.107",
             "rotation" : [
                 -0.7616601586341858,
@@ -2584,7 +2583,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 108,
             "name" : "Icosphere.110",
             "rotation" : [
                 -0.6535220146179199,
@@ -2607,7 +2606,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 109,
             "name" : "Icosphere.148",
             "rotation" : [
                 -0.7740919589996338,
@@ -2630,7 +2629,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 110,
             "name" : "Icosphere.149",
             "rotation" : [
                 -0.43689122796058655,
@@ -2653,7 +2652,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 111,
             "name" : "Icosphere.150",
             "rotation" : [
                 -0.6337646842002869,
@@ -2676,7 +2675,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 106,
+            "mesh" : 112,
             "name" : "Icosphere.151",
             "rotation" : [
                 -0.5933824777603149,
@@ -2699,7 +2698,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 107,
+            "mesh" : 113,
             "name" : "Icosphere.001",
             "rotation" : [
                 -0.5217718482017517,
@@ -2722,30 +2721,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 107,
-            "name" : "Icosphere.002",
-            "rotation" : [
-                -0.7616601586341858,
-                -0.35890722274780273,
-                -0.2078409641981125,
-                0.49785691499710083
-            ],
-            "scale" : [
-                8.379249572753906,
-                5.795740604400635,
-                4.415909767150879
-            ],
-            "translation" : [
-                37.392730712890625,
-                -17.629793167114258,
-                -48.3507080078125
-            ]
-        },
-        {
-            "extras" : {
-                "collidable" : 1
-            },
-            "mesh" : 107,
+            "mesh" : 113,
             "name" : "Icosphere.004",
             "rotation" : [
                 -0.1932559758424759,
@@ -2768,7 +2744,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 108,
+            "mesh" : 114,
             "name" : "Icosphere.011",
             "rotation" : [
                 -0.1932559758424759,
@@ -2791,7 +2767,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 109,
+            "mesh" : 115,
             "name" : "Icosphere.013",
             "rotation" : [
                 -0.7326419353485107,
@@ -2814,7 +2790,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 110,
+            "mesh" : 116,
             "name" : "Icosphere.016",
             "rotation" : [
                 -0.6328601241111755,
@@ -2837,7 +2813,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 111,
+            "mesh" : 117,
             "name" : "Icosphere.017",
             "rotation" : [
                 -0.6328601241111755,
@@ -2860,7 +2836,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 112,
+            "mesh" : 118,
             "name" : "Icosphere.019",
             "rotation" : [
                 -0.6336156725883484,
@@ -2883,7 +2859,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 113,
+            "mesh" : 119,
             "name" : "Icosphere.020",
             "rotation" : [
                 -0.6336156725883484,
@@ -2906,7 +2882,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 114,
+            "mesh" : 120,
             "name" : "Icosphere.021",
             "rotation" : [
                 -0.7842095494270325,
@@ -2929,7 +2905,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 115,
+            "mesh" : 121,
             "name" : "Icosphere.022",
             "rotation" : [
                 -0.39216840267181396,
@@ -2952,7 +2928,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 116,
+            "mesh" : 122,
             "name" : "Icosphere.023",
             "rotation" : [
                 -0.7842095494270325,
@@ -2975,7 +2951,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 117,
+            "mesh" : 123,
             "name" : "Icosphere.024",
             "rotation" : [
                 -0.6476470232009888,
@@ -2998,7 +2974,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 118,
+            "mesh" : 124,
             "name" : "Icosphere.025",
             "rotation" : [
                 0.24933618307113647,
@@ -3021,7 +2997,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 119,
+            "mesh" : 125,
             "name" : "Icosphere.026",
             "rotation" : [
                 -0.28055351972579956,
@@ -3044,7 +3020,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 120,
+            "mesh" : 126,
             "name" : "Icosphere.027",
             "rotation" : [
                 0.582884669303894,
@@ -3067,7 +3043,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 121,
+            "mesh" : 127,
             "name" : "Icosphere.030",
             "rotation" : [
                 -0.7616601586341858,
@@ -3090,7 +3066,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 122,
+            "mesh" : 128,
             "name" : "Icosphere.032",
             "rotation" : [
                 -0.07336912304162979,
@@ -3113,7 +3089,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 123,
+            "mesh" : 129,
             "name" : "Icosphere.035",
             "rotation" : [
                 -0.6980537176132202,
@@ -3136,7 +3112,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 124,
+            "mesh" : 130,
             "name" : "Icosphere.037",
             "rotation" : [
                 -0.6980537176132202,
@@ -3159,7 +3135,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 125,
+            "mesh" : 131,
             "name" : "Icosphere.038",
             "rotation" : [
                 -0.7358860969543457,
@@ -3182,7 +3158,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 126,
+            "mesh" : 132,
             "name" : "Icosphere.039",
             "rotation" : [
                 -0.28055351972579956,
@@ -3205,7 +3181,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 127,
+            "mesh" : 133,
             "name" : "Icosphere.040",
             "rotation" : [
                 0.6621533036231995,
@@ -3228,7 +3204,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 128,
+            "mesh" : 134,
             "name" : "Icosphere.042",
             "rotation" : [
                 0.06449485570192337,
@@ -3251,7 +3227,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 129,
+            "mesh" : 135,
             "name" : "Icosphere.043",
             "rotation" : [
                 -0.14055415987968445,
@@ -3274,7 +3250,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 130,
+            "mesh" : 136,
             "name" : "Icosphere.054",
             "rotation" : [
                 -0.7616601586341858,
@@ -3297,7 +3273,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 130,
+            "mesh" : 136,
             "name" : "Icosphere.055",
             "rotation" : [
                 -0.6535220146179199,
@@ -3320,7 +3296,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 131,
+            "mesh" : 137,
             "name" : "Icosphere.057",
             "rotation" : [
                 -0.766213595867157,
@@ -3343,7 +3319,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 131,
+            "mesh" : 137,
             "name" : "Icosphere.058",
             "rotation" : [
                 -0.766213595867157,
@@ -3366,7 +3342,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 131,
+            "mesh" : 137,
             "name" : "Icosphere.059",
             "rotation" : [
                 -0.650999128818512,
@@ -3389,7 +3365,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 132,
+            "mesh" : 138,
             "name" : "Icosphere.060",
             "rotation" : [
                 -0.28055354952812195,
@@ -3412,7 +3388,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 133,
+            "mesh" : 139,
             "name" : "Icosphere.061",
             "rotation" : [
                 -0.35403957962989807,
@@ -3435,7 +3411,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 134,
+            "mesh" : 140,
             "name" : "Icosphere.062",
             "rotation" : [
                 -0.766213595867157,
@@ -3458,7 +3434,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 135,
+            "mesh" : 141,
             "name" : "Icosphere.063",
             "rotation" : [
                 -0.3537476658821106,
@@ -3481,7 +3457,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 135,
+            "mesh" : 141,
             "name" : "Icosphere.064",
             "rotation" : [
                 -0.3537476658821106,
@@ -3504,7 +3480,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 135,
+            "mesh" : 141,
             "name" : "Icosphere.065",
             "rotation" : [
                 -0.6769116520881653,
@@ -3527,7 +3503,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 136,
+            "mesh" : 142,
             "name" : "Icosphere.066",
             "rotation" : [
                 -0.353747695684433,
@@ -3550,7 +3526,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 137,
+            "mesh" : 143,
             "name" : "Icosphere.067",
             "rotation" : [
                 -0.3537476658821106,
@@ -3573,7 +3549,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 137,
+            "mesh" : 143,
             "name" : "Icosphere.068",
             "rotation" : [
                 -0.6769116520881653,
@@ -3596,7 +3572,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 138,
+            "mesh" : 144,
             "name" : "Icosphere.069",
             "rotation" : [
                 -0.7228971123695374,
@@ -3619,7 +3595,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 139,
+            "mesh" : 145,
             "name" : "Icosphere.070",
             "rotation" : [
                 -0.7228971719741821,
@@ -3642,7 +3618,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 140,
+            "mesh" : 146,
             "name" : "Icosphere.071",
             "rotation" : [
                 -0.7616601586341858,
@@ -3665,7 +3641,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 140,
+            "mesh" : 146,
             "name" : "Icosphere.073",
             "rotation" : [
                 -0.7616601586341858,
@@ -3688,7 +3664,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 140,
+            "mesh" : 146,
             "name" : "Icosphere.074",
             "rotation" : [
                 -0.6535220146179199,
@@ -3711,7 +3687,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 141,
+            "mesh" : 147,
             "name" : "Icosphere.077",
             "rotation" : [
                 -0.650999128818512,
@@ -3734,7 +3710,7 @@
             "extras" : {
                 "collidable" : 1
             },
-            "mesh" : 142,
+            "mesh" : 148,
             "name" : "Icosphere.034",
             "rotation" : [
                 -0.6769116520881653,
@@ -3758,7 +3734,7 @@
                 "hidden" : 1,
                 "killable" : 1
             },
-            "mesh" : 143,
+            "mesh" : 149,
             "name" : "ubijalska_povrsina_velika",
             "scale" : [
                 120,
@@ -3766,9 +3742,9 @@
                 300
             ],
             "translation" : [
-                69.53060150146484,
+                341.5306091308594,
                 -20,
-                -230.6986083984375
+                -249.6986083984375
             ]
         }
     ],
@@ -4050,25 +4026,13 @@
         },
         {
             "doubleSided" : true,
-            "extensions" : {
-                "KHR_materials_specular" : {
-                    "specularColorFactor" : [
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                "KHR_materials_ior" : {
-                    "ior" : 0
-                }
-            },
             "name" : "Material.116",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 25
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0
+                "roughnessFactor" : 0.5
             }
         },
         {
@@ -4172,7 +4136,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.150",
+            "name" : "Material.163",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 35
@@ -4183,7 +4147,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.152",
+            "name" : "Material.150",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 36
@@ -4194,7 +4158,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.004",
+            "name" : "Material.152",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 37
@@ -4205,7 +4169,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.153",
+            "name" : "Material.004",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 38
@@ -4216,7 +4180,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.154",
+            "name" : "Material.153",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 39
@@ -4227,7 +4191,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.155",
+            "name" : "Material.154",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 40
@@ -4238,7 +4202,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.011",
+            "name" : "Material.155",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 41
@@ -4249,7 +4213,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.018",
+            "name" : "Material.011",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 42
@@ -4260,7 +4224,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.112",
+            "name" : "Material.018",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 43
@@ -4271,7 +4235,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.029",
+            "name" : "Material.112",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 44
@@ -4282,7 +4246,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.124",
+            "name" : "Material.178",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 45
@@ -4293,7 +4257,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.125",
+            "name" : "Material.124",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 46
@@ -4304,7 +4268,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.127",
+            "name" : "Material.125",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 47
@@ -4315,7 +4279,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.129",
+            "name" : "Material.127",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 48
@@ -4326,7 +4290,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.023",
+            "name" : "Material.129",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 49
@@ -4337,7 +4301,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.121",
+            "name" : "Material.172",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 50
@@ -4348,7 +4312,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.123",
+            "name" : "Material.175",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 51
@@ -4359,7 +4323,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.159",
+            "name" : "Material.174",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 52
@@ -4370,7 +4334,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.157",
+            "name" : "Material.170",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 53
@@ -4381,7 +4345,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.120",
+            "name" : "Material.121",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 54
@@ -4392,7 +4356,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.034",
+            "name" : "Material.023",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 55
@@ -4403,7 +4367,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.128",
+            "name" : "Material.123",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 56
@@ -4414,7 +4378,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.138",
+            "name" : "Material.159",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 57
@@ -4425,7 +4389,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.145",
+            "name" : "Material.157",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 58
@@ -4436,7 +4400,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.146",
+            "name" : "Material.029",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 59
@@ -4447,7 +4411,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.147",
+            "name" : "Material.177",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 60
@@ -4458,7 +4422,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.148",
+            "name" : "Material.120",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 61
@@ -4469,7 +4433,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.144",
+            "name" : "Material.171",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 62
@@ -4480,7 +4444,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.032",
+            "name" : "Material.173",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 63
@@ -4491,7 +4455,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.076",
+            "name" : "Material.034",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 64
@@ -4502,7 +4466,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.019",
+            "name" : "Material.128",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 65
@@ -4513,7 +4477,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.130",
+            "name" : "Material.138",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 66
@@ -4524,10 +4488,186 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.092",
+            "name" : "Material.182",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 67
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.180",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 68
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.179",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 69
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.181",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 70
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.183",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 71
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.145",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 72
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.146",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 73
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.147",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 74
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.148",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 75
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.144",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 76
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.032",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 77
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.169",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 78
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.076",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 79
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.019",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 80
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.176",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 81
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.130",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 82
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.092",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 83
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4550,7 +4690,7 @@
             "name" : "Material.156",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 68
+                    "index" : 84
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0
@@ -4573,7 +4713,7 @@
             "name" : "Material.137",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 69
+                    "index" : 85
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0
@@ -4593,10 +4733,33 @@
                     "ior" : 1.4500000476837158
                 }
             },
-            "name" : "Material.093",
+            "name" : "Material.166",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 70
+                    "index" : 86
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "Material.165",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 87
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0
@@ -4619,7 +4782,7 @@
             "name" : "Material.161",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 71
+                    "index" : 88
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0
@@ -4642,7 +4805,7 @@
             "name" : "Material.162",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 72
+                    "index" : 89
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0
@@ -4653,7 +4816,7 @@
             "name" : "Material.096",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 73
+                    "index" : 90
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4664,7 +4827,7 @@
             "name" : "Material.122",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 74
+                    "index" : 91
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4675,7 +4838,64 @@
             "name" : "Material.035",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 75
+                    "index" : 92
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "Material.167",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 93
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "Material.168",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 94
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.164",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 95
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4686,7 +4906,7 @@
             "name" : "Material.103",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 76
+                    "index" : 96
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4694,10 +4914,54 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.079",
+            "name" : "Material.187",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 77
+                    "index" : 97
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.191",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 98
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.190",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 99
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.189",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 100
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.185",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 101
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4708,7 +4972,18 @@
             "name" : "Material.078",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 78
+                    "index" : 102
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.079",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 103
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4719,7 +4994,18 @@
             "name" : "Material.069",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 79
+                    "index" : 104
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.184",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 105
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4730,7 +5016,7 @@
             "name" : "Material.059",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 80
+                    "index" : 106
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4741,7 +5027,7 @@
             "name" : "Material.058",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 81
+                    "index" : 107
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4752,7 +5038,7 @@
             "name" : "Material.160",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 82
+                    "index" : 108
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4763,7 +5049,7 @@
             "name" : "Material.108",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 83
+                    "index" : 109
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4774,7 +5060,7 @@
             "name" : "Material.131",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 84
+                    "index" : 110
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4785,7 +5071,7 @@
             "name" : "Material.132",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 85
+                    "index" : 111
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4796,7 +5082,7 @@
             "name" : "Material.036",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 86
+                    "index" : 112
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4807,7 +5093,7 @@
             "name" : "Material.068",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 87
+                    "index" : 113
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4818,7 +5104,7 @@
             "name" : "Material.037",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 88
+                    "index" : 114
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4829,7 +5115,7 @@
             "name" : "Material.158",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 89
+                    "index" : 115
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4840,7 +5126,7 @@
             "name" : "Material.109",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 90
+                    "index" : 116
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4851,7 +5137,7 @@
             "name" : "Material.110",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 91
+                    "index" : 117
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -4862,7 +5148,7 @@
             "name" : "Material.134",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 92
+                    "index" : 118
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -5384,7 +5670,7 @@
                         "NORMAL" : 114
                     },
                     "indices" : 86,
-                    "material" : 31
+                    "material" : 35
                 }
             ]
         },
@@ -5398,7 +5684,7 @@
                         "NORMAL" : 117
                     },
                     "indices" : 96,
-                    "material" : 35
+                    "material" : 36
                 }
             ]
         },
@@ -5412,7 +5698,7 @@
                         "NORMAL" : 120
                     },
                     "indices" : 96,
-                    "material" : 36
+                    "material" : 37
                 }
             ]
         },
@@ -5426,7 +5712,7 @@
                         "NORMAL" : 123
                     },
                     "indices" : 96,
-                    "material" : 37
+                    "material" : 38
                 }
             ]
         },
@@ -5440,7 +5726,7 @@
                         "NORMAL" : 126
                     },
                     "indices" : 86,
-                    "material" : 38
+                    "material" : 39
                 }
             ]
         },
@@ -5454,7 +5740,7 @@
                         "NORMAL" : 129
                     },
                     "indices" : 86,
-                    "material" : 39
+                    "material" : 40
                 }
             ]
         },
@@ -5468,7 +5754,7 @@
                         "NORMAL" : 132
                     },
                     "indices" : 86,
-                    "material" : 40
+                    "material" : 41
                 }
             ]
         },
@@ -5482,7 +5768,7 @@
                         "NORMAL" : 135
                     },
                     "indices" : 96,
-                    "material" : 41
+                    "material" : 42
                 }
             ]
         },
@@ -5622,7 +5908,7 @@
                         "NORMAL" : 165
                     },
                     "indices" : 31,
-                    "material" : 42
+                    "material" : 43
                 }
             ]
         },
@@ -5636,7 +5922,7 @@
                         "NORMAL" : 168
                     },
                     "indices" : 31,
-                    "material" : 43
+                    "material" : 44
                 }
             ]
         },
@@ -5650,7 +5936,7 @@
                         "NORMAL" : 171
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 45
                 }
             ]
         },
@@ -5664,7 +5950,7 @@
                         "NORMAL" : 175
                     },
                     "indices" : 172,
-                    "material" : 45
+                    "material" : 46
                 }
             ]
         },
@@ -5678,7 +5964,7 @@
                         "NORMAL" : 178
                     },
                     "indices" : 172,
-                    "material" : 46
+                    "material" : 47
                 }
             ]
         },
@@ -5692,7 +5978,7 @@
                         "NORMAL" : 181
                     },
                     "indices" : 172,
-                    "material" : 47
+                    "material" : 48
                 }
             ]
         },
@@ -5706,7 +5992,7 @@
                         "NORMAL" : 184
                     },
                     "indices" : 172,
-                    "material" : 48
+                    "material" : 49
                 }
             ]
         },
@@ -5720,7 +6006,7 @@
                         "NORMAL" : 187
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 50
                 }
             ]
         },
@@ -5734,7 +6020,7 @@
                         "NORMAL" : 190
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 51
                 }
             ]
         },
@@ -5748,7 +6034,7 @@
                         "NORMAL" : 193
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 52
                 }
             ]
         },
@@ -5762,7 +6048,7 @@
                         "NORMAL" : 196
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 53
                 }
             ]
         },
@@ -5776,7 +6062,7 @@
                         "NORMAL" : 199
                     },
                     "indices" : 172,
-                    "material" : 50
+                    "material" : 54
                 }
             ]
         },
@@ -5790,7 +6076,7 @@
                         "NORMAL" : 202
                     },
                     "indices" : 203,
-                    "material" : 49
+                    "material" : 55
                 }
             ]
         },
@@ -5804,7 +6090,7 @@
                         "NORMAL" : 206
                     },
                     "indices" : 172,
-                    "material" : 51
+                    "material" : 56
                 }
             ]
         },
@@ -5818,7 +6104,7 @@
                         "NORMAL" : 209
                     },
                     "indices" : 172,
-                    "material" : 52
+                    "material" : 57
                 }
             ]
         },
@@ -5832,7 +6118,7 @@
                         "NORMAL" : 212
                     },
                     "indices" : 172,
-                    "material" : 53
+                    "material" : 58
                 }
             ]
         },
@@ -5846,7 +6132,7 @@
                         "NORMAL" : 215
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 59
                 }
             ]
         },
@@ -5860,7 +6146,7 @@
                         "NORMAL" : 218
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 60
                 }
             ]
         },
@@ -5874,7 +6160,7 @@
                         "NORMAL" : 221
                     },
                     "indices" : 172,
-                    "material" : 54
+                    "material" : 61
                 }
             ]
         },
@@ -5888,7 +6174,7 @@
                         "NORMAL" : 224
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 62
                 }
             ]
         },
@@ -5902,7 +6188,7 @@
                         "NORMAL" : 227
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 63
                 }
             ]
         },
@@ -5916,7 +6202,7 @@
                         "NORMAL" : 230
                     },
                     "indices" : 172,
-                    "material" : 55
+                    "material" : 64
                 }
             ]
         },
@@ -5930,7 +6216,7 @@
                         "NORMAL" : 233
                     },
                     "indices" : 172,
-                    "material" : 56
+                    "material" : 65
                 }
             ]
         },
@@ -5944,7 +6230,7 @@
                         "NORMAL" : 236
                     },
                     "indices" : 172,
-                    "material" : 57
+                    "material" : 66
                 }
             ]
         },
@@ -5958,7 +6244,7 @@
                         "NORMAL" : 239
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 67
                 },
                 {
                     "attributes" : {
@@ -5981,7 +6267,7 @@
                         "NORMAL" : 246
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 68
                 },
                 {
                     "attributes" : {
@@ -6004,7 +6290,7 @@
                         "NORMAL" : 253
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 69
                 },
                 {
                     "attributes" : {
@@ -6027,7 +6313,7 @@
                         "NORMAL" : 260
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 70
                 },
                 {
                     "attributes" : {
@@ -6050,7 +6336,7 @@
                         "NORMAL" : 266
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 71
                 },
                 {
                     "attributes" : {
@@ -6073,7 +6359,7 @@
                         "NORMAL" : 272
                     },
                     "indices" : 172,
-                    "material" : 58
+                    "material" : 72
                 }
             ]
         },
@@ -6087,7 +6373,7 @@
                         "NORMAL" : 275
                     },
                     "indices" : 172,
-                    "material" : 59
+                    "material" : 73
                 }
             ]
         },
@@ -6101,7 +6387,7 @@
                         "NORMAL" : 278
                     },
                     "indices" : 172,
-                    "material" : 60
+                    "material" : 74
                 }
             ]
         },
@@ -6115,7 +6401,7 @@
                         "NORMAL" : 281
                     },
                     "indices" : 172,
-                    "material" : 61
+                    "material" : 75
                 }
             ]
         },
@@ -6129,7 +6415,7 @@
                         "NORMAL" : 284
                     },
                     "indices" : 172,
-                    "material" : 62
+                    "material" : 76
                 }
             ]
         },
@@ -6143,7 +6429,7 @@
                         "NORMAL" : 287
                     },
                     "indices" : 172,
-                    "material" : 63
+                    "material" : 77
                 }
             ]
         },
@@ -6157,7 +6443,7 @@
                         "NORMAL" : 290
                     },
                     "indices" : 172,
-                    "material" : 44
+                    "material" : 78
                 }
             ]
         },
@@ -6171,7 +6457,7 @@
                         "NORMAL" : 293
                     },
                     "indices" : 172,
-                    "material" : 64
+                    "material" : 79
                 }
             ]
         },
@@ -6185,7 +6471,7 @@
                         "NORMAL" : 296
                     },
                     "indices" : 172,
-                    "material" : 65
+                    "material" : 80
                 }
             ]
         },
@@ -6199,7 +6485,7 @@
                         "NORMAL" : 299
                     },
                     "indices" : 172,
-                    "material" : 49
+                    "material" : 81
                 }
             ]
         },
@@ -6213,7 +6499,7 @@
                         "NORMAL" : 302
                     },
                     "indices" : 172,
-                    "material" : 66
+                    "material" : 82
                 }
             ]
         },
@@ -6228,7 +6514,7 @@
                         "NORMAL" : 306
                     },
                     "indices" : 307,
-                    "material" : 67
+                    "material" : 83
                 }
             ]
         },
@@ -6242,7 +6528,7 @@
                         "NORMAL" : 310
                     },
                     "indices" : 307,
-                    "material" : 68
+                    "material" : 84
                 }
             ]
         },
@@ -6256,7 +6542,7 @@
                         "NORMAL" : 313
                     },
                     "indices" : 307,
-                    "material" : 69
+                    "material" : 85
                 }
             ]
         },
@@ -6270,7 +6556,7 @@
                         "NORMAL" : 316
                     },
                     "indices" : 307,
-                    "material" : 70
+                    "material" : 86
                 }
             ]
         },
@@ -6284,7 +6570,7 @@
                         "NORMAL" : 319
                     },
                     "indices" : 307,
-                    "material" : 70
+                    "material" : 87
                 }
             ]
         },
@@ -6298,7 +6584,7 @@
                         "NORMAL" : 322
                     },
                     "indices" : 307,
-                    "material" : 71
+                    "material" : 88
                 }
             ]
         },
@@ -6312,7 +6598,7 @@
                         "NORMAL" : 325
                     },
                     "indices" : 307,
-                    "material" : 72
+                    "material" : 89
                 }
             ]
         },
@@ -6326,7 +6612,7 @@
                         "NORMAL" : 328
                     },
                     "indices" : 307,
-                    "material" : 73
+                    "material" : 90
                 }
             ]
         },
@@ -6340,7 +6626,7 @@
                         "NORMAL" : 331
                     },
                     "indices" : 307,
-                    "material" : 74
+                    "material" : 91
                 }
             ]
         },
@@ -6354,7 +6640,7 @@
                         "NORMAL" : 334
                     },
                     "indices" : 307,
-                    "material" : 75
+                    "material" : 92
                 }
             ]
         },
@@ -6368,7 +6654,7 @@
                         "NORMAL" : 337
                     },
                     "indices" : 307,
-                    "material" : 70
+                    "material" : 93
                 }
             ]
         },
@@ -6382,7 +6668,7 @@
                         "NORMAL" : 340
                     },
                     "indices" : 307,
-                    "material" : 70
+                    "material" : 94
                 }
             ]
         },
@@ -6396,7 +6682,7 @@
                         "NORMAL" : 343
                     },
                     "indices" : 307,
-                    "material" : 76
+                    "material" : 95
                 }
             ]
         },
@@ -6410,12 +6696,12 @@
                         "NORMAL" : 346
                     },
                     "indices" : 307,
-                    "material" : 76
+                    "material" : 96
                 }
             ]
         },
         {
-            "name" : "Icosphere.103",
+            "name" : "Icosphere.057",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6424,12 +6710,12 @@
                         "NORMAL" : 349
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 97
                 }
             ]
         },
         {
-            "name" : "Icosphere.019",
+            "name" : "Icosphere.059",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6438,12 +6724,12 @@
                         "NORMAL" : 353
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 97
                 }
             ]
         },
         {
-            "name" : "Icosphere.010",
+            "name" : "Icosphere.058",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6452,12 +6738,12 @@
                         "NORMAL" : 356
                     },
                     "indices" : 350,
-                    "material" : 78
+                    "material" : 98
                 }
             ]
         },
         {
-            "name" : "Icosphere.012",
+            "name" : "Icosphere.103",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6466,12 +6752,12 @@
                         "NORMAL" : 359
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 97
                 }
             ]
         },
         {
-            "name" : "Icosphere.015",
+            "name" : "Icosphere.056",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6480,12 +6766,12 @@
                         "NORMAL" : 362
                     },
                     "indices" : 350,
-                    "material" : 79
+                    "material" : 97
                 }
             ]
         },
         {
-            "name" : "Icosphere.016",
+            "name" : "Icosphere.034",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6494,12 +6780,12 @@
                         "NORMAL" : 365
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 99
                 }
             ]
         },
         {
-            "name" : "Icosphere.018",
+            "name" : "Icosphere.055",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6508,12 +6794,12 @@
                         "NORMAL" : 368
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 100
                 }
             ]
         },
         {
-            "name" : "Icosphere.020",
+            "name" : "Icosphere.019",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6522,12 +6808,12 @@
                         "NORMAL" : 371
                     },
                     "indices" : 350,
-                    "material" : 79
+                    "material" : 101
                 }
             ]
         },
         {
-            "name" : "Icosphere.021",
+            "name" : "Icosphere.010",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6536,12 +6822,12 @@
                         "NORMAL" : 374
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 102
                 }
             ]
         },
         {
-            "name" : "Icosphere.022",
+            "name" : "Icosphere.012",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6550,12 +6836,12 @@
                         "NORMAL" : 377
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.023",
+            "name" : "Icosphere.015",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6564,12 +6850,12 @@
                         "NORMAL" : 380
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 104
                 }
             ]
         },
         {
-            "name" : "Icosphere.024",
+            "name" : "Icosphere.016",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6578,12 +6864,12 @@
                         "NORMAL" : 383
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.025",
+            "name" : "Icosphere.018",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6592,12 +6878,12 @@
                         "NORMAL" : 386
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.026",
+            "name" : "Icosphere.020",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6606,12 +6892,12 @@
                         "NORMAL" : 389
                     },
                     "indices" : 350,
-                    "material" : 80
+                    "material" : 104
                 }
             ]
         },
         {
-            "name" : "Icosphere.027",
+            "name" : "Icosphere.021",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6620,12 +6906,12 @@
                         "NORMAL" : 392
                     },
                     "indices" : 350,
-                    "material" : 81
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.030",
+            "name" : "Icosphere.022",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6634,12 +6920,12 @@
                         "NORMAL" : 395
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.032",
+            "name" : "Icosphere.023",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6648,12 +6934,12 @@
                         "NORMAL" : 398
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.035",
+            "name" : "Icosphere.024",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6662,12 +6948,12 @@
                         "NORMAL" : 401
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.037",
+            "name" : "Icosphere.025",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6676,12 +6962,12 @@
                         "NORMAL" : 404
                     },
                     "indices" : 350,
-                    "material" : 82
+                    "material" : 105
                 }
             ]
         },
         {
-            "name" : "Icosphere.038",
+            "name" : "Icosphere.026",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6690,12 +6976,12 @@
                         "NORMAL" : 407
                     },
                     "indices" : 350,
-                    "material" : 83
+                    "material" : 106
                 }
             ]
         },
         {
-            "name" : "Icosphere.001",
+            "name" : "Icosphere.027",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6704,12 +6990,12 @@
                         "NORMAL" : 410
                     },
                     "indices" : 350,
-                    "material" : 84
+                    "material" : 107
                 }
             ]
         },
         {
-            "name" : "Icosphere.002",
+            "name" : "Icosphere.030",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6718,12 +7004,12 @@
                         "NORMAL" : 413
                     },
                     "indices" : 350,
-                    "material" : 85
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.004",
+            "name" : "Icosphere.032",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6732,12 +7018,12 @@
                         "NORMAL" : 416
                     },
                     "indices" : 350,
-                    "material" : 86
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.039",
+            "name" : "Icosphere.035",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6746,12 +7032,12 @@
                         "NORMAL" : 419
                     },
                     "indices" : 350,
-                    "material" : 87
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.042",
+            "name" : "Icosphere.037",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6760,12 +7046,12 @@
                         "NORMAL" : 422
                     },
                     "indices" : 350,
-                    "material" : 88
+                    "material" : 108
                 }
             ]
         },
         {
-            "name" : "Icosphere.043",
+            "name" : "Icosphere.038",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6774,12 +7060,12 @@
                         "NORMAL" : 425
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 109
                 }
             ]
         },
         {
-            "name" : "Icosphere.044",
+            "name" : "Icosphere.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6788,12 +7074,12 @@
                         "NORMAL" : 428
                     },
                     "indices" : 350,
-                    "material" : 89
+                    "material" : 110
                 }
             ]
         },
         {
-            "name" : "Icosphere.045",
+            "name" : "Icosphere.002",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6802,12 +7088,12 @@
                         "NORMAL" : 431
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 111
                 }
             ]
         },
         {
-            "name" : "Icosphere.046",
+            "name" : "Icosphere.004",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6816,12 +7102,12 @@
                         "NORMAL" : 434
                     },
                     "indices" : 350,
-                    "material" : 79
+                    "material" : 112
                 }
             ]
         },
         {
-            "name" : "Icosphere.047",
+            "name" : "Icosphere.039",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6830,12 +7116,12 @@
                         "NORMAL" : 437
                     },
                     "indices" : 350,
-                    "material" : 90
+                    "material" : 113
                 }
             ]
         },
         {
-            "name" : "Icosphere.048",
+            "name" : "Icosphere.042",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6844,12 +7130,12 @@
                         "NORMAL" : 440
                     },
                     "indices" : 350,
-                    "material" : 91
+                    "material" : 114
                 }
             ]
         },
         {
-            "name" : "Icosphere.049",
+            "name" : "Icosphere.043",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6858,12 +7144,12 @@
                         "NORMAL" : 443
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.050",
+            "name" : "Icosphere.044",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6872,12 +7158,12 @@
                         "NORMAL" : 446
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 115
                 }
             ]
         },
         {
-            "name" : "Icosphere.051",
+            "name" : "Icosphere.045",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6886,12 +7172,12 @@
                         "NORMAL" : 449
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 103
                 }
             ]
         },
         {
-            "name" : "Icosphere.052",
+            "name" : "Icosphere.046",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6900,12 +7186,12 @@
                         "NORMAL" : 452
                     },
                     "indices" : 350,
-                    "material" : 92
+                    "material" : 104
                 }
             ]
         },
         {
-            "name" : "Icosphere.053",
+            "name" : "Icosphere.047",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6914,12 +7200,12 @@
                         "NORMAL" : 455
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 116
                 }
             ]
         },
         {
-            "name" : "Icosphere.054",
+            "name" : "Icosphere.048",
             "primitives" : [
                 {
                     "attributes" : {
@@ -6928,7 +7214,91 @@
                         "NORMAL" : 458
                     },
                     "indices" : 350,
-                    "material" : 77
+                    "material" : 117
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.049",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 459,
+                        "TEXCOORD_0" : 460,
+                        "NORMAL" : 461
+                    },
+                    "indices" : 350,
+                    "material" : 103
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.050",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 462,
+                        "TEXCOORD_0" : 463,
+                        "NORMAL" : 464
+                    },
+                    "indices" : 350,
+                    "material" : 103
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.051",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 465,
+                        "TEXCOORD_0" : 466,
+                        "NORMAL" : 467
+                    },
+                    "indices" : 350,
+                    "material" : 103
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.052",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 468,
+                        "TEXCOORD_0" : 469,
+                        "NORMAL" : 470
+                    },
+                    "indices" : 350,
+                    "material" : 118
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.053",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 471,
+                        "TEXCOORD_0" : 472,
+                        "NORMAL" : 473
+                    },
+                    "indices" : 350,
+                    "material" : 103
+                }
+            ]
+        },
+        {
+            "name" : "Icosphere.054",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 474,
+                        "TEXCOORD_0" : 475,
+                        "NORMAL" : 476
+                    },
+                    "indices" : 350,
+                    "material" : 103
                 }
             ]
         },
@@ -6937,12 +7307,12 @@
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 459,
-                        "TEXCOORD_0" : 460,
-                        "NORMAL" : 461
+                        "POSITION" : 477,
+                        "TEXCOORD_0" : 478,
+                        "NORMAL" : 479
                     },
-                    "indices" : 462,
-                    "material" : 93
+                    "indices" : 480,
+                    "material" : 119
                 }
             ]
         }
@@ -7138,18 +7508,6 @@
         },
         {
             "sampler" : 0,
-            "source" : 44
-        },
-        {
-            "sampler" : 0,
-            "source" : 44
-        },
-        {
-            "sampler" : 0,
-            "source" : 44
-        },
-        {
-            "sampler" : 0,
             "source" : 47
         },
         {
@@ -7166,15 +7524,7 @@
         },
         {
             "sampler" : 0,
-            "source" : 44
-        },
-        {
-            "sampler" : 0,
             "source" : 51
-        },
-        {
-            "sampler" : 0,
-            "source" : 44
         },
         {
             "sampler" : 0,
@@ -7211,10 +7561,6 @@
         {
             "sampler" : 0,
             "source" : 60
-        },
-        {
-            "sampler" : 0,
-            "source" : 44
         },
         {
             "sampler" : 0,
@@ -7262,10 +7608,6 @@
         },
         {
             "sampler" : 0,
-            "source" : 71
-        },
-        {
-            "sampler" : 0,
             "source" : 72
         },
         {
@@ -7282,19 +7624,11 @@
         },
         {
             "sampler" : 0,
-            "source" : 71
-        },
-        {
-            "sampler" : 0,
             "source" : 76
         },
         {
             "sampler" : 0,
             "source" : 77
-        },
-        {
-            "sampler" : 0,
-            "source" : 72
         },
         {
             "sampler" : 0,
@@ -7310,15 +7644,155 @@
         },
         {
             "sampler" : 0,
-            "source" : 71
+            "source" : 81
         },
         {
             "sampler" : 0,
-            "source" : 71
+            "source" : 82
         },
         {
             "sampler" : 0,
-            "source" : 71
+            "source" : 83
+        },
+        {
+            "sampler" : 0,
+            "source" : 84
+        },
+        {
+            "sampler" : 0,
+            "source" : 85
+        },
+        {
+            "sampler" : 0,
+            "source" : 86
+        },
+        {
+            "sampler" : 0,
+            "source" : 87
+        },
+        {
+            "sampler" : 0,
+            "source" : 88
+        },
+        {
+            "sampler" : 0,
+            "source" : 89
+        },
+        {
+            "sampler" : 0,
+            "source" : 90
+        },
+        {
+            "sampler" : 0,
+            "source" : 91
+        },
+        {
+            "sampler" : 0,
+            "source" : 92
+        },
+        {
+            "sampler" : 0,
+            "source" : 93
+        },
+        {
+            "sampler" : 0,
+            "source" : 94
+        },
+        {
+            "sampler" : 0,
+            "source" : 95
+        },
+        {
+            "sampler" : 0,
+            "source" : 96
+        },
+        {
+            "sampler" : 0,
+            "source" : 97
+        },
+        {
+            "sampler" : 0,
+            "source" : 98
+        },
+        {
+            "sampler" : 0,
+            "source" : 99
+        },
+        {
+            "sampler" : 0,
+            "source" : 100
+        },
+        {
+            "sampler" : 0,
+            "source" : 101
+        },
+        {
+            "sampler" : 0,
+            "source" : 97
+        },
+        {
+            "sampler" : 0,
+            "source" : 97
+        },
+        {
+            "sampler" : 0,
+            "source" : 102
+        },
+        {
+            "sampler" : 0,
+            "source" : 100
+        },
+        {
+            "sampler" : 0,
+            "source" : 103
+        },
+        {
+            "sampler" : 0,
+            "source" : 104
+        },
+        {
+            "sampler" : 0,
+            "source" : 105
+        },
+        {
+            "sampler" : 0,
+            "source" : 106
+        },
+        {
+            "sampler" : 0,
+            "source" : 107
+        },
+        {
+            "sampler" : 0,
+            "source" : 108
+        },
+        {
+            "sampler" : 0,
+            "source" : 102
+        },
+        {
+            "sampler" : 0,
+            "source" : 109
+        },
+        {
+            "sampler" : 0,
+            "source" : 110
+        },
+        {
+            "sampler" : 0,
+            "source" : 111
+        },
+        {
+            "sampler" : 0,
+            "source" : 97
+        },
+        {
+            "sampler" : 0,
+            "source" : 97
+        },
+        {
+            "sampler" : 0,
+            "source" : 106
         }
     ],
     "images" : [
@@ -7429,13 +7903,13 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_tla_kvadrat.png.005",
-            "uri" : "../assets/teksture/tekstura_tla_kvadrat.png"
+            "name" : "tekstura_tla_kvadrat.png.001",
+            "uri" : "../assets/teksture/tekstura_tla_kvadrat_003.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "tekstura_tla_kvadrat.png.004",
-            "uri" : "../assets/teksture/tekstura_tla_kvadrat.png"
+            "uri" : "../assets/teksture/tekstura_tla_kvadrat_005.png"
         },
         {
             "mimeType" : "image/png",
@@ -7449,8 +7923,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_tla_kvadrat.png.008",
-            "uri" : "../assets/teksture/tekstura_tla_kvadrat.png"
+            "name" : "tekstura_tla_kvadrat.png.003",
+            "uri" : "../assets/teksture/tekstura_tla_kvadrat_004.png"
         },
         {
             "mimeType" : "image/png",
@@ -7480,7 +7954,7 @@
         {
             "mimeType" : "image/png",
             "name" : "tekstura_stena_rob.png.005",
-            "uri" : "../assets/teksture/tekstura_stena_rob.png"
+            "uri" : "../assets/teksture/tekstura_platforma1_034.png"
         },
         {
             "mimeType" : "image/png",
@@ -7496,6 +7970,11 @@
             "mimeType" : "image/png",
             "name" : "tekstura_stena2.png.001",
             "uri" : "../assets/teksture/tekstura_stena2_001.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_stena_rob.png.009",
+            "uri" : "../assets/teksture/tekstura_stena_rob_009.png"
         },
         {
             "mimeType" : "image/png",
@@ -7544,8 +8023,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_platforma1.png.004",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
+            "name" : "tekstura_platforma1.png.037",
+            "uri" : "../assets/teksture/tekstura_platforma1_031.png"
         },
         {
             "mimeType" : "image/png",
@@ -7559,8 +8038,43 @@
         },
         {
             "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.021",
+            "uri" : "../assets/teksture/tekstura_platforma1_017.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.022",
+            "uri" : "../assets/teksture/tekstura_platforma1_019.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.030",
+            "uri" : "../assets/teksture/tekstura_platforma1_022.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.033",
+            "uri" : "../assets/teksture/tekstura_platforma1_023.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.032",
+            "uri" : "../assets/teksture/tekstura_platforma1_024.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.027",
+            "uri" : "../assets/teksture/tekstura_platforma1_025.png"
+        },
+        {
+            "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.003",
             "uri" : "../assets/teksture/tekstura_platforma1_005.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.044",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
         },
         {
             "mimeType" : "image/png",
@@ -7579,13 +8093,68 @@
         },
         {
             "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.038",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.035",
+            "uri" : "../assets/teksture/tekstura_platforma1_030.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.028",
+            "uri" : "../assets/teksture/tekstura_platforma1_026.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.029",
+            "uri" : "../assets/teksture/tekstura_platforma1_027.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.031",
+            "uri" : "../assets/teksture/tekstura_platforma1_028.png"
+        },
+        {
+            "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.001",
             "uri" : "../assets/teksture/tekstura_platforma1_003.png"
         },
         {
             "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.023",
+            "uri" : "../assets/teksture/tekstura_platforma1_018.png"
+        },
+        {
+            "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.013",
             "uri" : "../assets/teksture/tekstura_platforma1_009.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.042",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.040",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.039",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.041",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.043",
+            "uri" : "../assets/teksture/tekstura_platforma1.png"
         },
         {
             "mimeType" : "image/png",
@@ -7619,6 +8188,11 @@
         },
         {
             "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.026",
+            "uri" : "../assets/teksture/tekstura_platforma1_021.png"
+        },
+        {
+            "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.002",
             "uri" : "../assets/teksture/tekstura_platforma1_004.png"
         },
@@ -7626,6 +8200,16 @@
             "mimeType" : "image/png",
             "name" : "ploscad2",
             "uri" : "../assets/teksture/tekstura_platforma1_001.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.034",
+            "uri" : "../assets/teksture/tekstura_platforma1_029.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_platforma1.png.024",
+            "uri" : "../assets/teksture/tekstura_platforma1_020.png"
         },
         {
             "mimeType" : "image/png",
@@ -7644,8 +8228,13 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_krog.png.007",
-            "uri" : "../assets/teksture/tekstura_krog.png"
+            "name" : "tekstura_krog.png.017",
+            "uri" : "../assets/teksture/tekstura_krog_013.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_krog.png.014",
+            "uri" : "../assets/teksture/tekstura_krog_011.png"
         },
         {
             "mimeType" : "image/png",
@@ -7674,13 +8263,48 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_krog.png.002",
-            "uri" : "../assets/teksture/tekstura_krog.png"
+            "name" : "tekstura_krog.png.018",
+            "uri" : "../assets/teksture/tekstura_krog_014.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_skala",
+            "name" : "tekstura_krog.png.019",
+            "uri" : "../assets/teksture/tekstura_krog_015.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_krog.png.012",
+            "uri" : "../assets/teksture/tekstura_krog_010.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_krog.png.015",
+            "uri" : "../assets/teksture/tekstura_krog_012.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_skala.006",
             "uri" : "../assets/teksture/tekstura_kamn.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_skala.021",
+            "uri" : "../assets/teksture/tekstura_kamn_014.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_skala.020",
+            "uri" : "../assets/teksture/tekstura_kamn_013.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_skala.013",
+            "uri" : "../assets/teksture/tekstura_kamn_011.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "tekstura_skala.014",
+            "uri" : "../assets/teksture/tekstura_kamn_012.png"
         },
         {
             "mimeType" : "image/png",
@@ -7690,12 +8314,12 @@
         {
             "mimeType" : "image/png",
             "name" : "tekstura_skala.004",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
+            "uri" : "../assets/teksture/tekstura_kamn_008.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "tekstura_skala.005",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
+            "uri" : "../assets/teksture/tekstura_kamn_007.png"
         },
         {
             "mimeType" : "image/png",
@@ -7704,13 +8328,18 @@
         },
         {
             "mimeType" : "image/png",
+            "name" : "tekstura_skala",
+            "uri" : "../assets/teksture/tekstura_kamn_010.png"
+        },
+        {
+            "mimeType" : "image/png",
             "name" : "tekstura_skala.002",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
+            "uri" : "../assets/teksture/tekstura_kamn_005.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "tekstura_skala.003",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
+            "uri" : "../assets/teksture/tekstura_kamn_006.png"
         },
         {
             "mimeType" : "image/png",
@@ -7720,7 +8349,7 @@
         {
             "mimeType" : "image/png",
             "name" : "tekstura_skala.008",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
+            "uri" : "../assets/teksture/tekstura_kamn_009.png"
         },
         {
             "mimeType" : "image/png",
@@ -11966,6 +12595,174 @@
         {
             "bufferView" : 459,
             "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 460,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 461,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 462,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 463,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 464,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 465,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 466,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 467,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 468,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 469,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 470,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 471,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 472,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 473,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 474,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.8506492376327515
+            ],
+            "min" : [
+                -0.7782626152038574,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 475,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 476,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 477,
+            "componentType" : 5126,
             "count" : 24,
             "max" : [
                 1,
@@ -11980,19 +12777,19 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 460,
+            "bufferView" : 478,
             "componentType" : 5126,
             "count" : 24,
             "type" : "VEC2"
         },
         {
-            "bufferView" : 461,
+            "bufferView" : 479,
             "componentType" : 5126,
             "count" : 24,
             "type" : "VEC3"
         },
         {
-            "bufferView" : 462,
+            "bufferView" : 480,
             "componentType" : 5123,
             "count" : 36,
             "type" : "SCALAR"
@@ -14755,26 +15552,134 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 288,
+            "byteLength" : 2880,
             "byteOffset" : 1579164,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 192,
-            "byteOffset" : 1579452,
+            "byteLength" : 1920,
+            "byteOffset" : 1582044,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1583964,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1586844,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 1589724,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1591644,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1594524,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 1597404,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1599324,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1602204,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 1605084,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1607004,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1609884,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 1612764,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1614684,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1617564,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 1620444,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 1622364,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 288,
-            "byteOffset" : 1579644,
+            "byteOffset" : 1625244,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 1625532,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 1625724,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 72,
-            "byteOffset" : 1579932,
+            "byteOffset" : 1626012,
             "target" : 34963
         }
     ],
@@ -14786,7 +15691,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1580004,
+            "byteLength" : 1626084,
             "uri" : "mapa_test_MANSE.bin"
         }
     ]
