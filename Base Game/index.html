@@ -9,27 +9,20 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <style>
-        .container {
+         body {
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body {
+            overflow: hidden;
+            background-image: url("first_page\\howtostr.png");
+            background-size: contain;
             margin: 0;
         }
-        img {
-            object-fit: contain;
-            height: 1080;
-            width: 100%;
-            overflow: hidden;
+        div {
+            width: 1920px;
+            height: 1080px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="engine/canvas.html">
-            <img src="first_page\\howtostr.png">
-        </a>
-    </div> 
+    <div onclick="location.href='engine/canvas.html';" style="cursor: pointer;"></div> 
 </body>
 </html>

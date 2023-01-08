@@ -40,9 +40,10 @@ export class Ability_rotate {
         this.node = node;
         this.bool = false;
     }
-    update(x, y, z) {
-        if (!this.bool)
-            this.node.rotation = vec3.cross(this.node.rotation, this.node.rotation, [x,y,z])
+    update() {
+        const rotation = quat.create();
+        quat.rotateY(rotation, rotation, Math.PI/2);
+        this.node.rotation = rotation;
             // this.node.rotation = quat.setAxisAngle(quat.create(), [x,y,z], Math.sin(time));
     }
     setPremik(bool) {

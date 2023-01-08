@@ -3,7 +3,7 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene, body, box, Dnoga, Droka, Lnoga, Lroka, cam, kulci, spawn, CS) {
+    constructor(scene, body, box, Dnoga, Droka, Lnoga, Lroka, cam, kulci, spawn, CS, domElement) {
         this.body = body;
         this.Dnoga = Dnoga;
         this.Droka = Droka;
@@ -15,6 +15,7 @@ export class Physics {
         this.colili = kulci;
         this.ded = spawn;
         this.camSpawn = CS;
+        this.doc = domElement.ownerDocument;
     }
 
     update(dt) {
@@ -84,6 +85,12 @@ export class Physics {
             // console.log("oj")
             a.translation = this.ded.translation;
             this.cam.translation = this.camSpawn.translation;
+        }
+        if (b.extras.isFinish && b.extras.isFinish == 1) {
+            // this.doc.querySelectorAll('audio').forEach(el => el.pause());
+            b.extras.isFinish = 0;
+            window.open('finish.html', "_self");
+            return;
         }
         // console.log("trk")
         // console.log(a.name," ",b.name);

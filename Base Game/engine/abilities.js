@@ -2,7 +2,7 @@ export class abilities {
     constructor() {}
     water(obj, bool) {
         obj.setPremik(bool);
-        console.log("voda");
+        // console.log("voda");
         return "water";
     }
     nature(obj, bool) {

@@ -4,7 +4,7 @@ import { abilities } from '../abilities.js';
 
 export class Char_cont {
 
-    constructor(node1, node2, domElement, camFollow, obj1, obj2, obj3, obj4) {
+    constructor(node1, node2, domElement, camFollow, obj1, obj2, obj3, obj4, konc) {
         this.char = node1;
         this.camdis = node2;
         this.domElement = domElement;
@@ -74,13 +74,13 @@ export class Char_cont {
         this.wadaUse = new Ability_movement(obj1);
         this.wagnUse = new Ability_movement(obj2);
         this.naravaUse = new Ability_movement(obj3);
-        this.objrot = obj4;
-        this.erfUse = new Ability_rotate(this.objrot);
+        this.erfUse = new Ability_rotate(obj4);
+        this.finish = new Ability_movement(konc);
         
         this.pitch = 0;
         this.yaw = 0;
 
-        this.GRAVITY = 9.81; // gravitational acceleration (m/s^2)
+        this.GRAVITY = 9.81;
         this.velocityChar = [0, 0, 0];
         this.velocityCam = [0, 0, 0];
         this.acceleration = 5;
@@ -110,6 +110,8 @@ export class Char_cont {
         this.erfYesNo = false;
         this.erfCount = 0;
         this.erfSetting = 20;
+        this.wagnUse.setPremik(true);
+        this.naravaUse.setPremik(true);
 
         this.initHandlers();
     }
@@ -162,13 +164,13 @@ export class Char_cont {
         const rotation = quat.create();
         const acc = vec3.create();
         if (this.gravBool) {
-            this.velocityChar[1] -= (this.GRAVITY*this.dt)*4;
-            this.velocityCam[1] -= (this.GRAVITY*this.dt)*4;
+            this.velocityChar[1] -= (this.GRAVITY*this.dt)*6;
+            this.velocityCam[1] -= (this.GRAVITY*this.dt)*6;
         }
         else {
             if (this.gravTest < 20) {
-                this.velocityChar[1] += (this.GRAVITY*this.dt)*4;
-                this.velocityCam[1] += (this.GRAVITY*this.dt)*4;
+                this.velocityChar[1] += (this.GRAVITY*this.dt)*6;
+                this.velocityCam[1] += (this.GRAVITY*this.dt)*6;
                 this.gravTest += 1;
             }
             else {
@@ -276,19 +278,12 @@ export class Char_cont {
         this.camdis.translation, this.velocityCam, dt);
 
         this.wadaUse.update(0, 0, 0.08*Math.cos(this.time));
+        
         this.wagnUse.update(0, 0.2*Math.cos(this.time), 0);
+        
         this.naravaUse.update(0, 0.2*Math.sin(this.time), 0);
-        if (this.erfYesNo) {
-            if (this.erfCount <= Math.PI/2) {
-                this.erfUse.update(0, -0.01, 0);
-                this.erfCount += 0.01;
-            }
-            else {
-                this.erfYesNo = false;
-                this.erfCount = 0
-                this.objrot.translation = this.objrot.translation;
-                // this.erfSetting += this.erfCount
-            }
+        if (this.erfYesNo == true) {
+            this.finish.update(0, 0.7*Math.sin(this.time), 0);
         }
     }
 
@@ -369,6 +364,7 @@ export class Char_cont {
                 this.Esfx.play();
                 this.abilityUsed[3] = !this.abilityUsed[3];
                 console.log("oke")
+                this.erfUse.update();
                 this.erfYesNo = true;
                 this.keys['Digit4'] = this.pritisk[3];
             }

@@ -26,6 +26,7 @@ class App extends Application {
         this.box = await this.loader.loadNode('collajd');
         this.box.mesh = this.box.mesh.opacity = 0;
         this.ubijalska = await this.loader2.loadNode('ubijalska_povrsina_velika');
+        this.konc = await this.loader2.loadNode('platform1.006');
         
         this.platformaStart = await this.loader2.loadNode('platform1.003');
         this.platTest = new Platform_movement(this.platformaStart);
@@ -82,14 +83,14 @@ class App extends Application {
             }
         });
         this.collide.push(this.ubijalska);
-        this.Physics = new Physics(this.scene, this.telo, this.box, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide, this.spawn, this.camSP);
+        this.Physics = new Physics(this.scene, this.telo, this.box, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide, this.spawn, this.camSP, this.canvas);
         this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         
         this.wada = await this.loader2.loadNode('platform1.056');
         this.wagn = await this.loader2.loadNode('platform1.005');
         this.narava = await this.loader2.loadNode('platform1.001');
         this.erf = await this.loader2.loadNode('platform1.013');
-        this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.wada, this.wagn, this.narava, this.erf);
+        this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.wada, this.wagn, this.narava, this.erf, this.konc);
         
         this.renderer = new Renderer(this.gl);
         this.renderer.prepareScene(this.scene);
