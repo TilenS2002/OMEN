@@ -2982,7 +2982,7 @@
             ],
             "translation" : [
                 42.290157318115234,
-                -8.86093521118164,
+                -17.86093521118164,
                 -52.56584930419922
             ]
         },
@@ -8068,8 +8068,8 @@
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_tla_hodnik1_001.png",
-            "uri" : "../assets/teksture/tekstura_tla_hodnik1_001.png"
+            "name" : "tekstura_tla_hodnik1.png.010",
+            "uri" : "../assets/teksture/tekstura_tla_hodnik1_027.png"
         },
         {
             "mimeType" : "image/png",
