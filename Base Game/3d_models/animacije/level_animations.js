@@ -17,7 +17,7 @@ export class Platform_movement {
         this.node = node;
     }
     update(x, y, z) {
-        this.node.translation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
+        this.node.translation = vec3.add(this.node.translation, this.node.translation, vec3.fromValues(x, y, z));
     }
 }
 
@@ -28,7 +28,7 @@ export class Ability_movement {
     }
     update(x, y, z) {
         if (!this.bool)
-            this.node.translation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
+            this.node.translation = vec3.add(this.node.translation, this.node.translation, vec3.fromValues(x, y, z));
     }
     setPremik(bool) {
         this.bool = bool;
@@ -42,7 +42,8 @@ export class Ability_rotate {
     }
     update(x, y, z) {
         if (!this.bool)
-            this.node.rotation = quat.add(this.node.translation, this.node.translation, quat.fromEuler(quat.create(), x, y, z));
+            this.node.rotation = vec3.cross(this.node.rotation, this.node.rotation, [x,y,z])
+            // this.node.rotation = quat.setAxisAngle(quat.create(), [x,y,z], Math.sin(time));
     }
     setPremik(bool) {
         this.bool = bool;

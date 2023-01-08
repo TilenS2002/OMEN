@@ -14,7 +14,6 @@ class App extends Application {
 
         this.loader2 = new GLTFLoader();
         await this.loader2.load('../3d_models/map/mapa_test_MANSE.gltf');
-        // await this.loader2.load('../3d_models/map/test_luci.gltf');
         
         this.loader = new GLTFLoader();
         await this.loader.load('../3d_models/player/MOZIC.gltf');
@@ -26,6 +25,7 @@ class App extends Application {
         this.telo = await this.loader.loadNode('telo');
         this.box = await this.loader.loadNode('collajd');
         this.box.mesh = this.box.mesh.opacity = 0;
+        this.ubijalska = await this.loader2.loadNode('ubijalska_povrsina_velika');
         
         this.platformaStart = await this.loader2.loadNode('platform1.003');
         this.platTest = new Platform_movement(this.platformaStart);
@@ -46,7 +46,6 @@ class App extends Application {
         this.camera.translation = this.camSP.translation;
         this.char = [this.telo, this.Dnoga, this.Lnoga, this.Droka, this.Lroka];
         
-        this.distanca = vec3.distance(this.telo.translation, this.camera.translation);
         this.anim = new abilityAinm(this.Lroka, this.Droka);
         this.scene.addNode(this.telo);
         
@@ -82,13 +81,14 @@ class App extends Application {
                 this.collide.push(node);
             }
         });
-        this.Physics = new Physics(this.scene, this.telo, this.box, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide);
+        this.collide.push(this.ubijalska);
+        this.Physics = new Physics(this.scene, this.telo, this.box, this.Dnoga, this.Droka, this.Lnoga, this.Lroka, this.camera, this.collide, this.spawn, this.camSP);
         this.krog = new Krog_rotation(this.krogTest, this.krogTest.rotation);
         
         this.wada = await this.loader2.loadNode('platform1.056');
         this.wagn = await this.loader2.loadNode('platform1.005');
-        this.narava = this.loader2.loadNode('platform1.001');
-        this.erf = this.loader2.loadNode('platform1.013');
+        this.narava = await this.loader2.loadNode('platform1.001');
+        this.erf = await this.loader2.loadNode('platform1.013');
         this.controller = new Char_cont(this.telo, this.camera, this.canvas, this.distanca, this.wada, this.wagn, this.narava, this.erf);
         
         this.renderer = new Renderer(this.gl);
@@ -106,12 +106,11 @@ class App extends Application {
         const time = performance.now() / 1000;
         if (!this.isPlaying(this.ambience))
             this.ambience.play();
-        // console.log(this.plat1.rotation);
         this.krog.update(time);
-        this.platTest.update(0,0,Math.sin(time)*9);
-        this.plat1.update(Math.sin(time)*9, 0, 0);
-        this.plat3.update(Math.sin(time)*9, 0, 0);
-        this.plat4.update(-Math.sin(time)*9, 0, 0);
+        this.platTest.update(0,0,0.05*Math.sin(time));
+        this.plat1.update(0.08*Math.sin(time), 0, 0);
+        this.plat3.update(0.1*Math.sin(time), 0, 0);
+        this.plat4.update(-0.02*Math.sin((time)), 0, 0);
         if (!this.controller.is_moving) {
             this.idleD.update(time);
             this.idleL.update(time);

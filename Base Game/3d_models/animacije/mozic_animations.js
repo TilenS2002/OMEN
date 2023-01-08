@@ -40,7 +40,6 @@ export class Lroka_movement {
     update(time) {
         let moveLR = quat.setAxisAngle(quat.create(), [0,0,0.5], Math.sin(time*8)*0.4);
         this.node.rotation = moveLR;
-        // console.log("updatan");
     }
 }
 

@@ -7,7 +7,6 @@ export class idle_animation_LR {
     update(time) {
         let idle = quat.setAxisAngle(quat.create(), [0.2,0,0], Math.sin(time*2)*0.2);
         this.node.rotation = idle;
-        // console.log("updatan");
     }
 }
 
@@ -18,6 +17,5 @@ export class idle_animation_DR {
     update(time) {
         let idle = quat.setAxisAngle(quat.create(), [-0.2,0,0], Math.sin(time*2)*0.2);
         this.node.rotation = idle;
-        // console.log("updatan");
     }
 }

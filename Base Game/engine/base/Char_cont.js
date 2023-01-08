@@ -10,6 +10,7 @@ export class Char_cont {
         this.domElement = domElement;
         this.camFollow = camFollow;
         this.axesRotation = 0;
+        this.dt = 0;
         this.keys = {};
         this.connected = false;
         this.is_moving = false;
@@ -73,7 +74,8 @@ export class Char_cont {
         this.wadaUse = new Ability_movement(obj1);
         this.wagnUse = new Ability_movement(obj2);
         this.naravaUse = new Ability_movement(obj3);
-        this.erfUse = new Ability_rotate(obj4);
+        this.objrot = obj4;
+        this.erfUse = new Ability_rotate(this.objrot);
         
         this.pitch = 0;
         this.yaw = 0;
@@ -99,7 +101,15 @@ export class Char_cont {
         this.Fsfx.volume = 0.4;
         this.Esfx.volume = 0.4;
         this.cam = [[],[],[],[]];
-        this.abilityUsed = false;
+        this.abilityUsed = [false,false,false,false];
+        this.i = [[0],[0],[0],[0]];
+        this.gravTest = 0;
+        this.gravBool = true;
+        this.char.extras.is_fall = 0;
+        this.char.extras.is_jump = 0;
+        this.erfYesNo = false;
+        this.erfCount = 0;
+        this.erfSetting = 20;
 
         this.initHandlers();
     }
@@ -140,24 +150,33 @@ export class Char_cont {
         });
     }
     update(dt) {
+        // console.log(this.char.extras);
+        this.dt = dt;
         this.gamepads.update();
         this.time = performance.now()/1000;
         // console.log(this.gamepads.buttonsStatus)
         // console.log(this.camdis.globalMatrix);
-        
-        const curDist = vec3.distance(this.char.translation, this.camdis.translation);
-        let cos = Math.cos(0);
-        let sin = Math.sin(0);
-        const forward = [-sin, 0, -cos];
+        const forward = [0, 0, -10];
         const right = [10, 0, 0];
-
-
         // Map user input to the acceleration vector.
         const rotation = quat.create();
         const acc = vec3.create();
-        // console.log(vec3.sub(this.posNow, this.posNow, this.posPrev));
-        this.velocityChar[1] -= this.GRAVITY*dt;
-        this.velocityCam[1] -=this.GRAVITY*dt;
+        if (this.gravBool) {
+            this.velocityChar[1] -= (this.GRAVITY*this.dt)*4;
+            this.velocityCam[1] -= (this.GRAVITY*this.dt)*4;
+        }
+        else {
+            if (this.gravTest < 20) {
+                this.velocityChar[1] += (this.GRAVITY*this.dt)*4;
+                this.velocityCam[1] += (this.GRAVITY*this.dt)*4;
+                this.gravTest += 1;
+            }
+            else {
+                this.gravTest = 0;
+                this.gravBool = true;
+                this.char.extras.is_fall = 1;
+            }
+        }
         // console.log(this.velocityChar);
         if (this.keys['KeyD'] || (this.connected && this.gamepads.buttonPressed('DPad-Up', 'Held'))) {
             vec3.add(acc, acc, forward);
@@ -165,9 +184,6 @@ export class Char_cont {
             this.is_moving = true;
         }
         if (this.keys['KeyA'] || (this.connected && this.gamepads.buttonPressed('DPad-Down', 'Held'))) {
-            // if (curDist[0] > this.camFollow[0]) {
-            //     vec3.add(accCam, accCam, forward);
-            // }
             vec3.sub(acc, acc, forward);
             // this.cam[1] = vec3.sub(acc, acc, forward);
             quat.rotateY(rotation, rotation, 4.899185307179586);
@@ -190,10 +206,6 @@ export class Char_cont {
             this.is_moving = true;
             
         }
-        // console.log("trenutna distanca: ", curDist[2], " zeljena distanca: ", this.camFollow[2]); // W neg, S pos
-        // console.log(curDist[2] < this.camFollow[2]);
-        // console.log("trenutna distanca: ", curDist[0], " zeljena distanca: ", this.camFollow[0]); // A neg, D pos
-        // console.log(curDist[0] < this.camFollow[0]);
         if (this.gamepads.buttonPressed('A')) {
             this.pritisk[0] = !this.pritisk[0];
             this.Wsfx.play();
@@ -216,11 +228,9 @@ export class Char_cont {
         }
 
         this.char.rotation = rotation;
-        
         // Update velocity based on acceleration.
-        vec3.scaleAndAdd(this.velocityChar, this.velocityChar, acc, dt * this.acceleration);
-
-        vec3.scaleAndAdd(this.velocityCam, this.velocityCam, acc, dt * this.acceleration);
+        vec3.scaleAndAdd(this.velocityChar, this.velocityChar, acc, this.dt * this.acceleration);
+        vec3.scaleAndAdd(this.velocityCam, this.velocityCam, acc, this.dt * this.acceleration);
 
         // If there is no user input, apply decay.
         if (this.connected) {
@@ -229,7 +239,7 @@ export class Char_cont {
                 !this.gamepads.buttonPressed('DPad-Right') &&
                 !this.gamepads.buttonPressed('DPad-Left'))
             {
-                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                const decay = Math.exp(this.dt * Math.log(1 - this.decay));
                 vec3.scale(this.velocityChar, this.velocityChar, decay);
                 vec3.scale(this.velocityCam, this.velocityCam, decay);
                 this.is_moving = false;
@@ -241,7 +251,7 @@ export class Char_cont {
             !this.keys['KeyD'] &&
             !this.keys['KeyA']))
             {
-                const decay = Math.exp(dt * Math.log(1 - this.decay));
+                const decay = Math.exp(this.dt * Math.log(1 - this.decay));
                 vec3.scale(this.velocityChar, this.velocityChar, decay);
                 vec3.scale(this.velocityCam, this.velocityCam, decay);
                 this.is_moving = false;
@@ -258,25 +268,28 @@ export class Char_cont {
         if (speedCam > this.maxSpeed) {
             vec3.scale(this.velocityCam, this.velocityCam, this.maxSpeed / speedCam);
         }
-
         // Update translation based on velocity.
         this.char.translation = vec3.scaleAndAdd(vec3.create(),
             this.char.translation, this.velocityChar, dt);
-        // this.char.velocitySet(this.velocity2);
-        // if (curDist == this.camFollow) {
+
         this.camdis.translation = vec3.scaleAndAdd(vec3.create(),
         this.camdis.translation, this.velocityCam, dt);
-        // }
-        // else {
-        //     console.log("trenutna razdalja: ",curDist, " originalana razdalja: ", this.camFollow)
-        //     this.camdis.translation = this.camdis.translation;
-        // }
-        
-        // this.wadaUse.setPremik(true);
-        this.wadaUse.update(0, 0, Math.cos(this.time)*14);
-        this.wagnUse.update(0, Math.cos(this.time)*8, 0);
-        // this.naravaUse.update(0, Math.sin(this.time)*8, 0);
-        // this.erfUse.update(0, Math.cos(this.time)*8, 0);
+
+        this.wadaUse.update(0, 0, 0.08*Math.cos(this.time));
+        this.wagnUse.update(0, 0.2*Math.cos(this.time), 0);
+        this.naravaUse.update(0, 0.2*Math.sin(this.time), 0);
+        if (this.erfYesNo) {
+            if (this.erfCount <= Math.PI/2) {
+                this.erfUse.update(0, -0.01, 0);
+                this.erfCount += 0.01;
+            }
+            else {
+                this.erfYesNo = false;
+                this.erfCount = 0
+                this.objrot.translation = this.objrot.translation;
+                // this.erfSetting += this.erfCount
+            }
+        }
     }
 
     pointermoveHandler(e) {
@@ -284,11 +297,9 @@ export class Char_cont {
         const dy = e.movementY;
         this.pitch -= dy * this.pointerSensitivity;
         this.yaw   -= dx * this.pointerSensitivity;
-
         const pi = Math.PI;
         const twopi = pi * 2;
         const halfpi = pi / 2;
-
         // Limit pitch so that the camera does not invert on itself.
         if (this.pitch > halfpi) {
             this.pitch = halfpi;
@@ -296,7 +307,6 @@ export class Char_cont {
         if (this.pitch < -halfpi) {
             this.pitch = -halfpi;
         }
-
         // Constrain yaw to the range [0, pi * 2]
         this.yaw = ((this.yaw % twopi) + twopi) % twopi;
     }
@@ -311,85 +321,72 @@ export class Char_cont {
 
     keypressedHandler() {
         if (this.keys['Digit1']) {
-            if (this.abilityUsed == false) {
+            if (this.abilityUsed[0] == false) {
                 this.pritisk[0] = !this.pritisk[0];
                 this.Wsfx.play();
-                this.abilityUsed = !this.abilityUsed;
+                this.abilityUsed[0] = !this.abilityUsed[0];
                 this.ability.water(this.wadaUse, this.pritisk[0]);
                 this.keys['Digit1'] = this.pritisk[0];
             }
             else {
-                this.abilityUsed = !this.abilityUsed;
+                this.abilityUsed[0] = !this.abilityUsed[0];
                 this.Wsfx.pause();
                 this.Wsfx.currentTime = 0;
             }
             
         }
         else if (this.keys['Digit2']) {
-            if (this.abilityUsed == false) {
+            if (this.abilityUsed[1] == false) {
                 this.pritisk[1] = !this.pritisk[1];
-                this.Nsfx.play();
-                this.abilityUsed = !this.abilityUsed;
-                this.ability.nature(this.wagnUse, !this.pritisk[1]);
+                this.Fsfx.play();
+                this.abilityUsed[1] = !this.abilityUsed[1];
+                this.ability.fire(this.wagnUse, !this.pritisk[1]);
                 this.keys['Digit2'] = this.pritisk[1];
             }
             else {
-                this.abilityUsed = !this.abilityUsed;
-                this.Nsfx.pause();
-                this.Nsfx.currentTime = 0;
-            }
-        }
-        else if (this.keys['Digit3']) {
-            if (this.abilityUsed == false) {
-                this.pritisk[2] = !this.pritisk[2];
-                this.Fsfx.play();
-                this.abilityUsed = !this.abilityUsed;
-                this.ability.fire(this.naravaUse, this.pritisk[2]);
-                this.keys['Digit3'] = this.pritisk[2];
-            }
-            else {
-                this.abilityUsed = !this.abilityUsed;
+                this.abilityUsed[1] = !this.abilityUsed[1];
                 this.Fsfx.pause();
                 this.Fsfx.currentTime = 0;
             }
         }
+        else if (this.keys['Digit3']) {
+            if (this.abilityUsed[2] == false) {
+                this.pritisk[2] = !this.pritisk[2];
+                this.Nsfx.play();
+                this.abilityUsed[2] = !this.abilityUsed[2];
+                this.ability.nature(this.naravaUse, this.pritisk[2]);
+                this.keys['Digit3'] = this.pritisk[2];
+            }
+            else {
+                this.abilityUsed[2] = !this.abilityUsed[2];
+                this.Nsfx.pause();
+                this.Nsfx.currentTime = 0;
+            }
+        }
         else if (this.keys['Digit4']) {
-            if (this.abilityUsed == false) {
+            if (this.abilityUsed[3] == false && this.erfYesNo == false) {
                 this.pritisk[3] = !this.pritisk[3];
                 this.Esfx.play();
-                this.abilityUsed = !this.abilityUsed;
-                this.ability.earth(this.erfUse, this.pritisk[3]);
+                this.abilityUsed[3] = !this.abilityUsed[3];
+                console.log("oke")
+                this.erfYesNo = true;
                 this.keys['Digit4'] = this.pritisk[3];
             }
             else {
-                this.abilityUsed = !this.abilityUsed;
+                this.abilityUsed[3] = !this.abilityUsed[3];
                 this.Esfx.pause();
                 this.Esfx.currentTime = 0;
             }
         }
         else if (this.keys['Space']) {
-            let startTime = performance.now()/1000;
-            let time = 0;
-            while (time - startTime < 1) {
+            if (this.char.extras.is_jump == 0 && this.char.extras.is_stand == 1 && this.char.extras.is_fall == 0) {
                 this.pritisk[4] = !this.pritisk[4];
-                //console.log("skoci!");
-                time = performance.now()/1000;
-                //console.log(time-startTime);
-                this.char.translation = vec3.scaleAndAdd(vec3.create(),
-                this.char.translation, [0,0.5,0], (time-startTime)*0.005);
+                this.gravBool = false;
+                this.char.extras.is_jump = 1;
+                this.char.extras.is_stand = 0;
                 this.keys['Space'] = this.pritisk[4];
             }
-            startTime = performance.now()/1000;
-            while (time - startTime < 1) {
-                this.pritisk[4] = !this.pritisk[4];
-                //console.log("skoci!");
-                time = performance.now()/1000;
-                // console.log(time-startTime);
-                // this.node.translation = vec3.scaleAndAdd(vec3.create(),
-                // this.node.translation, [0,0,0], (time-startTime)*0.005);
-                this.keys['Space'] = this.pritisk[4];
-            }
-        } 
+        }
     }
 
     is_moving() {
