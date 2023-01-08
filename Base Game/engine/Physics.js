@@ -3,7 +3,7 @@ import { vec3, mat4 } from './GL_matrix_lib/dist/gl-matrix-module.js';
 
 export class Physics {
 
-    constructor(scene, body, box, Dnoga, Droka, Lnoga, Lroka, cam, kulci) {
+    constructor(scene, body, box, Dnoga, Droka, Lnoga, Lroka, cam, kulci, spawn, CS) {
         this.body = body;
         this.Dnoga = Dnoga;
         this.Droka = Droka;
@@ -13,26 +13,11 @@ export class Physics {
         this.scene = scene;
         this.cam = cam;
         this.colili = kulci;
-        
-        const GRAVITY = 9.81; // gravitational acceleration (m/s^2)
-
-        // Initialize the position and velocity of the object
-        let x = 0;
-        let y = 0;
-        let vx = 0;
-        let vy = 0;
-
-        // Update the position of the object based on its velocity and the elapsed time
-        this.updatePosition = function(dt) {
-            x += vx * dt;
-            y += vy * dt;
-            // Apply gravity to the vertical velocity
-            vy += GRAVITY * dt;
-        }
+        this.ded = spawn;
+        this.camSpawn = CS;
     }
 
     update(dt) {
-        this.updatePosition(dt);
         this.scene.traverse(node => {
             // Move every node with defined velocity.
             if (node == this.body) {
@@ -95,6 +80,11 @@ export class Physics {
         if (!isColliding) {
             return;
         }
+        if (b.name == 'ubijalska_povrsina_velika') {
+            // console.log("oj")
+            a.translation = this.ded.translation;
+            this.cam.translation = this.camSpawn.translation;
+        }
         // console.log("trk")
         // console.log(a.name," ",b.name);
         // Move node A minimally to avoid collision.
@@ -130,6 +120,9 @@ export class Physics {
 
         a.translation = vec3.add(a.translation, a.translation, minDirection);
         this.cam.translation = vec3.add(this.cam.translation, this.cam.translation, minDirection);
+        a.extras.is_jump = 0;
+        a.extras.is_stand = 1;
+        a.extras.is_fall = 0;
     }
 
 }
