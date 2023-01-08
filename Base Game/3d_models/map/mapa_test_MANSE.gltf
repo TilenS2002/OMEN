@@ -7789,6 +7789,14 @@
         },
         {
             "sampler" : 0,
+            "source" : 67
+        },
+        {
+            "sampler" : 0,
+            "source" : 68
+        },
+        {
+            "sampler" : 0,
             "source" : 68
         },
         {
@@ -7929,15 +7937,15 @@
         },
         {
             "sampler" : 0,
+            "source" : 98
+        },
+        {
+            "sampler" : 0,
             "source" : 103
         },
         {
             "sampler" : 0,
             "source" : 104
-        },
-        {
-            "sampler" : 0,
-            "source" : 100
         },
         {
             "sampler" : 0,
@@ -7949,7 +7957,15 @@
         },
         {
             "sampler" : 0,
+            "source" : 98
+        },
+        {
+            "sampler" : 0,
             "source" : 107
+        },
+        {
+            "sampler" : 0,
+            "source" : 106
         },
         {
             "sampler" : 0,
@@ -7957,7 +7973,7 @@
         },
         {
             "sampler" : 0,
-            "source" : 100
+            "source" : 101
         },
         {
             "sampler" : 0,
@@ -7965,15 +7981,7 @@
         },
         {
             "sampler" : 0,
-            "source" : 108
-        },
-        {
-            "sampler" : 0,
             "source" : 110
-        },
-        {
-            "sampler" : 0,
-            "source" : 103
         },
         {
             "sampler" : 0,
@@ -7985,7 +7993,15 @@
         },
         {
             "sampler" : 0,
+            "source" : 106
+        },
+        {
+            "sampler" : 0,
             "source" : 113
+        },
+        {
+            "sampler" : 0,
+            "source" : 105
         },
         {
             "sampler" : 0,
@@ -7994,6 +8010,10 @@
         {
             "sampler" : 0,
             "source" : 115
+        },
+        {
+            "sampler" : 0,
+            "source" : 104
         },
         {
             "sampler" : 0,
@@ -8010,10 +8030,6 @@
         {
             "sampler" : 0,
             "source" : 119
-        },
-        {
-            "sampler" : 0,
-            "source" : 106
         },
         {
             "sampler" : 0,
@@ -8045,6 +8061,10 @@
         },
         {
             "sampler" : 0,
+            "source" : 126
+        },
+        {
+            "sampler" : 0,
             "source" : 127
         },
         {
@@ -8054,26 +8074,6 @@
         {
             "sampler" : 0,
             "source" : 129
-        },
-        {
-            "sampler" : 0,
-            "source" : 130
-        },
-        {
-            "sampler" : 0,
-            "source" : 130
-        },
-        {
-            "sampler" : 0,
-            "source" : 131
-        },
-        {
-            "sampler" : 0,
-            "source" : 132
-        },
-        {
-            "sampler" : 0,
-            "source" : 133
         }
     ],
     "images" : [
@@ -8234,8 +8234,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_stena_rob.png.005",
-            "uri" : "../assets/teksture/tekstura_platforma1_034.png"
+            "name" : "tekstura_platforma1_033.png",
+            "uri" : "../assets/teksture/tekstura_platforma1_033.png"
         },
         {
             "mimeType" : "image/png",
@@ -8414,28 +8414,18 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_platforma1.png.042",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
-        },
-        {
-            "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.040",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
+            "uri" : "../assets/teksture/tekstura_platforma1_036.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_platforma1.png.039",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "tekstura_platforma1.png.041",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
+            "name" : "tekstura_platforma1.png.004",
+            "uri" : "../assets/teksture/tekstura_platforma1_035.png"
         },
         {
             "mimeType" : "image/png",
             "name" : "tekstura_platforma1.png.043",
-            "uri" : "../assets/teksture/tekstura_platforma1.png"
+            "uri" : "../assets/teksture/tekstura_platforma1_037.png"
         },
         {
             "mimeType" : "image/png",
@@ -8654,18 +8644,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "tekstura_skala.036",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
-        },
-        {
-            "mimeType" : "image/png",
             "name" : "tekstura_skala.011",
             "uri" : "../assets/teksture/tekstura_kamn_004.png"
-        },
-        {
-            "mimeType" : "image/png",
-            "name" : "tekstura_skala.035",
-            "uri" : "../assets/teksture/tekstura_kamn.png"
         },
         {
             "mimeType" : "image/png",
