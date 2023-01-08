@@ -1,0 +1,2 @@
+dodam kot konstanto v sceno vektor
+velocity.y += gravitacija*dt
