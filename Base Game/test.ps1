@@ -1,1 +1,1 @@
-node \\bin\\server.js
+get-package node* | % { $_.metadata['C:\Program Files\'] }
