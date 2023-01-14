@@ -18,3 +18,5 @@ else
         fi
     done
     node ./bin/server.js
+fi
+exit
