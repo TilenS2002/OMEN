@@ -12,6 +12,7 @@ This will allow the execution of our script, after the script is executed the ex
 After that, run the "startOmen.ps1" script by typing ```./startOmen.ps1``` and type Y (as yes) if the terminal prompts for your access.
 
 ### For Linux users:
+currently the startOmen.sh script is not ready yet. We will update the information on the script in the near future.
 Run the "startOmen.sh" script. The script should automatically check for and install the software via your default package manager
 
 ### For Mac users:
