@@ -6,7 +6,10 @@ After the install the script will start the javascript server, needed to access 
 Then enjoy our first ever game project :)
 
 ### For Windows users:
-Run the "startOmen.ps1" script and type Y (as yes) when the terminal prompts for your access
+Before running the script open powershell in the games folder and paste in this command:
+```Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process```
+This will allow the execution of our script, after the script is executed the execution policy should reset back to default.
+After that, run the "startOmen.ps1" script by typing ```./startOmen.ps1``` and type Y (as yes) if the terminal prompts for your access.
 
 ### For Linux users:
 Run the "startOmen.sh" script. The script should automatically check for and install the software via your default package manager
