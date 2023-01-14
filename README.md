@@ -10,3 +10,10 @@ Run the "startOmen.ps1" script and type Y (as yes) when the terminal prompts for
 
 ### For Linux users:
 Run the "startOmen.sh" script. The script should automatically check for and install the software via your default package manager
+
+### For Mac users:
+The script isn't provided yet, this document will be updated soon to include a script for MacOS users as well
+
+
+
+## Thank you :P
