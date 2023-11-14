@@ -1,15 +1,15 @@
 # OMEN
 
 # How to run:
-To preform the first time setup and play the game run one of the provided scripts(addressed below). The script will automatically setup all the necesary software the first time you start the script.
-After the install the script will start the javascript server, needed to access all game files and open your default web browser with the game ready.
+To preform the first time setup and play the game run one of the provided scripts(addressed below). The script will automatically set up all the necesary software the first time you start the script.
+After the install, the script will start the javascript server needed to access all game files and open your default web browser with the game ready.
 Then enjoy our first ever game project :)
 
 ### For Windows users:
-Before running the script open powershell in the games folder and paste in this command:
+Before running the script, open powershell in the games folder and paste this command:
 ```Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process```
 This will allow the execution of our script, after the script is executed the execution policy should reset back to default.
-After that, run the "startOmen.ps1" script by typing ```./startOmen.ps1``` and type Y (as yes) if the terminal prompts for your access.
+After that, run the "startOmen.ps1" script by typing ```./startOmen.ps1``` and type Y (as in "Yes") if the terminal prompts for access.
 
 ### For Linux users:
 currently the startOmen.sh script is not ready yet. We will update the information on the script in the near future.
